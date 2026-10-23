@@ -1,0 +1,10 @@
+:HL["/_next/static/chunks/0dem7indhea9-.css","style"]
+:HL["/_next/static/media/a343f882a40d2cc9-s.p.1sj6eobyi31rd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/d3fe2f289711ac3f-s.p.1l2zhvq5eocqf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/assets/course-beginner.jpg","image"]
+:HL["/assets/course-ip.jpg","image"]
+:HL["/assets/course-update.jpg","image"]
+:HL["/assets/course-vat.jpg","image"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"courses","h":96,"c":"$Q2"}]]
+0:{"b":"PfCCQY_8IvyE6y9MDgSwg","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
