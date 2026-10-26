@@ -3,4 +3,4 @@
 :HL["/_next/static/media/d3fe2f289711ac3f-s.p.1l2zhvq5eocqf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/assets/hero-teacher-960.webp","image",{"imageSrcSet":"/assets/hero-teacher-640.webp 640w, /assets/hero-teacher-960.webp 960w, /assets/hero-teacher-1314.webp 1314w","imageSizes":"(max-width: 680px) 100vw, 490px","fetchPriority":"high"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"Px6CUAziC4XsOvMl6AvgO","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"JUC-8cIUhw9lnGfCkVe55","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
