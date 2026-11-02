@@ -85,6 +85,50 @@ hamb.addEventListener('click',()=>{const isOpen=menu.classList.toggle('isopen');
 const cards=Array.from(document.querySelectorAll('.fleet')),search=document.querySelector('#search'),reset=document.querySelector('#reset');let active='';function update(){let n=0;let q=search.value.trim().toLowerCase();cards.forEach(c=>{const ok=(!active||c.dataset.cat===active)&&(!q||c.dataset.search.includes(q));c.hidden=!ok;if(ok)n++});document.querySelector('.bundle').hidden=Boolean(active||q);document.querySelector('#countLabel').textContent='Показано '+n+' из 15';reset.hidden=!(active||q);document.querySelectorAll('.cat').forEach(c=>c.classList.toggle('selected',c.dataset.filter===active))}document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{active=c.dataset.filter===active?'':c.dataset.filter;update();document.querySelector('#fleet').scrollIntoView({behavior:'smooth'})}));search.addEventListener('input',update);reset.addEventListener('click',()=>{active='';search.value='';update();});
 document.querySelector('#request').addEventListener('submit',async e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();const request=['Заявка на аренду TRENT.KZ','Техника: '+v('formMachine'),'Место работ: '+v('formPlace'),'Период: '+(v('formPeriod')||'уточнить'),'Задача: '+(v('formTask')||'уточнить'),'Контакт: '+(v('formPhone')||'не указан')].join('\n');const st=document.querySelector('#formStatus');try{await navigator.clipboard.writeText(request);st.textContent='Текст заявки скопирован. Отправка менеджеру пока не подключена.'}catch{st.textContent='Скопируйте заявку вручную: '+request}});
 </script><script>
+/* Equipment image fallback: use only model-related references, labeled as examples */
+(function(){
+const alt={
+"Автогрейдер Caterpillar":"https://image.made-in-china.com/2f0j00NMogphswyFqn/Caterpillar-12M-Motor-Grader-Used-Road-Grader-for-Sale.jpg",
+"Автогрейдер GR-215":"https://static2.aastatic.com.ar/files/variants/1200/4239d2e11a0b4675870d130ebbda5c93.jpg",
+"Бульдозер SEM 818":"https://www.semmachinery.com/SEM/assets/Master/images/products/track-type-tractor/818F/818F-img18.jpg",
+"Виброкаток XCMG XS163J":"https://shodagor.com/public/uploads/all/CnPHr.jpg",
+"Виброкаток 5 т":"https://image.made-in-china.com/2f0j00paWcQtTzuAqo/China-Brand-5-Ton-Vibratory-Single-Drum-Road-Roller-Vibrator-Sem518.webp",
+"Фронтальный погрузчик XCMG LW550KZ":"https://www.almaty-brands.kz/cms/uploads/file_1614875412_848165757.png",
+"Экскаватор Hitachi ZX-200":"https://image.made-in-china.com/2f0j00lczkfMeqZRos/Low-Working-Hours-Used-Excavator-Original-Japan-Hitachi-Isuzu-Ex200-Zx200-Excavator-Hitachi-Ex200-5.webp",
+"Экскаватор Hitachi ZX-240":"https://img.d1cm.com/pro/201803221624276761.jpg",
+"Экскаватор Hitachi ZX-330":"https://i.ytimg.com/vi/vhMmSgAtOPs/hqdefault.jpg",
+"Колёсный экскаватор XCMG":"https://frankfurt.apollo.olxcdn.com/v1/files/q66o0hvmbefo2-UZ/image%3Bs%3D2000x1333",
+"Экскаватор-погрузчик XCMG XC8-S3570":"https://www.xcmgglobal.com/upload/images/2024/04/03/d73f04a211934182bf1f2aae1a185a21.png",
+"Самосвал SHACMAN 25 т":"https://image.made-in-china.com/2f0j00RsGtgTWnRQli/Shacman-Factory-25-Tons-Sand-Dump-Truck-for-Sale-in-Malaysia-with-Parts.jpg",
+"Трал STOKOTA S5U N2-03":"https://image.ceneostatic.pl/data/products/85950132/i-6-osi-naczepa-niskopodwoziowa-stokota-s6u-h4-n1-01.jpg",
+"Манипулятор SHACMAN":"https://pic.anka-truck.com/product/1/image/2025/07/31/bc064761c83825c279007049a07a011a.webp",
+"Манипулятор Isuzu":"https://image.made-in-china.com/2f0j00ejgWHyoMfRps/Japan-I-Suzu-700p-Truck-Mounted-5tons-6tons-Crane.jpg"
+};
+for(const img of document.querySelectorAll('.fleetphoto img, .catphoto img')){
+ const fleet=img.closest('.fleet');
+ const cat=img.closest('.cat');
+ const key=fleet?.querySelector('h3')?.textContent.trim()||cat?.querySelector('.catbody strong')?.textContent.trim();
+ let value=alt[key];
+ if(!value && cat){
+  const representative={'Гусеничные экскаваторы':'Экскаватор Hitachi ZX-330','Колёсные экскаваторы':'Колёсный экскаватор XCMG','Экскаваторы-погрузчики':'Экскаватор-погрузчик XCMG XC8-S3570','Фронтальные погрузчики':'Фронтальный погрузчик XCMG LW550KZ','Самосвалы':'Самосвал SHACMAN 25 т','Автогрейдеры':'Автогрейдер GR-215','Вибрационные катки':'Виброкаток XCMG XS163J','Бульдозеры':'Бульдозер SEM 818','Манипуляторы':'Манипулятор SHACMAN','Тралы':'Трал STOKOTA S5U N2-03'};
+  value=alt[representative[key]];
+ }
+ if(!value)continue;
+ const change=function(e){
+  if(this.dataset.altTried||this.src===value)return;
+  e?.stopImmediatePropagation?.();
+  this.dataset.altTried='1';
+  this.src=value;
+  this.style.display='block';
+  const parent=this.closest('.catphoto,.fleetphoto');
+  if(parent){parent.classList.remove('is-broken');const amb=parent.querySelector('.ambient');if(amb)amb.style.backgroundImage='url("'+value+'")';}
+  const label=fleet?.querySelector('.photoorigin');if(label)label.textContent='Фото аналогичной модели · для ознакомления';
+ };
+ img.addEventListener('error',change,true);
+ if(img.complete && img.naturalWidth===0)change();
+}
+})();
+</script><script>
 /* Preserve each machine, but avoid cropping and broken-image gaps. */
 (function(){
   const imgs=document.querySelectorAll('.catphoto img, .fleetphoto img');
