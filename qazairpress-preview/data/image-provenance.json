@@ -134,58 +134,7 @@
   "duplicates": "ABK55 and ABK75 seller-card source binaries are identical. Both use that published ABK series photograph with an explicit series caption; receiver listings also use a common series view.",
   "archive": "картинки.rar unavailable: exceeds 32 MiB transfer limit.",
   "withheldModels": [],
-  "visualReview": "All 23 products now display a photograph from the corresponding seller listing. Seven formerly withheld pictures were restored after rechecking the exact seller cards and the user-specified company catalog. Shared ABK/RV photographs are identified as series images on product pages.",
-  "generatedApplicationImages": {
-    "authorizedBy": "User explicitly requested generated industry illustrations using the real model lineup, 2026-11-17.",
-    "disclosure": "Each illustration is visibly captioned with its catalog model and ИИ-визуализация; section explains generation from reference photographs. Not used as a product photograph or case study.",
-    "images": [
-      {
-        "asset": "assets/applications/metalworking.webp",
-        "reference": "assets/products/abk15-10tb.webp",
-        "model": "ABK15-10TB",
-        "generator": "image_gen",
-        "type": "AI-generated conceptual application scene",
-        "sizes": [
-          480,
-          960
-        ]
-      },
-      {
-        "asset": "assets/applications/laser-cutting.webp",
-        "reference": "assets/products/abk15-16-laser.webp",
-        "model": "ABK15-16",
-        "generator": "image_gen",
-        "type": "AI-generated conceptual application scene",
-        "sizes": [
-          480,
-          960
-        ]
-      },
-      {
-        "asset": "assets/applications/production-lines.webp",
-        "reference": "assets/products/abk37-8tb.webp",
-        "model": "ABK37-8TB",
-        "generator": "image_gen",
-        "type": "AI-generated conceptual application scene",
-        "sizes": [
-          480,
-          960
-        ]
-      }
-    ]
-  },
-  "homepageEquipmentVisual": {
-    "asset": "assets/hero/abk15-16-1200.webp",
-    "reference": "assets/products/abk15-16-laser.webp",
-    "model": "ABK15-16",
-    "type": "AI-assisted isolated visualization based on the existing model photograph",
-    "disclosure": "Visible hero credit, image alt and category caption identify this as a visualization. It is not used to replace product photographs.",
-    "sizes": [
-      600,
-      1200
-    ],
-    "sourceReferenceSha256": "dc8f84ba1cd02d5d6378c875f1d3984450c83434461b5acb58a958db8a089e73"
-  },
+  "visualReview": "Five product photos, homepage hero, three application illustrations and two overview banners now use user-supplied archive files. Remaining products retain corresponding seller photos; archive contains no unambiguous new 55 kW, ABK15-16 or parts/receiver photos.",
   "sellerCatalogRefresh": {
     "catalog": "https://satu.kz/c804211-qazairpress.html",
     "checked": "2026-11-17",
@@ -260,6 +209,169 @@
         "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
         "localImageSha256": "f7422f9b5cbee530ef074cebd5400a1b152cef3e153410a14855988825f3dabe",
         "photoNote": "Фото из карточки QazAirPress на Satu.kz. Исполнение уточним при заказе."
+      }
+    ]
+  },
+  "activeUserImages": {
+    "archiveDriveUrl": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view?usp=sharing",
+    "archiveSha256": "267df5787e1c6ceb98841a863e240932d227afedb9afa60361056d147f20028a",
+    "products": [
+      {
+        "slug": "abk7-5-8tb",
+        "model": "BK7.5-8G",
+        "sourcePath": "ПНГ/QazAirPress_7_5kW_technical.png",
+        "sourceSha256": "e8503e9696cb6c77c4731597b9174d85c59212cfeae545029160547e0082d26d",
+        "asset": "assets/products/abk7-5-8tb.webp",
+        "assetSha256": "d15d1d393f9e4821aef3692abbf4d5259a4f093f618d4f77256f3759975b5be3",
+        "sizes": [
+          440,
+          1000
+        ],
+        "type": "User-supplied marked product image; original branding preserved, no generated alterations."
+      },
+      {
+        "slug": "abk15-10tb",
+        "model": "ABK15-10TB",
+        "sourcePath": "ПНГ/QazAirPress_15kW_technical.png",
+        "sourceSha256": "de98edbade709c0b1aa1927697327aeb8867687581c987e11bc13e555aceb52b",
+        "asset": "assets/products/abk15-10tb.webp",
+        "assetSha256": "6fe49fa7564a0331bc876d9e34072b95d81e59798b89764ab8a5e1789fb55f2a",
+        "sizes": [
+          440,
+          1000
+        ],
+        "type": "User-supplied marked product image; original branding preserved, no generated alterations."
+      },
+      {
+        "slug": "abk22-8tb",
+        "model": "BK22-8G",
+        "sourcePath": "ПНГ/QazAirPress_22kW_technical.png",
+        "sourceSha256": "81c578ebdfe307d7bf99362fdee76a4dcefd110a0cbcbe1f7fc517b1459edc95",
+        "asset": "assets/products/abk22-8tb.webp",
+        "assetSha256": "12c6484e78ee3710bb0e16705ef6942e529dc4075333f645af8695eac05d8602",
+        "sizes": [
+          440,
+          1000
+        ],
+        "type": "User-supplied marked product image; original branding preserved, no generated alterations."
+      },
+      {
+        "slug": "abk37-8tb",
+        "model": "BK37-8G",
+        "sourcePath": "ПНГ/QazAirPress_37kW_technical.png",
+        "sourceSha256": "fc529f6d8fcde89f1391926ca81a3b3e4aec419487914fc92f3fa4fa176b20d2",
+        "asset": "assets/products/abk37-8tb.webp",
+        "assetSha256": "88703f089f9f57b42ce6f279b28474daceda3470cdf94b659c39a50bd8fe2990",
+        "sizes": [
+          440,
+          1000
+        ],
+        "type": "User-supplied marked product image; original branding preserved, no generated alterations."
+      },
+      {
+        "slug": "abk75-8tb",
+        "model": "BK75-8G",
+        "sourcePath": "ПНГ/QazAirPress_75kW_technical.png",
+        "sourceSha256": "e67bb4ff498120c14568e4c001161d524f772d25bf82191161b7c597ae79d0e2",
+        "asset": "assets/products/abk75-8tb.webp",
+        "assetSha256": "217e483beee7b9c0dfe88afd8d07c7beb0cb6abcf10308045548f468df9c0441",
+        "sizes": [
+          440,
+          1000
+        ],
+        "type": "User-supplied marked product image; original branding preserved, no generated alterations."
+      }
+    ],
+    "illustrations": [
+      {
+        "asset": "assets/applications/laser-cutting.webp",
+        "sourcePath": "Новая папка/Gemini_Generated_Image_dsojn2dsojn2dsoj.jpg",
+        "sourceSha256": "7bcd8684cb3d4c91d3fb2d4c48a8d7dc433814b592fd5387a039c263ab62556c",
+        "model": "Система сжатого воздуха с ресивером и подготовкой воздуха",
+        "width": 960,
+        "height": 639,
+        "type": "User-supplied AI visualization (Gemini filename); visibly disclosed, not a completed customer installation."
+      },
+      {
+        "asset": "assets/applications/metalworking.webp",
+        "sourcePath": "Новая папка/Gemini_Generated_Image_r6apdor6apdor6ap.jpg",
+        "sourceSha256": "523441d95f2ca4a59f16b1cd0c846f37e78cda6a661806f3f15ce9d009956e1f",
+        "model": "ABK15-10TB",
+        "width": 960,
+        "height": 535,
+        "type": "User-supplied AI visualization (Gemini filename); visibly disclosed, not a completed customer installation."
+      },
+      {
+        "asset": "assets/applications/production-lines.webp",
+        "sourcePath": "Новая папка/Gemini_Generated_Image_nt7z4jnt7z4jnt7z.jpg",
+        "sourceSha256": "3f996f93ecdb0c73485415612028756ef7246a3758d13951f99224f0d1fccb16",
+        "model": "BK75-8G",
+        "width": 960,
+        "height": 535,
+        "type": "User-supplied AI visualization (Gemini filename); visibly disclosed, not a completed customer installation."
+      }
+    ],
+    "modelNames": "User confirmed BK7.5/22/37/75-8G replace former ABK7,5/22/37/75-8TB names; commercial specifications and existing URLs retained.",
+    "excluded": "QazAirPress_55kW_technical.png visibly reads BK45-8G, as does the 45kW file. Neither used for the 55 kW catalog product. No 45 kW SKU added without commercial data."
+  },
+  "previousHomepageEquipmentVisual": {
+    "asset": "assets/hero/abk15-16-1200.webp",
+    "reference": "assets/products/abk15-16-laser.webp",
+    "model": "ABK15-16",
+    "type": "AI-assisted isolated visualization based on the existing model photograph",
+    "disclosure": "Visible hero credit, image alt and category caption identify this as a visualization. It is not used to replace product photographs.",
+    "sizes": [
+      600,
+      1200
+    ],
+    "sourceReferenceSha256": "dc8f84ba1cd02d5d6378c875f1d3984450c83434461b5acb58a958db8a089e73"
+  },
+  "homepageEquipmentVisual": {
+    "asset": "assets/hero/abk15-10tb-768.webp",
+    "model": "ABK15-10TB",
+    "sourcePath": "ПНГ/QazAirPress_15kW_technical.png",
+    "type": "User-supplied transparent marked image, resized only; no AI alterations",
+    "sizes": [
+      384,
+      768
+    ]
+  },
+  "previousGeneratedApplicationImages": {
+    "authorizedBy": "User explicitly requested generated industry illustrations using the real model lineup, 2026-11-17.",
+    "disclosure": "Each illustration is visibly captioned with its catalog model and ИИ-визуализация; section explains generation from reference photographs. Not used as a product photograph or case study.",
+    "images": [
+      {
+        "asset": "assets/applications/metalworking.webp",
+        "reference": "assets/products/abk15-10tb.webp",
+        "model": "ABK15-10TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/laser-cutting.webp",
+        "reference": "assets/products/abk15-16-laser.webp",
+        "model": "ABK15-16",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/production-lines.webp",
+        "reference": "assets/products/abk37-8tb.webp",
+        "model": "ABK37-8TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
       }
     ]
   }

@@ -304,3 +304,7 @@ a.round-arrow:hover,.wow-hero-stage figcaption>a:hover .round-arrow{background:#
 
 .home-page section[id]{scroll-margin-top:86px}
 @media(max-width:700px){.home-page section[id]{scroll-margin-top:62px}}
+
+/* User-provided marked catalog images and system overview. */
+.engineering-visual{margin:30px 0 38px;border:1px solid #d8e4eb;border-radius:12px;overflow:hidden;background:#f1f5f8}.engineering-visual img{display:block;width:100%;height:auto;max-height:390px;object-fit:contain}.engineering-visual figcaption{font-size:11px;line-height:1.6;padding:10px 18px;color:#536c7d;background:#f4f7fa}.bento-main>img.bento-lineup{width:100%;margin:0;align-self:center;filter:none;border-radius:8px}
+@media(max-width:700px){.engineering-visual{margin:24px 0}.engineering-visual figcaption{font-size:10px;padding:9px 12px}.bento-main>img.bento-lineup{max-height:220px}}

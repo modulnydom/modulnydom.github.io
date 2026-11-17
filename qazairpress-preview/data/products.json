@@ -4,7 +4,7 @@
     "name": "Винтовой компрессор ABK15-10TB",
     "description": "Компрессор 15 кВт для цеха со станками и пневмоинструментом. Расход по каталогу — 2,2 м³/мин при 10 атм. Поможем проверить, подходит ли он вашей нагрузке.",
     "price": "1 300 000 ₸",
-    "image": "https://images.satu.kz/229350191_vintovoj-kompressor-15.jpg",
+    "image": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view",
     "source": "https://qazairpress.satu.kz/p112061509-vintovoj-kompressor-kvt.html",
     "specs": [
       [
@@ -33,7 +33,7 @@
     "priceValue": 1300000,
     "unit": null,
     "checked": "2026-11-17",
-    "photoStatus": "seller-card",
+    "photoStatus": "user-supplied",
     "reviewOnly": false,
     "power": 15.0,
     "pressure": 10.0,
@@ -42,7 +42,10 @@
     "application": "Для подачи воздуха на производственные посты, пневмоприводы и инструмент. При подборе учтём давление на входе потребителей, длину сети и длительность смен.",
     "sourceVerified": true,
     "sourceNote": "В источнике расходятся единицы давления и отдельные поля характеристик. Здесь приведены значения из технической таблицы продавца. Перед заказом сверяем их с паспортом конкретного исполнения.",
-    "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию."
+    "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию.",
+    "previousSellerImage": "https://images.satu.kz/229350191_vintovoj-kompressor-15.jpg",
+    "photoAlt": "Винтовой компрессор ABK15-10TB — изображение QazAirPress с маркировкой модели",
+    "photoNote": "Изображение модели предоставлено QazAirPress. Исполнение и комплектация согласуются при заказе."
   },
   {
     "slug": "abk15-16-laser",
@@ -110,7 +113,7 @@
     "name": "Винтовой компрессор BK22-8G",
     "description": "Модель 22 кВт для производственных участков с несколькими потребителями воздуха. Сравните её расход 3,6 м³/мин с потреблением вашего оборудования.",
     "price": "1 500 000 ₸",
-    "image": "https://images.satu.kz/212162895_vintovoj-kompressor-22.jpg",
+    "image": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view",
     "source": "https://qazairpress.satu.kz/p112061505-vintovoj-kompressor-kvt.html",
     "specs": [
       [
@@ -139,7 +142,7 @@
     "priceValue": 1500000,
     "unit": null,
     "checked": "2026-11-17",
-    "photoStatus": "seller-card",
+    "photoStatus": "user-supplied",
     "reviewOnly": false,
     "power": 22.0,
     "pressure": 8.0,
@@ -149,16 +152,18 @@
     "sourceVerified": true,
     "sourceNote": "В источнике расходятся единицы давления и отдельные поля характеристик. Здесь приведены значения из технической таблицы продавца. Перед заказом сверяем их с паспортом конкретного исполнения.",
     "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию.",
-    "photoNote": "Фото из карточки QazAirPress на Satu.kz. Исполнение уточним при заказе.",
+    "photoNote": "Изображение модели предоставлено QazAirPress. Исполнение и комплектация согласуются при заказе.",
     "sourceName": "Винтовой компрессор ABK22-8TB",
-    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17."
+    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17.",
+    "previousSellerImage": "https://images.satu.kz/212162895_vintovoj-kompressor-22.jpg",
+    "photoAlt": "Винтовой компрессор BK22-8G — изображение QazAirPress с маркировкой модели"
   },
   {
     "slug": "abk37-8tb",
     "name": "Винтовой компрессор BK37-8G",
     "description": "Компрессор 37 кВт для цеха с повышенным расходом воздуха. Производительность по каталогу — 6 м³/мин. Подберём состав системы под ваши станки и рабочие смены.",
     "price": "2 350 000 ₸",
-    "image": "https://images.satu.kz/222814571_vintovoj-kompressor-37.jpg",
+    "image": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view",
     "source": "https://qazairpress.satu.kz/p112061535-vintovoj-kompressor-kvt.html",
     "specs": [
       [
@@ -187,7 +192,7 @@
     "priceValue": 2350000,
     "unit": null,
     "checked": "2026-11-17",
-    "photoStatus": "seller-card",
+    "photoStatus": "user-supplied",
     "reviewOnly": false,
     "power": 37.0,
     "pressure": 8.0,
@@ -198,7 +203,10 @@
     "sourceNote": "В источнике расходятся единицы давления и отдельные поля характеристик. Здесь приведены значения из технической таблицы продавца. Перед заказом сверяем их с паспортом конкретного исполнения.",
     "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию.",
     "sourceName": "Винтовой компрессор ABK37-8TB",
-    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17."
+    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17.",
+    "previousSellerImage": "https://images.satu.kz/222814571_vintovoj-kompressor-37.jpg",
+    "photoAlt": "Винтовой компрессор BK37-8G — изображение QazAirPress с маркировкой модели",
+    "photoNote": "Изображение модели предоставлено QazAirPress. Исполнение и комплектация согласуются при заказе."
   },
   {
     "slug": "abk55-8tb",
@@ -251,7 +259,7 @@
     "name": "Винтовой компрессор BK7.5-8G",
     "description": "Сжатый воздух для отдельного производственного участка. Модель 7,5 кВт с расходом 1,2 м³/мин — для подбора под станки, пневмоинструмент и автоматику.",
     "price": "800 000 ₸",
-    "image": "https://images.satu.kz/226340749_vintovoj-kompressor-75.jpg",
+    "image": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view",
     "source": "https://qazairpress.satu.kz/p112059792-vintovoj-kompressor-kvt.html",
     "specs": [
       [
@@ -280,7 +288,7 @@
     "priceValue": 800000,
     "unit": null,
     "checked": "2026-11-17",
-    "photoStatus": "seller-card",
+    "photoStatus": "user-supplied",
     "reviewOnly": false,
     "power": 7.5,
     "pressure": 8.0,
@@ -291,14 +299,17 @@
     "sourceNote": "В источнике расходятся единицы давления и отдельные поля характеристик. Здесь приведены значения из технической таблицы продавца. Перед заказом сверяем их с паспортом конкретного исполнения.",
     "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию.",
     "sourceName": "Винтовой компрессор ABK7,5-8TB",
-    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17."
+    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17.",
+    "previousSellerImage": "https://images.satu.kz/226340749_vintovoj-kompressor-75.jpg",
+    "photoAlt": "Винтовой компрессор BK7.5-8G — изображение QazAirPress с маркировкой модели",
+    "photoNote": "Изображение модели предоставлено QazAirPress. Исполнение и комплектация согласуются при заказе."
   },
   {
     "slug": "abk75-8tb",
     "name": "Винтовой компрессор BK75-8G",
     "description": "Компрессор 75 кВт для производств с высоким расходом воздуха. Модель из линейки ABK с производительностью 13 м³/мин по каталогу.",
     "price": "4 900 000 ₸",
-    "image": "https://images.satu.kz/216353914_vintovoj-kompressor-75.jpg",
+    "image": "https://drive.google.com/file/d/18EM5oV3SqOLejcDNXpA5VT5vBaR0ChwT/view",
     "source": "https://qazairpress.satu.kz/p114116835-vintovoj-kompressor-kvt.html",
     "specs": [
       [
@@ -327,7 +338,7 @@
     "priceValue": 4900000,
     "unit": null,
     "checked": "2026-11-17",
-    "photoStatus": "seller-card",
+    "photoStatus": "user-supplied",
     "reviewOnly": false,
     "power": 75.0,
     "pressure": 8.0,
@@ -337,9 +348,11 @@
     "sourceVerified": true,
     "sourceNote": "В источнике расходятся единицы давления и отдельные поля характеристик. Здесь приведены значения из технической таблицы продавца. Перед заказом сверяем их с паспортом конкретного исполнения.",
     "compatibility": "Сообщите расход и давление ваших станков, график работы и требования к чистоте воздуха. По ним подберём ресивер, осушитель и фильтрацию.",
-    "photoNote": "Фото серии ABK из каталога QazAirPress. Исполнение и комплектацию уточним при заказе.",
+    "photoNote": "Изображение модели предоставлено QazAirPress. Исполнение и комплектация согласуются при заказе.",
     "sourceName": "Винтовой компрессор ABK75-8TB",
-    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17."
+    "nameConfirmedBy": "User confirmed these are the same models and requested names matching the supplied image markings, 2026-11-17.",
+    "previousSellerImage": "https://images.satu.kz/216353914_vintovoj-kompressor-75.jpg",
+    "photoAlt": "Винтовой компрессор BK75-8G — изображение QazAirPress с маркировкой модели"
   },
   {
     "slug": "air-filter-a569",
