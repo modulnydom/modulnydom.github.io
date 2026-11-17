@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Check static release contracts without fetching third-party resources."""
 import argparse
+import base64
 from collections import Counter
 import html
 from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlsplit, unquote
+from urllib.parse import urlsplit, unquote, parse_qs
 import xml.etree.ElementTree as ET
+import zlib
 
 class Document(HTMLParser):
     def __init__(self, text):
@@ -31,6 +33,7 @@ class Document(HTMLParser):
     def select(self, tag):return [a for t,a in self.elements if t==tag]
 
 def audit(root, production=False):
+    contact=json.loads((Path(__file__).resolve().parents[1]/'data/contacts.json').read_text())
     errors=[];pages=sorted(root.rglob('*.html'));docs={p.resolve():Document(p.read_text()) for p in pages}
     assert len(pages)==28, f'Expected 28 HTML pages, got {len(pages)}'
     titles=[];heads=[];descriptions=[];links=0;images=0
@@ -66,6 +69,26 @@ def audit(root, production=False):
         check(robots==['index,follow' if production and not excluded else 'noindex,nofollow,noarchive'],'wrong index policy')
         graph=[entry for schema in d.schemas for entry in schema.get('@graph',[])]
         check(any(x.get('@type')=='Organization' for x in graph),'missing Organization schema')
+        organization=next((x for x in graph if x.get('@type')=='Organization'),{})
+        address=organization.get('address',{})
+        check(all(address.get(k)==contact[k] for k in ['streetAddress','addressLocality','addressCountry']),'organization address differs from confirmed contacts')
+        check(organization.get('location',{}).get('hasMap')==contact['mapUrl'],'missing address map in structured data')
+        frames=d.select('iframe');check(len(frames)==1,'exactly one contact map required')
+        if len(frames)==1:
+            frame=frames[0];parsed_frame=urlsplit(frame.get('src',''))
+            check(parsed_frame.scheme=='https' and parsed_frame.netloc=='makemap.2gis.ru' and parsed_frame.path=='/widget','unexpected map provider')
+            check(frame.get('loading')=='lazy' and frame.get('title') and frame.get('width') and frame.get('height'),'map lacks accessible title, lazy loading or reserved dimensions')
+            try:
+                packed=parse_qs(parsed_frame.query)['data'][0]
+                payload=json.loads(zlib.decompress(base64.urlsafe_b64decode(packed+'='*(-len(packed)%4))))
+                marker=payload['orderedGeometries'][0]
+                check(marker['geometry']['coordinates']==[contact['longitude'],contact['latitude']],'map marker differs from confirmed building coordinates')
+                check(base64.b64decode(marker['properties']['title']).decode()=='QazAirPress','map marker label missing')
+                check(payload['scrollWheelZoom'] is False,'map must not capture page scrolling')
+            except (ValueError,KeyError,IndexError,TypeError,zlib.error):
+                check(False,'invalid map widget data')
+        check(any(a.get('href')==contact['routeUrl'] for a in d.select('a')),'missing route link for the confirmed building')
+        check(any(a.get('href')==contact['mapUrl'] for a in d.select('a')),'missing map fallback link')
         if rel!='index.html':check(any(x.get('@type')=='BreadcrumbList' for x in graph),'missing BreadcrumbList')
         if rel.startswith('products/'):
             products=[x for x in graph if x.get('@type')=='Product'];check(len(products)==1,'missing Product schema')
@@ -103,7 +126,7 @@ def audit(root, production=False):
         if len(urls)!=26 or any('privacy' in u or 'air-filter-a569' in u for u in urls):errors.append('Production sitemap must contain exactly 26 eligible URLs')
     elif urls:errors.append('Preview sitemap must be empty')
     if not production and (root/'robots.txt').read_text()!='User-agent: *\nDisallow: /\n':errors.append('Preview robots policy')
-    result={'mode':'production export' if production else 'preview','pages':len(pages),'local_references_checked':links,'image_elements':images,'unique_titles':len(set(titles)),'unique_descriptions':len(set(descriptions)),'sitemap_urls':len(urls),'errors':errors}
+    result={'mode':'production export' if production else 'preview','pages':len(pages),'local_references_checked':links,'image_elements':images,'contact_maps':sum(len(d.select('iframe')) for d in docs.values()),'unique_titles':len(set(titles)),'unique_descriptions':len(set(descriptions)),'sitemap_urls':len(urls),'errors':errors}
     print(json.dumps(result,ensure_ascii=False,indent=2))
     return 1 if errors else 0
 

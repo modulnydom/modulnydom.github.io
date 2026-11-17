@@ -3,7 +3,7 @@
   "title_characters": 47,
   "heading_counts": {
     "h1": 1,
-    "h2": 9,
+    "h2": 10,
     "h3": 16
   },
   "headings": [
@@ -110,6 +110,10 @@
     {
       "level": 3,
       "text": "Заявка на подбор"
+    },
+    {
+      "level": 2,
+      "text": "Адрес и карта проезда"
     }
   ],
   "validation": {
@@ -118,7 +122,9 @@
     "production_audit": "pass",
     "joined_heading_regression": "pass",
     "hierarchy": "no skipped levels",
-    "internal_index_html_aliases": 0
+    "internal_index_html_aliases": 0,
+    "local_references_checked": 1177
   },
-  "limits": "Title length is a project editorial target, not a universal Google character limit. Keywords and H4–H6 are not required. /index.html keeps the root canonical; no server redirect is claimed."
+  "limits": "Title length is a project editorial target, not a universal Google character limit. Keywords and H4–H6 are not required. /index.html keeps the root canonical; no server redirect is claimed.",
+  "contactSection": "A new meaningful H2 was added for the address and directions map."
 }

@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Build 28 static pages. Preview by default; production only into a separate directory."""
 import argparse
+import base64
 import html
 import json
 import re
 from pathlib import Path
 import shutil
+import zlib
 from urllib.parse import quote, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 P = json.loads((ROOT / 'data/products.json').read_text())
 BY = {p['slug']: p for p in P}
+CONTACT = json.loads((ROOT / 'data/contacts.json').read_text())
 SITE = 'https://qazairpres.kz/'
 PHONE = '+7 776 171 7111'
 WA = 'https://wa.me/77761717111'
@@ -48,16 +51,30 @@ def header(base, active):
     <header class="header"><div class="container nav-row">{brand(base)}<nav id="navigation" aria-label="Основная навигация">{nav}</nav><div class="nav-contact"><a href="tel:+77761717111">{PHONE}</a><small>Подбор и коммерческое предложение</small></div><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Открыть меню"><span></span><span></span></button></div></header>'''
 
 def footer(base):
-    return f'''<footer id="contacts"><div class="container"><div class="footer-top"><div>{brand(base)}<p>Компрессоры и комплектующие<br>для работы вашего производства.</p></div><div><p class="footer-heading">Оборудование</p>{''.join(link(base+'catalog/index.html?category='+k,v) for k,v in CATS.items())}</div><div><p class="footer-heading">QazAirPress</p>{link(base+'o-kompanii/index.html','О компании')}{link(base+'dostavka/index.html','Доставка по Казахстану')}{link(base+'index.html#service','Сервис и расходники')}{link(base+'index.html#faq','Вопросы и ответы')}</div><div><p class="footer-heading">Обсудим вашу задачу</p><a class="footer-phone" href="tel:+77761717111">{PHONE}</a><a href="{WA}">Написать в WhatsApp ↗</a><p>Астана, Казахстан<br>Пн–Пт · 10:00–18:00</p></div></div><div class="footer-bottom"><span>© 2026 QazAirPress</span>{link(base+'privacy.html','Обработка данных')}<span>Цена, состав заказа и срок поставки согласуются до покупки.</span></div></div></footer>
+    return f'''<footer id="contacts"><div class="container"><div class="footer-top"><div>{brand(base)}<p>Компрессоры и комплектующие<br>для работы вашего производства.</p></div><div><p class="footer-heading">Оборудование</p>{''.join(link(base+'catalog/index.html?category='+k,v) for k,v in CATS.items())}</div><div><p class="footer-heading">QazAirPress</p>{link(base+'o-kompanii/index.html','О компании')}{link(base+'dostavka/index.html','Доставка по Казахстану')}{link(base+'index.html#service','Сервис и расходники')}{link(base+'index.html#faq','Вопросы и ответы')}</div><div><p class="footer-heading">Обсудим вашу задачу</p><a class="footer-phone" href="tel:+77761717111">{PHONE}</a><a href="{WA}">Написать в WhatsApp ↗</a><address class="footer-address"><a href="{base}#visit">{esc(CONTACT["addressLocality"])},<br>{esc(CONTACT["streetAddress"])}</a></address><p>Пн–Пт · 10:00–18:00</p></div></div><div class="footer-bottom"><span>© 2026 QazAirPress</span>{link(base+'privacy.html','Обработка данных')}<span>Цена, состав заказа и срок поставки согласуются до покупки.</span></div></div></footer>
     <div class="mobile-actions"><a href="tel:+77761717111">Позвонить</a>{cta(label='Подобрать оборудование')}</div>'''
 
 def crumbs(base, parts):
     return '<nav class="breadcrumbs" aria-label="Хлебные крошки">'+link(base+'index.html','Главная')+''.join('<span aria-hidden="true">/</span>'+(link(base+u,esc(t)) if u else f'<span aria-current="page">{esc(t)}</span>') for t,u in parts)+'</nav>'
 
+def map_widget_url():
+    # Same public data format as the official 2GIS map constructor.
+    encoded=lambda value:base64.b64encode(value.encode('utf-8')).decode('ascii')
+    marker={'type':'Feature','geometry':{'type':'Point','coordinates':[CONTACT['longitude'],CONTACT['latitude']]},'properties':{'title':encoded(CONTACT['name']),'description':encoded(CONTACT['addressLocality']+', '+CONTACT['streetAddress']),'color':'#0873c6','zIndex':0}}
+    data={'orderedGeometries':[marker],'mapPosition':{'lat':CONTACT['latitude'],'lon':CONTACT['longitude'],'zoom':17},'scrollWheelZoom':False}
+    packed=base64.urlsafe_b64encode(zlib.compress(json.dumps(data,ensure_ascii=False,separators=(',',':')).encode('utf-8'))).decode('ascii').rstrip('=')
+    return 'https://makemap.2gis.ru/widget?data='+packed
+
+def location_section():
+    return f'''<section class="location-section" id="visit" aria-labelledby="location-title"><div class="container location-grid"><div class="location-copy"><span class="eyebrow">Контакты / {esc(CONTACT['addressLocality'])}</span><h2 id="location-title">Адрес и карта<br>проезда</h2><address class="location-address">{esc(CONTACT['addressLocality'])},<br><strong>{esc(CONTACT['streetAddress'])}</strong></address><p>Обсудим подбор, комплектацию и поставку оборудования. Постройте маршрут или позвоните нам.</p><a class="btn primary" href="{esc(CONTACT['routeUrl'])}" target="_blank" rel="noopener noreferrer">Построить маршрут в 2ГИС <span aria-hidden="true">↗</span></a><div class="location-contact-links"><a href="tel:+77761717111">{PHONE}</a><a href="{WA}">Написать в WhatsApp ↗</a></div></div><div class="location-map"><iframe src="{esc(map_widget_url())}" title="Карта 2ГИС: QazAirPress — Астана, переулок Кызылкол, 16" width="800" height="440" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe><div class="location-map-caption"><span>Карта 2ГИС</span><a href="{esc(CONTACT['mapUrl'])}" target="_blank" rel="noopener noreferrer">Открыть адрес в 2ГИС ↗</a></div></div></div></section>'''
+
 def page(rel,title,description,body,parts=None,schema=None,hero=None):
     base='../' if '/' in rel else ''
     canonical=SITE+('' if rel=='index.html' else rel.replace('/index.html','/'))
     org={'@type':'Organization','@id':SITE+'#organization','name':'QazAirPress','url':SITE,'telephone':'+77761717111','areaServed':{'@type':'Country','name':'Казахстан'},'sameAs':['https://qazairpress.satu.kz/about_us','https://2gis.kz/astana/firm/70000001081683917']}
+    postal={'@type':'PostalAddress','streetAddress':CONTACT['streetAddress'],'addressLocality':CONTACT['addressLocality'],'addressCountry':CONTACT['addressCountry']}
+    org['address']=postal
+    org['location']={'@type':'Place','name':CONTACT['name'],'address':postal,'geo':{'@type':'GeoCoordinates','latitude':CONTACT['latitude'],'longitude':CONTACT['longitude']},'hasMap':CONTACT['mapUrl']}
     graph=[org]
     if parts:
         entries=[{'@type':'ListItem','position':1,'name':'Главная','item':SITE}]
@@ -73,7 +90,7 @@ def page(rel,title,description,body,parts=None,schema=None,hero=None):
     image=SITE+'assets/products/'+(hero or 'abk37-8tb')+'.webp'
     og_image='' if rel.startswith('products/') and not hero else f'<meta property="og:image" content="{image}">'
     return f'''<!doctype html>
-<html lang="ru-KZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | QazAirPress</title><meta name="description" content="{esc(description)}"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b2235"><meta name="author" content="QazAirPress"><meta name="publisher" content="QazAirPress"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{esc(title)} | QazAirPress"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="website"><meta property="og:locale" content="ru_KZ">{og_image}<link rel="icon" href="{base}assets/favicon.svg" type="image/svg+xml">{preload}<link rel="stylesheet" href="{base}assets/styles.css?v=seo-20261118">{home_css}<script type="application/ld+json">{j({'@context':'https://schema.org','@graph':graph})}</script><script src="{base}assets/site.js" defer></script>{home_script}</head><body{body_attrs}>{header(base,rel)}<main id="main">{body}</main>{footer(base)}</body></html>'''
+<html lang="ru-KZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | QazAirPress</title><meta name="description" content="{esc(description)}"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b2235"><meta name="author" content="QazAirPress"><meta name="publisher" content="QazAirPress"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{esc(title)} | QazAirPress"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="website"><meta property="og:locale" content="ru_KZ">{og_image}<link rel="icon" href="{base}assets/favicon.svg" type="image/svg+xml">{preload}<link rel="stylesheet" href="{base}assets/styles.css?v=seo-20261118"><link rel="stylesheet" href="{base}assets/contact.css">{home_css}<script type="application/ld+json">{j({'@context':'https://schema.org','@graph':graph})}</script><script src="{base}assets/site.js" defer></script>{home_script}</head><body{body_attrs}>{header(base,rel)}<main id="main">{body}{location_section()}</main>{footer(base)}</body></html>'''
 
 def photo(p,base='',eager=False):
     if p['photoStatus']=='needs-model-photo':

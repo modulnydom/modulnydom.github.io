@@ -1,0 +1,18 @@
+{
+  "name": "QazAirPress",
+  "addressLocality": "Астана",
+  "streetAddress": "переулок Кызылкол, 16",
+  "addressCountry": "KZ",
+  "latitude": 51.140859,
+  "longitude": 71.517893,
+  "mapUrl": "https://2gis.kz/astana/geo/9570784863327238",
+  "routeUrl": "https://2gis.kz/astana/directions/points/%7C71.517893%2C51.140859%3B9570784863327238",
+  "confirmed": "2026-11-18",
+  "confirmation": "User confirmed this is the current location for customer visits.",
+  "sources": [
+    "https://astana.jsprav.ru/remont-promyishlennogo-oborudovaniya/qazairpress/",
+    "https://2gis.kz/astana/geo/9570784863327238"
+  ],
+  "widgetDocumentation": "https://help.2gis.ru/question/konstruktor-kart-instrukciya",
+  "widgetImplementation": "https://makemap.2gis.ru/public/main.js"
+}
