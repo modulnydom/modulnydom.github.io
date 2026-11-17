@@ -181,5 +181,17 @@
         ]
       }
     ]
+  },
+  "homepageEquipmentVisual": {
+    "asset": "assets/hero/abk15-16-1200.webp",
+    "reference": "assets/products/abk15-16-laser.webp",
+    "model": "ABK15-16",
+    "type": "AI-assisted isolated visualization based on the existing model photograph",
+    "disclosure": "Visible hero credit, image alt and category caption identify this as a visualization. It is not used to replace product photographs.",
+    "sizes": [
+      600,
+      1200
+    ],
+    "sourceReferenceSha256": "dc8f84ba1cd02d5d6378c875f1d3984450c83434461b5acb58a958db8a089e73"
   }
 }
