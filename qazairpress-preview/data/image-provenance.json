@@ -1,6 +1,6 @@
 {
   "checked": "2026-11-17",
-  "license": "Public redistribution license not found. Existing company-catalog assets are retained for review; seller ownership or reuse permission must be confirmed before production. No assertion of independent manufacturer verification.",
+  "license": "Photographs from QazAirPress company listings on Satu.kz, explicitly selected by the user as the source for their company website on 2026-11-17. No independent manufacturer or serial-number verification is claimed.",
   "images": [
     {
       "slug": "abk15-10tb",
@@ -131,18 +131,10 @@
     }
   ],
   "removedFromDisplay": "All existing context/category/gallery/industrial images have unverified provenance; none are used by rebuilt pages.",
-  "duplicates": "ABK55 and ABK75 source binaries are identical. Withheld on individual cards pending model photos. Other photos are mapped to the corresponding seller card; model and physical dimensions should be checked against supplied units.",
+  "duplicates": "ABK55 and ABK75 seller-card source binaries are identical. Both use that published ABK series photograph with an explicit series caption; receiver listings also use a common series view.",
   "archive": "картинки.rar unavailable: exceeds 32 MiB transfer limit.",
-  "withheldModels": [
-    "abk22-8tb",
-    "abk55-8tb",
-    "abk75-8tb",
-    "rv-500-10",
-    "rv-900-10",
-    "separator-135-170-200",
-    "separator-170-200-230"
-  ],
-  "visualReview": "ABK22/55/75 show a shared-looking series front without a readable individual model. Receiver images show the same vessel without a readable volume; separators 135/170 and 170/200 show the same-looking arrangement without enough dimensional evidence. All seven withheld on model cards. The receiver series photograph is used only for the generic receiver category, without a volume claim.",
+  "withheldModels": [],
+  "visualReview": "All 23 products now display a photograph from the corresponding seller listing. Seven formerly withheld pictures were restored after rechecking the exact seller cards and the user-specified company catalog. Shared ABK/RV photographs are identified as series images on product pages.",
   "generatedApplicationImages": {
     "authorizedBy": "User explicitly requested generated industry illustrations using the real model lineup, 2026-11-17.",
     "disclosure": "Each illustration is visibly captioned with its catalog model and ИИ-визуализация; section explains generation from reference photographs. Not used as a product photograph or case study.",
@@ -193,5 +185,82 @@
       1200
     ],
     "sourceReferenceSha256": "dc8f84ba1cd02d5d6378c875f1d3984450c83434461b5acb58a958db8a089e73"
+  },
+  "sellerCatalogRefresh": {
+    "catalog": "https://satu.kz/c804211-qazairpress.html",
+    "checked": "2026-11-17",
+    "authorization": "User requested finding and inserting photos and explicitly supplied the QazAirPress Satu company catalog.",
+    "images": [
+      {
+        "slug": "abk22-8tb",
+        "source": "https://qazairpress.satu.kz/p112061505-vintovoj-kompressor-kvt.html",
+        "image": "https://images.satu.kz/212162895_vintovoj-kompressor-22.jpg",
+        "pageTitle": "Винтовой компрессор 22 кВт ABK22-8TB 3,6 м3/мин: продажа, цена в Астане. Компрессоры винтовые от \"QazAirPress\" - 112061505",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "9612c6f43003b3f09a85664599c579341c8dead5b2060e2aa67daa85e8ca0c26",
+        "photoNote": "Фото из карточки QazAirPress на Satu.kz. Исполнение уточним при заказе."
+      },
+      {
+        "slug": "abk55-8tb",
+        "source": "https://qazairpress.satu.kz/p113767983-vintovoj-kompressor-kvt.html",
+        "image": "https://images.satu.kz/215665859_vintovoj-kompressor-55.jpg",
+        "pageTitle": "Винтовой компрессор 55 кВт ABK55-8TB 10 м3/мин: продажа, цена в Астане. Компрессоры винтовые от \"QazAirPress\" - 113767983",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "9c2ea92b4876ae65c095f914e07ea040e3d23cdc555efdcb4b022c39d18b799c",
+        "photoNote": "Фото серии ABK из каталога QazAirPress. Исполнение и комплектацию уточним при заказе."
+      },
+      {
+        "slug": "abk75-8tb",
+        "source": "https://qazairpress.satu.kz/p114116835-vintovoj-kompressor-kvt.html",
+        "image": "https://images.satu.kz/216353914_vintovoj-kompressor-75.jpg",
+        "pageTitle": "Винтовой компрессор 75 кВт ABK75-8TB 13 м3/мин: продажа, цена в Астане. Компрессоры винтовые от \"QazAirPress\" - 114116835",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "9c2ea92b4876ae65c095f914e07ea040e3d23cdc555efdcb4b022c39d18b799c",
+        "photoNote": "Фото серии ABK из каталога QazAirPress. Исполнение и комплектацию уточним при заказе."
+      },
+      {
+        "slug": "rv-500-10",
+        "source": "https://qazairpress.satu.kz/p122958592-resiver-50010-500.html",
+        "image": "https://images.satu.kz/219032346_resiver-rv-50010.jpg",
+        "pageTitle": "Ресивер РВ 500/10 500 литров: продажа, цена в Астане. Воздухосборники от \"QazAirPress\" - 122958592",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "9af402c3106e321f807989f8315dd32c014ca6113d30d477aeb08facea3eba91",
+        "photoNote": "Фото серии РВ из каталога QazAirPress. Объём и исполнение — по паспорту выбранной модели."
+      },
+      {
+        "slug": "rv-900-10",
+        "source": "https://qazairpress.satu.kz/p115854775-resiver-90010-900.html",
+        "image": "https://images.satu.kz/219032346_resiver-rv-90010.jpg",
+        "pageTitle": "Ресивер РВ 900/10 900 литров: продажа, цена в Астане. Воздухосборники от \"QazAirPress\" - 115854775",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "7d7cb3a5ad6d07fe0deb1c08075a734fe05959615883b62c4d0efc991a1ffeeb",
+        "photoNote": "Фото серии РВ из каталога QazAirPress. Объём и исполнение — по паспорту выбранной модели."
+      },
+      {
+        "slug": "separator-135-170-200",
+        "source": "https://qazairpress.satu.kz/p118763035-separator-dlya-kompressora.html",
+        "image": "https://images.satu.kz/225057373_separator-dlya-kompressora.jpg",
+        "pageTitle": "Сепаратор для компрессора (ниж. D = 135 мм, верх. D = 170 мм, выс. H = 200 мм): продажа, цена в Астане. Комплектующие для компрессоров от \"QazAirPress\" - 118763035",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "0937706f5e5e8ed922dd705d3dddce2ad005a893fb6bac79fce7ce2bf3dee810",
+        "photoNote": "Фото из карточки QazAirPress на Satu.kz. Исполнение уточним при заказе."
+      },
+      {
+        "slug": "separator-170-200-230",
+        "source": "https://qazairpress.satu.kz/p118763034-separator-dlya-kompressora.html",
+        "image": "https://images.satu.kz/225057277_separator-dlya-kompressora.jpg",
+        "pageTitle": "Сепаратор для компрессора (ниж. D = 170 мм, верх. D = 200 мм, выс. H = 230 мм): продажа, цена в Астане. Комплектующие для компрессоров от \"QazAirPress\" - 118763034",
+        "checked": "2026-11-17",
+        "association": "Primary image belongs to the corresponding named seller product card; not an independent measurement or serial-number check.",
+        "localImageSha256": "f7422f9b5cbee530ef074cebd5400a1b152cef3e153410a14855988825f3dabe",
+        "photoNote": "Фото из карточки QazAirPress на Satu.kz. Исполнение уточним при заказе."
+      }
+    ]
   }
 }
