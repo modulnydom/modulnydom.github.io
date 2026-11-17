@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Update the existing QazAirPress bind mount; retain Docker/Caddy/DNS/TLS config.
 set -Eeuo pipefail
-readonly RELEASE=287d5921c9f2059afc3792f8fb59faad0c9dc603
+readonly RELEASE=8072684060747175280cbc013f482ba729039810
 readonly SITE=qazairpres-site
 readonly BASE=/home/ubuntu/qazairpres-deploy
 readonly WWW="$BASE/www"
