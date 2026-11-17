@@ -46,36 +46,8 @@ done
 git clone -q --depth=1 --filter=blob:none --sparse "$GITHUB" "$TMP/source"
 git -C "$TMP/source" sparse-checkout -q set qazairpress-preview
 mkdir -p "$TMP/production"
-rsync -a --exclude='_*' --exclude='deploy-qazairpres.sh' \
-  "$TMP/source/qazairpress-preview/" "$TMP/production/"
-export SITE_DOMAIN="$DOMAIN" SITE_STAGE="$TMP/production"
-python3 - <<'PY'
-from pathlib import Path
-import os, re, html
-root = Path(os.environ["SITE_STAGE"])
-domain = os.environ["SITE_DOMAIN"]
-pages = sorted(root.rglob("*.html"))
-if len(pages) < 25:
-    raise RuntimeError(f"Expected the 23 product pages + homepage + catalog; found {len(pages)}")
-for file in pages:
-    rel = file.relative_to(root).as_posix()
-    url = "https://" + domain + "/" + ("" if rel == "index.html" else rel)
-    body = file.read_text(encoding="utf-8")
-    # Production only: remove noindex from the demonstration pages.
-    body = re.sub(r'<meta\s+name=["\']robots["\']\s+content=["\']noindex,\s*nofollow["\']\s*/?>', "", body, flags=re.I)
-    body = re.sub(r'<meta\s+content=["\']noindex,\s*nofollow["\']\s+name=["\']robots["\']\s*/?>', "", body, flags=re.I)
-    canonical = '<link rel="canonical" href="'+ html.escape(url,quote=True) +'">'
-    body = re.sub(r'<link\s+rel=["\']canonical["\'][^>]*>', "", body, flags=re.I)
-    body = body.replace("</head>", canonical + '</head>', 1)
-    body = body.replace("Предварительный демонстрационный сайт", "QazAirPress — оборудование для сжатого воздуха")
-    body = body.replace("Демонстрационный прототип сайта", "Промышленное оборудование QazAirPress")
-    file.write_text(body, encoding="utf-8")
-(root/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: https://"+domain+"/sitemap.xml\n", encoding="utf-8")
-from xml.sax.saxutils import escape
-locs = [f"https://{domain}/"+("" if x.relative_to(root).as_posix()=="index.html" else x.relative_to(root).as_posix()) for x in pages]
-(root/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>'+escape(x)+'</loc></url>\n' for x in locs)+'</urlset>\n',encoding="utf-8")
-print(f"Prepared production HTML: {len(pages)} pages + robots + sitemap")
-PY
+python3 "$TMP/source/qazairpress-preview/scripts/build.py" \
+  --production --output "$TMP/production"
 
 # Publish only to the dedicated QazAirPress directory; other sites unchanged.
 mkdir -p "$WWW"
