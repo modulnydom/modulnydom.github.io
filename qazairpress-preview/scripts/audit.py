@@ -2,9 +2,11 @@
 """Check static release contracts without fetching third-party resources."""
 import argparse
 from collections import Counter
+import html
 from html.parser import HTMLParser
 import json
 from pathlib import Path
+import re
 from urllib.parse import urlsplit, unquote
 import xml.etree.ElementTree as ET
 
@@ -39,11 +41,24 @@ def audit(root, production=False):
         check(len(d.select('h1'))==1,'exactly one H1 required')
         check(len(d.select('main'))==1,'exactly one main landmark required')
         check(len(d.ids)==len(set(d.ids)),'duplicate DOM IDs')
+        levels=[int(tag[1]) for tag,_ in d.elements if re.fullmatch(r'h[1-6]',tag)]
+        check(bool(levels) and levels[0]==1,'heading outline must begin with H1')
+        check(all(b<=a+1 for a,b in zip(levels,levels[1:])),'heading level skipped')
+        def plain(fragment):
+            return ' '.join(html.unescape(re.sub(r'<[^>]+>','',fragment)).split())
+        for heading in re.finditer(r'<h([1-6])\b[^>]*>(.*?)</h\1>',p.read_text(),re.IGNORECASE|re.DOTALL):
+            inner=heading.group(2)
+            check(bool(plain(inner)),'empty heading')
+            separated=re.sub(r'<br\b[^>]*>',' ',inner,flags=re.IGNORECASE)
+            check(plain(inner)==plain(separated),'heading words run together across a line break')
         title=''.join(d.texts['title']);h1=''.join(d.texts['h1'])
         titles.append(title);heads.append(h1)
         metas=d.select('meta');robots=[a.get('content','') for a in metas if a.get('name')=='robots']
         desc=[a.get('content','') for a in metas if a.get('name')=='description'];descriptions+=desc
         check(bool(title) and len(desc)==1,'missing or duplicate title/description')
+        check(len(title)<=60,'title exceeds the project editorial budget of 60 characters')
+        for name in ['author','publisher']:
+            check([a.get('content') for a in metas if a.get('name')==name]==['QazAirPress'],f'missing or incorrect {name}')
         canonical=[a.get('href') for a in d.select('link') if a.get('rel')=='canonical']
         expected='https://qazairpres.kz/'+('' if rel=='index.html' else rel.replace('/index.html','/'))
         check(canonical==[expected],'canonical must match the production URL')
@@ -68,6 +83,8 @@ def audit(root, production=False):
                 u=a.get(attr)
                 if not u:continue
                 parsed=urlsplit(u)
+                if attr=='href' and not parsed.scheme and not parsed.netloc:
+                    check(not parsed.path.endswith('index.html'),'internal link uses an index.html URL alias')
                 if parsed.scheme:
                     if parsed.netloc=='wa.me':check(parsed.path=='/77761717111','wrong WhatsApp number')
                     if parsed.scheme=='tel':check(parsed.path=='+77761717111','wrong phone')

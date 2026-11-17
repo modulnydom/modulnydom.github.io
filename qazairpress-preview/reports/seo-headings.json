@@ -1,0 +1,124 @@
+{
+  "homepage_title": "Винтовые компрессоры в Казахстане | QazAirPress",
+  "title_characters": 47,
+  "heading_counts": {
+    "h1": 1,
+    "h2": 9,
+    "h3": 16
+  },
+  "headings": [
+    {
+      "level": 1,
+      "text": "Промышленные компрессоры"
+    },
+    {
+      "level": 2,
+      "text": "Компрессоры и комплектующие"
+    },
+    {
+      "level": 3,
+      "text": "Винтовые компрессоры"
+    },
+    {
+      "level": 3,
+      "text": "Ресиверы сжатого воздуха"
+    },
+    {
+      "level": 3,
+      "text": "Фильтры, сепараторы и компрессорные масла"
+    },
+    {
+      "level": 2,
+      "text": "Сравнение моделей компрессоров"
+    },
+    {
+      "level": 3,
+      "text": "Выберите модель для сравнения"
+    },
+    {
+      "level": 3,
+      "text": "ABK15-10TB"
+    },
+    {
+      "level": 2,
+      "text": "Компрессоры для разных производств"
+    },
+    {
+      "level": 3,
+      "text": "Лазерная резка"
+    },
+    {
+      "level": 3,
+      "text": "Металлообработка"
+    },
+    {
+      "level": 3,
+      "text": "Бетон и ЖБИ"
+    },
+    {
+      "level": 2,
+      "text": "Компрессор и подготовка воздуха"
+    },
+    {
+      "level": 3,
+      "text": "Компрессор"
+    },
+    {
+      "level": 3,
+      "text": "Ресивер"
+    },
+    {
+      "level": 3,
+      "text": "Подготовка воздуха"
+    },
+    {
+      "level": 3,
+      "text": "Станок или линия"
+    },
+    {
+      "level": 2,
+      "text": "Как подбираем оборудование"
+    },
+    {
+      "level": 3,
+      "text": "Уточняем задачу"
+    },
+    {
+      "level": 3,
+      "text": "Выбираем комплектацию"
+    },
+    {
+      "level": 3,
+      "text": "Готовим предложение"
+    },
+    {
+      "level": 2,
+      "text": "Доставка по Казахстану"
+    },
+    {
+      "level": 2,
+      "text": "Сервис и расходные материалы"
+    },
+    {
+      "level": 2,
+      "text": "Вопросы о выборе и покупке"
+    },
+    {
+      "level": 2,
+      "text": "Подбор оборудования и расчёт стоимости"
+    },
+    {
+      "level": 3,
+      "text": "Заявка на подбор"
+    }
+  ],
+  "validation": {
+    "pages": 28,
+    "preview_audit": "pass",
+    "production_audit": "pass",
+    "joined_heading_regression": "pass",
+    "hierarchy": "no skipped levels",
+    "internal_index_html_aliases": 0
+  },
+  "limits": "Title length is a project editorial target, not a universal Google character limit. Keywords and H4–H6 are not required. /index.html keeps the root canonical; no server redirect is claimed."
+}
