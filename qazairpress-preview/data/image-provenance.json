@@ -142,5 +142,44 @@
     "separator-135-170-200",
     "separator-170-200-230"
   ],
-  "visualReview": "ABK22/55/75 show a shared-looking series front without a readable individual model. Receiver images show the same vessel without a readable volume; separators 135/170 and 170/200 show the same-looking arrangement without enough dimensional evidence. All seven withheld on model cards. The receiver series photograph is used only for the generic receiver category, without a volume claim."
+  "visualReview": "ABK22/55/75 show a shared-looking series front without a readable individual model. Receiver images show the same vessel without a readable volume; separators 135/170 and 170/200 show the same-looking arrangement without enough dimensional evidence. All seven withheld on model cards. The receiver series photograph is used only for the generic receiver category, without a volume claim.",
+  "generatedApplicationImages": {
+    "authorizedBy": "User explicitly requested generated industry illustrations using the real model lineup, 2026-11-17.",
+    "disclosure": "Each illustration is visibly captioned with its catalog model and ИИ-визуализация; section explains generation from reference photographs. Not used as a product photograph or case study.",
+    "images": [
+      {
+        "asset": "assets/applications/metalworking.webp",
+        "reference": "assets/products/abk15-10tb.webp",
+        "model": "ABK15-10TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/laser-cutting.webp",
+        "reference": "assets/products/abk15-16-laser.webp",
+        "model": "ABK15-16",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/production-lines.webp",
+        "reference": "assets/products/abk37-8tb.webp",
+        "model": "ABK37-8TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      }
+    ]
+  }
 }

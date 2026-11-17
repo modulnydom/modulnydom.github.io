@@ -99,7 +99,7 @@
       const url = 'https://wa.me/77761717111?text=' + encodeURIComponent(messageFor(form));
       const fallback = $('.wa-fallback', form);
       fallback.href = url; fallback.hidden = false;
-      $('.form-status', form).textContent = 'Запрос подготовлен. Проверьте текст и подтвердите отправку в WhatsApp.';
+      $('.form-status', form).textContent = 'Текст готов. Проверьте его в WhatsApp и нажмите «Отправить».';
       // Navigate synchronously after a real submit: avoids popup blockers and false success.
       location.assign(url);
     });
@@ -117,7 +117,7 @@
       dialog.setAttribute('aria-labelledby', 'dialogTitle');
       const script = document.querySelector('script[src$="assets/site.js"]');
       const privacy = new URL('../privacy.html', script.src).href;
-      dialog.innerHTML = `<button type="button" class="dialog-close" aria-label="Закрыть форму">×</button><span class="eyebrow">QazAirPress / Запрос предложения</span><h2 id="dialogTitle">Обсудим оборудование</h2><p class="chosen-model"></p><form class="lead-form"><input name="model" type="hidden"><div class="form-grid"><label>Ваше имя<input name="name" autocomplete="name" minlength="2" maxlength="90" required></label><label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required placeholder="+7 ___ ___ __ __"></label><label>Компания<input name="company" autocomplete="organization" maxlength="120"></label><label>Город поставки<input name="city" autocomplete="address-level2" maxlength="100" required></label><label class="full">Задача и параметры<textarea name="task" rows="3" maxlength="1500" placeholder="Мощность, давление, расход, требования к воздуху"></textarea></label></div><label class="consent"><input type="checkbox" name="consent" required><span>Согласен передать данные QazAirPress через WhatsApp. <a href="${privacy}">Обработка данных</a></span></label><button class="btn primary" type="submit">Подготовить запрос в WhatsApp ↗</button><p class="form-note">Сообщение отправляете вы после проверки в WhatsApp.</p><p class="form-status" role="status" aria-live="polite"></p><a class="wa-fallback" hidden>Открыть подготовленное сообщение ↗</a></form>`;
+      dialog.innerHTML = `<button type="button" class="dialog-close" aria-label="Закрыть форму">×</button><span class="eyebrow">QazAirPress / Запрос предложения</span><h2 id="dialogTitle">Получите предложение</h2><p class="chosen-model"></p><form class="lead-form"><input name="model" type="hidden"><div class="form-grid"><label>Ваше имя<input name="name" autocomplete="name" minlength="2" maxlength="90" required></label><label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required placeholder="+7 ___ ___ __ __"></label><label>Компания<input name="company" autocomplete="organization" maxlength="120"></label><label>Город поставки<input name="city" autocomplete="address-level2" maxlength="100" required></label><label class="full">Что нужно вашему производству?<textarea name="task" rows="3" maxlength="1500" placeholder="Мощность, давление, расход, требования к воздуху"></textarea></label></div><label class="consent"><input type="checkbox" name="consent" required><span>Согласен передать данные QazAirPress через WhatsApp. <a href="${privacy}">Обработка данных</a></span></label><button class="btn primary" type="submit">Открыть запрос в WhatsApp ↗</button><p class="form-note">Проверьте текст в WhatsApp и нажмите «Отправить».</p><p class="form-status" role="status" aria-live="polite"></p><a class="wa-fallback" hidden>Открыть подготовленное сообщение ↗</a></form>`;
       document.body.append(dialog);
       bindForm($('.lead-form', dialog));
       $('.dialog-close', dialog).addEventListener('click', () => dialog.close());
@@ -125,7 +125,7 @@
       dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); lastTrigger?.focus(); });
     }
     dialog.querySelector('[name="model"]').value = model;
-    $('.chosen-model', dialog).textContent = model || 'Подбор под вашу производственную задачу';
+    $('.chosen-model', dialog).textContent = model || 'Подбор оборудования для вашего производства';
     $('.form-status', dialog).textContent = '';
     $('.wa-fallback', dialog).hidden = true;
     document.body.classList.add('modal-open');
