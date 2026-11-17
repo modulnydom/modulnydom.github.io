@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Update the existing QazAirPress bind mount; retain Docker/Caddy/DNS/TLS config.
 set -Eeuo pipefail
-readonly RELEASE=8072684060747175280cbc013f482ba729039810
+readonly RELEASE=3ae5bd231f8052561c20852430ec5678037401bd
 readonly SITE=qazairpres-site
 readonly BASE=/home/ubuntu/qazairpres-deploy
 readonly WWW="$BASE/www"
@@ -67,7 +67,7 @@ CHANGED=1
 # Keep the existing directory inode: the running container bind-mounts it.
 rsync -a --delay-updates --delete-delay "$TMP/production/" "$WWW/"
 python3 "$TMP/source/qazairpress-preview/scripts/audit.py" --root "$WWW" --production
-for resource in index.html assets/home.css assets/home.js assets/site.js robots.txt sitemap.xml catalog/index.html \
+for resource in index.html assets/styles.css assets/contact.css assets/home.css assets/home.js assets/site.js robots.txt sitemap.xml catalog/index.html \
   assets/products/abk7-5-8tb.webp assets/products/abk15-10tb.webp assets/products/abk22-8tb.webp \
   assets/products/abk37-8tb.webp assets/products/abk75-8tb.webp assets/hero/abk15-10tb-768.webp \
   assets/applications/laser-cutting.webp assets/company/lineup.webp assets/company/air-system.webp; do
