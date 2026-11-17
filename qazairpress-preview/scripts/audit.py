@@ -77,7 +77,7 @@ def audit(root, production=False):
                 check(target.exists(),f'broken {attr}: {u}')
                 if parsed.fragment and target in docs:check(parsed.fragment in docs[target].ids,f'broken anchor: {u}')
             for candidate in a.get('srcset','').split(','):
-                if candidate.strip():check((p.parent/candidate.split()[0]).exists(),'missing srcset image')
+                if candidate.strip():check((p.parent/unquote(urlsplit(candidate.split()[0]).path)).exists(),'missing srcset image')
     for values,name in [(titles,'title'),(heads,'H1'),(descriptions,'description')]:
         for value,n in Counter(values).items():
             if n>1:errors.append(f'Duplicate {name}: {value}')

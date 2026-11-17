@@ -3,6 +3,7 @@
 import argparse
 import html
 import json
+import re
 from pathlib import Path
 import shutil
 from urllib.parse import quote
@@ -216,6 +217,7 @@ def build(out, production=False):
     for rel,content in pages.items():
         allowed=rel!='privacy.html' and rel!='products/air-filter-a569.html'
         if production and allowed:content=content.replace('noindex,nofollow,noarchive','index,follow')
+        content=re.sub(r'(assets/(?:products|applications)/[A-Za-z0-9_-]+\.webp)(?=[\s"])',r'\1?v=marked-20261117',content)
         dest=out/rel;dest.parent.mkdir(exist_ok=True,parents=True);dest.write_text(content+'\n')
         if allowed:indexed.append(SITE+('' if rel=='index.html' else rel.replace('/index.html','/')))
     robots='User-agent: *\nAllow: /\nDisallow: /privacy.html\nDisallow: /products/air-filter-a569.html\nSitemap: '+SITE+'sitemap.xml\n' if production else 'User-agent: *\nDisallow: /\n'
