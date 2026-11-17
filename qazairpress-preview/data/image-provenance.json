@@ -1,0 +1,197 @@
+{
+  "checked": "2026-11-17",
+  "license": "Public redistribution license not found. Existing company-catalog assets are retained for review; seller ownership or reuse permission must be confirmed before production. No assertion of independent manufacturer verification.",
+  "images": [
+    {
+      "slug": "abk15-10tb",
+      "hash": "139b2b6e9e5075ff96ece450d236cb22628ee9eeacc478b2e4f81c9047350da2",
+      "bytes": 134359
+    },
+    {
+      "slug": "abk15-16-laser",
+      "hash": "88e3bac3b26b28aed58c0f73da42da2e29aca4271d79443a7bbfbc48ad34dbd2",
+      "bytes": 66522
+    },
+    {
+      "slug": "abk22-8tb",
+      "hash": "415a198251e0febe22e29968976be3867f4e5b82297562322e1be365587d30cc",
+      "bytes": 41148
+    },
+    {
+      "slug": "abk37-8tb",
+      "hash": "4708181fb895fba2815886a1df81b15c843555067f7c77ec5b3a976515734bc3",
+      "bytes": 264484
+    },
+    {
+      "slug": "abk55-8tb",
+      "hash": "6473a6c30402490fad3e00c246860e2abcb18083036d691090a564021284d780",
+      "bytes": 97858
+    },
+    {
+      "slug": "abk7-5-8tb",
+      "hash": "a72bf2a8b6f62cc9f6836b7e425e1137457ec0f903e8f5a91098fc28988783c9",
+      "bytes": 206762
+    },
+    {
+      "slug": "abk75-8tb",
+      "hash": "6473a6c30402490fad3e00c246860e2abcb18083036d691090a564021284d780",
+      "bytes": 97858
+    },
+    {
+      "slug": "air-filter-a569",
+      "hash": "a0f7b7dc76a2288d15e3e333d965c6dcebfe189b497cb7acd3a54ce84c47ee92",
+      "bytes": 41966
+    },
+    {
+      "slug": "mol-compressol-r46-al",
+      "hash": "eb000d9ed8e0269a162f27b97f359ce07c7aa66c555b049bbb5b99a2addd7146",
+      "bytes": 9570
+    },
+    {
+      "slug": "oil-filter-66094172ef",
+      "hash": "5a3d0da1b851418585ecc4be69e4a00eabf45433da55e9aa7b305dfaba4d5f25",
+      "bytes": 95640
+    },
+    {
+      "slug": "oil-filter-66094212ef",
+      "hash": "f0212da9a89248d2cbf26888e8fc63aacf2a93b00c29791eb9fbc3a8caf4d617",
+      "bytes": 102027
+    },
+    {
+      "slug": "oil-filter-wd13145",
+      "hash": "de44d50207f337ef87f1249f6ffd26f0a84978ccfc53abc64cd5217680b222b2",
+      "bytes": 8278
+    },
+    {
+      "slug": "separator-135-170-200",
+      "hash": "601c1a21d0a126ed2b145cf66d75e5d9f6fb0b4a9dba50b56bde8d8644fce0d0",
+      "bytes": 125587
+    },
+    {
+      "slug": "separator-170-200-230",
+      "hash": "59d111e49ee537fe3204b0ca839d25dbf8fea59670497de83853820d827033c9",
+      "bytes": 106886
+    },
+    {
+      "slug": "separator-220-275-305",
+      "hash": "823c12fc46491ed94711815a0d05aecb0948fde5e9442543b379d4a64150536e",
+      "bytes": 148753
+    },
+    {
+      "slug": "separator-300-355-305",
+      "hash": "6f1ea514df8768a562d2474f6616ca2bc0a72d6197b31d8dd1bb7b3fa907bff0",
+      "bytes": 129693
+    },
+    {
+      "slug": "separator-lb13145-3",
+      "hash": "f2c3bd3f872bc28daf1ae5c811d4033ac27264ffa240a8970f4e541837b31106",
+      "bytes": 56377
+    },
+    {
+      "slug": "shell-corena-s3-r46",
+      "hash": "88fbdba0ce1632abf76de6dcee8968d63cf3bc8de1a94dc23ac287fa2da3503f",
+      "bytes": 217965
+    },
+    {
+      "slug": "temperature-sensor-m12",
+      "hash": "bce068ef1e83cbb54dc6d44391afd5904d212df1ee60f79e6bf780681b59e743",
+      "bytes": 110911
+    },
+    {
+      "slug": "oil-filter-wd962",
+      "hash": "f559c52891a2396764f8ed8569e32aa733caedc59b5390c7714e7ae22a349c10",
+      "size": [
+        960,
+        1280
+      ]
+    },
+    {
+      "slug": "pressure-sensor-g14",
+      "hash": "5216ad14ab4e4de055be94c8120adecaf5f21360bbf377761848d83342f04a42",
+      "size": [
+        1280,
+        960
+      ]
+    },
+    {
+      "slug": "rv-500-10",
+      "hash": "9808ca1f90738878c115dbc74a9acb3d34bb11359ddcaa7f5c1c1845c130f85f",
+      "size": [
+        1280,
+        1280
+      ]
+    },
+    {
+      "slug": "rv-900-10",
+      "hash": "0f52545ca08e2756ac121259c0a71bd6d88812b3bd6f9f41a18d5353c1f13d5e",
+      "size": [
+        1280,
+        1280
+      ]
+    }
+  ],
+  "removedFromDisplay": "All existing context/category/gallery/industrial images have unverified provenance; none are used by rebuilt pages.",
+  "duplicates": "ABK55 and ABK75 source binaries are identical. Withheld on individual cards pending model photos. Other photos are mapped to the corresponding seller card; model and physical dimensions should be checked against supplied units.",
+  "archive": "картинки.rar unavailable: exceeds 32 MiB transfer limit.",
+  "withheldModels": [
+    "abk22-8tb",
+    "abk55-8tb",
+    "abk75-8tb",
+    "rv-500-10",
+    "rv-900-10",
+    "separator-135-170-200",
+    "separator-170-200-230"
+  ],
+  "visualReview": "ABK22/55/75 show a shared-looking series front without a readable individual model. Receiver images show the same vessel without a readable volume; separators 135/170 and 170/200 show the same-looking arrangement without enough dimensional evidence. All seven withheld on model cards. The receiver series photograph is used only for the generic receiver category, without a volume claim.",
+  "generatedApplicationImages": {
+    "authorizedBy": "User explicitly requested generated industry illustrations using the real model lineup, 2026-11-17.",
+    "disclosure": "Each illustration is visibly captioned with its catalog model and ИИ-визуализация; section explains generation from reference photographs. Not used as a product photograph or case study.",
+    "images": [
+      {
+        "asset": "assets/applications/metalworking.webp",
+        "reference": "assets/products/abk15-10tb.webp",
+        "model": "ABK15-10TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/laser-cutting.webp",
+        "reference": "assets/products/abk15-16-laser.webp",
+        "model": "ABK15-16",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      },
+      {
+        "asset": "assets/applications/production-lines.webp",
+        "reference": "assets/products/abk37-8tb.webp",
+        "model": "ABK37-8TB",
+        "generator": "image_gen",
+        "type": "AI-generated conceptual application scene",
+        "sizes": [
+          480,
+          960
+        ]
+      }
+    ]
+  },
+  "homepageEquipmentVisual": {
+    "asset": "assets/hero/abk15-16-1200.webp",
+    "reference": "assets/products/abk15-16-laser.webp",
+    "model": "ABK15-16",
+    "type": "AI-assisted isolated visualization based on the existing model photograph",
+    "disclosure": "Visible hero credit, image alt and category caption identify this as a visualization. It is not used to replace product photographs.",
+    "sizes": [
+      600,
+      1200
+    ],
+    "sourceReferenceSha256": "dc8f84ba1cd02d5d6378c875f1d3984450c83434461b5acb58a958db8a089e73"
+  }
+}

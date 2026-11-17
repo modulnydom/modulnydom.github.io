@@ -1,0 +1,7 @@
+{
+  "environment": "synthetic DOM, not a browser",
+  "clickSelections": 3,
+  "keyboardCases": 4,
+  "selectedModelMatchesRequest": true,
+  "cssParseErrors": []
+}
