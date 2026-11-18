@@ -250,9 +250,13 @@ def enhance_visible_content(html: str, path: str, suppliers: dict) -> str:
         return html
     lang = chunks[0]
     labels = LABELS[lang]
-    marker = '<section id="enquiry"'
-    if marker not in html:
+    # The enquiry section's class/id attribute order differs between page templates.
+    # Match the whole opening tag so both <section id="enquiry" ...> and
+    # <section class="enquiry" id="enquiry"> receive the buyer guidance.
+    match = re.search(r'<section\\b[^>]*\\bid\\s*=\\s*["\\\']enquiry["\\\'][^>]*>', html, flags=re.IGNORECASE)
+    if match is None:
         return html
+    marker = match.group(0)
     if chunks[1] == "products" and len(chunks) == 3:
         slug = chunks[2]
         family = FAMILIES.get(slug)
