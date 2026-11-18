@@ -56,6 +56,13 @@ jobs:
               assert 'kv-b2b-checklist' in by_path[f'/{lang}/products/vietnam-plywood/'], lang
               assert 'kv-evidence' in by_path[f'/{lang}/suppliers/vietnam/tt-plywood/'], lang
           assert all(not path.startswith('/vi/') for path in by_path)
-          assert all('/vi/' not in html for html in by_path.values() if 'rel="alternate"' in html)
+          assert not (root/'vi').exists()
+          assert (root/'favicon.svg').is_file()
+          assert (root/'site.webmanifest').is_file()
+          for p, html in by_path.items():
+              assert 'rel="icon" type="image/svg+xml" href="/favicon.svg"' in html, p
+              assert 'rel="manifest" href="/site.webmanifest"' in html, p
+              assert not re.search(r'<link[^>]+hreflang="vi"', html, re.I), p
+              assert not re.search(r'<a\\b[^>]*href=["\\\'](?:https://kazviet.asia)?/vi/[^"\\\']*["\\\']', html, re.I), p
           print('SUCCESS:', len(pages), 'indexed HTML pages; three locales; Vietnamese market temporarily disabled')
           PY
