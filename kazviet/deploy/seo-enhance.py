@@ -120,7 +120,7 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
 def improve_html(html: str, path: str, available: set[str]) -> str:
     # Remove every advertised Vietnamese language entry from the production UI.
     # All /vi/ HTML has been excluded; do not present any dead language switches.
-    html = re.sub(r'<a\\b(?=[^>]*\\bhref="/vi/[^"]*")[^>]*>.*?</a>', '', html, flags=re.IGNORECASE | re.DOTALL)
+    html = re.sub(r'<a\b(?=[^>]*\bhref="/vi/[^"]*")[^>]*>.*?</a>', '', html, flags=re.IGNORECASE | re.DOTALL)
     code = language(path)
     canonical = BASE + path
     title = read_title(html)
