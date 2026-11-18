@@ -61,6 +61,9 @@ jobs:
           assert 'href="/ru/?country=vietnam"' in home
           assert 'href="/ru/?country=kazakhstan"' in home
           assert 'href="/#catalog"' not in home
+          assert not re.search(r'<link[^>]+hreflang="(?:ru|en|kk|x-default)"', home)
+          for lng in ('ru', 'en', 'kk'):
+              assert 'hreflang="x-default" href="https://kazviet.asia/ru/"' in by_path[f'/{lng}/']
           assert all(not path.startswith('/vi/') for path in by_path)
           assert not (root/'vi').exists()
           assert (root/'favicon.svg').is_file()
