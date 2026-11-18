@@ -2,7 +2,10 @@
 'use strict';
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return Array.from(document.querySelectorAll(s))};
-var state={category:'all',country:'all',query:'',sort:'default',layout:'grid',supplierCountry:'all'};
+var params=new URLSearchParams(window.location.search);
+var countryParam=params.get('country');
+var initialCountry=(countryParam==='vietnam'||countryParam==='kazakhstan')?countryParam:'all';
+var state={category:'all',country:initialCountry,query:(params.get('q')||'').slice(0,120),sort:'default',layout:'grid',supplierCountry:initialCountry==='kazakhstan'?'kz':initialCountry==='vietnam'?'vn':'all'};
 var cards=$$('#productGrid .product');
 var suppliers=$$('#realSuppliersGrid .kvSeedCard');
 function text(el){return(el.textContent||'').toLocaleLowerCase()}
@@ -56,5 +59,6 @@ document.addEventListener('click',function(e){
   var fav=e.target.closest('[data-fav]');
   if(fav){e.preventDefault();fav.classList.toggle('on');fav.setAttribute('aria-pressed',String(fav.classList.contains('on')))}
 });
+if($('#heroSearch')&&state.query)$('#heroSearch').value=state.query;
 update();
 })();
