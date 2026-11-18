@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<title>KAZVIET</title>
+<rect width="64" height="64" rx="15" fill="#0b2540"/>
+<g transform="translate(5 10) scale(1.04)">
+  <path fill="#13bdb6" d="M5 3H24L13 19H4ZM4 23h9l12 16H5Z"/>
+  <path fill="#1688d4" d="M26 3h19L25 22l19 17H25L10 22Z"/>
+</g>
+</svg>
