@@ -18,9 +18,10 @@ from xml.etree import ElementTree as ET
 PREVIEW_HOST = "https://modulnydom.github.io/kazviet"
 PRODUCTION_HOST = "https://kazviet.asia"
 TEXT_EXTENSIONS = {".html", ".css", ".js", ".json", ".xml", ".svg", ".txt", ".webmanifest"}
-EXCLUDE_DIRS = {"research", "deploy", ".git", "__pycache__", "node_modules"}
+EXCLUDE_DIRS = {"research", "deploy", "vi", ".git", "__pycache__", "node_modules"}
+# Emergency 2026-11-19: Vietnamese locale disabled pending local e-commerce compliance review.
 EXCLUDE_FILES = {"PHOTO-SOURCES.md", "CNAME", ".htaccess"}
-MIN_URLS = 120
+MIN_URLS = 100
 
 
 def rewrite_text(content: str) -> str:
@@ -78,7 +79,7 @@ def audit(root: Path, written: int = 0) -> dict:
     required = [
         "index.html", "sitemap.xml", "robots.txt", "assets/approved-hub.css",
         "assets/approved-hub.js", "ru/index.html", "en/index.html",
-        "vi/index.html", "kk/index.html",
+        "kk/index.html",
     ]
     missing = [x for x in required if not (root / x).is_file()]
     if missing:
