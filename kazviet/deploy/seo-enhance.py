@@ -144,6 +144,9 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
     head = re.sub(r'<meta\b[^>]*\bproperty="og:locale(?::alternate)?"[^>]*>', "", head, flags=re.IGNORECASE)
 
     additions = [
+        '<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">',
+        '<link rel="manifest" href="/site.webmanifest">',
+        '<meta name="theme-color" content="#0b2540">',
         '<link rel="canonical" href="' + canonical + '">',
         '<meta property="og:url" content="' + canonical + '">',
         '<meta property="og:site_name" content="KAZVIET.ASIA">',
@@ -327,4 +330,4 @@ def enhance(root: Path) -> None:
             raise RuntimeError("Self URL absent: " + path)
         page.write_text(updated, encoding="utf-8")
     improve_sitemap(root, available)
-    print("[KAZVIET SEO] Enhanced %d HTML pages in RU / EN / VI / KK; canonical, reciprocal hreflang, JSON-LD, social previews and sitemap." % len(pages))
+    print("[KAZVIET SEO] Enhanced %d HTML pages in RU / EN / KK; branded favicon, canonical, reciprocal hreflang, JSON-LD, sourcing and sitemap." % len(pages))
