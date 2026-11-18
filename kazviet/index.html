@@ -374,8 +374,8 @@ ru:{nav:['Каталог','Поставщики','Запросы RFQ','Trade Des
 en:{nav:['Catalog','Suppliers','RFQ Requests','Trade Desk','About'],signup:'Join for free',signin:'Sign in',hero:'Manufacturers and buyers. One trade network.',sub:'Find suppliers, request wholesale quotations and develop trade between Kazakhstan and Vietnam.',placeholder:'Search products, suppliers, categories...',find:'Search →',sector:'Product sectors',catalog:'Product catalog',demo:'Illustrative listings · supplier details pending',all:'All categories',quote:'Request quote',supplier:'View details',sample:'Illustrative listing',nation:'Country',price:'Price on request',moq:'MOQ to be confirmed',empty:'No verified listings match your filters yet.',emptySub:'Send an RFQ and KAZVIET can help source potential manufacturers.',send:'Send enquiry',show:'Reset filters',guest:'Enquiries are coordinated by the KAZVIET operator.'}};
 var $=function(s){return document.querySelector(s)},$$=function(s){return Array.from(document.querySelectorAll(s))},txt=function(x){return tr[state.lang][x]},name=function(it){return it[state.lang]},esc=function(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 function changeLanguage(l){
- state.lang=l;document.documentElement.lang=l;$('[data-lang]').forEach(function(el){el.classList.toggle('current',el.dataset.lang===l)});
- var d=tr[l];$('#mainMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});$('#mobileMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});
+ state.lang=l;document.documentElement.lang=l;$$('[data-lang]').forEach(function(el){el.classList.toggle('current',el.dataset.lang===l)});
+ var d=tr[l];$$('#mainMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});$$('#mobileMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});
  $('#heroTitle').innerHTML=l==='ru'?'<span class="heroTitleDesktop">Производители и покупатели.<br><em>Торговля без границ.</em></span><span class="heroTitleMobile">Производители и покупатели.<br><em>Торговля без границ.</em></span>':'<span class="heroTitleDesktop">Manufacturers and buyers.<br><em>Trade without borders.</em></span><span class="heroTitleMobile">Manufacturers and buyers.<br><em>Trade without borders.</em></span>';
  $('#heroSub').textContent=l==='ru'?'Находите производителей и оптовых партнёров в Казахстане и Вьетнаме. Выбирайте страну поставки, отправляйте запросы и развивайте торговлю.':'Find manufacturers and wholesale partners in Kazakhstan and Vietnam. Choose a sourcing country, send an enquiry and grow your trade.';
  $('#heroRequestLabel').textContent=l==='ru'?'Найти поставщика':'Find suppliers';$('#heroSupplierLabel').textContent=l==='ru'?'Разместить компанию':'List your company';
@@ -423,7 +423,7 @@ function navigate(){var h=location.hash.replace('#','')||'catalog';if(!$('#view-
 function pickMarket(country){
  state.country=country;
  var f=$('#marketFilter');if(f)f.value=country;
- $('.kvEntryCard[data-market-pick]').forEach(function(b){b.classList.toggle('active',b.dataset.marketPick===country);b.setAttribute('aria-pressed',b.dataset.marketPick===country?'true':'false')});
+ $$('.kvEntryCard[data-market-pick]').forEach(function(b){b.classList.toggle('active',b.dataset.marketPick===country);b.setAttribute('aria-pressed',b.dataset.marketPick===country?'true':'false')});
  location.hash='#catalog';navigate();renderProducts();
  $('#resultTitle').scrollIntoView({behavior:'smooth',block:'start'});
 }
