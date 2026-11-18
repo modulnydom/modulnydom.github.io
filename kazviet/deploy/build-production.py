@@ -77,7 +77,7 @@ def build(source: Path, output: Path) -> dict:
 
 def audit(root: Path, written: int = 0) -> dict:
     required = [
-        "index.html", "sitemap.xml", "robots.txt", "assets/approved-hub.css",
+        "index.html", "sitemap.xml", "robots.txt", "favicon.svg", "site.webmanifest", "assets/approved-hub.css",
         "assets/approved-hub.js", "ru/index.html", "en/index.html",
         "kk/index.html",
     ]
@@ -85,6 +85,8 @@ def audit(root: Path, written: int = 0) -> dict:
     if missing:
         raise RuntimeError("Missing required files: " + ", ".join(missing))
 
+    if (root / "vi").exists():
+        raise RuntimeError("Vietnamese locale must not be publicly served before compliance approval.")
     urls = []
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     xml = ET.parse(root / "sitemap.xml")
@@ -115,6 +117,10 @@ def audit(root: Path, written: int = 0) -> dict:
             raise RuntimeError(f"Missing SEO metadata or H1: {page.relative_to(root)}")
         if 'rel="canonical"' not in contents:
             raise RuntimeError(f"Missing canonical: {page.relative_to(root)}")
+        if 'rel="icon" type="image/svg+xml" href="/favicon.svg"' not in contents:
+            raise RuntimeError(f"Missing favicon on {page.relative_to(root)}")
+        if 'hreflang="vi"' in contents:
+            raise RuntimeError(f"Disabled Vietnamese language advertised by {page.relative_to(root)}")
         html_count += 1
 
     return {
