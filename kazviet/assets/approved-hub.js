@@ -44,6 +44,7 @@ function doSearch(){state.query=$('#heroSearch')?$('#heroSearch').value:'';updat
 if($('#heroSearchGo'))$('#heroSearchGo').addEventListener('click',doSearch);
 if($('#heroSearch'))$('#heroSearch').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch()}});
 if($('#heroRequest'))$('#heroRequest').addEventListener('click',function(){toCatalog();if($('#heroSearch'))$('#heroSearch').focus({preventScroll:true})});
+['#heroSupplier','#addSupplierCountry'].forEach(function(id){var el=$(id);if(el)el.addEventListener('click',function(){window.location.href='/kazviet/'+document.documentElement.lang+'/request/'})});
 if($('#menuToggle'))$('#menuToggle').addEventListener('click',function(){$('#mobileMenu').classList.toggle('hidden')});
 $$('#mobileMenu a').forEach(function(el){el.addEventListener('click',function(){if($('#mobileMenu'))$('#mobileMenu').classList.add('hidden')})});
 document.addEventListener('click',function(e){
