@@ -63,6 +63,6 @@ jobs:
               assert 'rel="icon" type="image/svg+xml" href="/favicon.svg"' in html, p
               assert 'rel="manifest" href="/site.webmanifest"' in html, p
               assert not re.search(r'<link[^>]+hreflang="vi"', html, re.I), p
-              assert not re.search(r'<a\\b[^>]*href=["\\\'](?:https://kazviet.asia)?/vi/[^"\\\']*["\\\']', html, re.I), p
+              assert 'href="/vi/' not in html and 'href="https://kazviet.asia/vi/' not in html, p
           print('SUCCESS:', len(pages), 'indexed HTML pages; three locales; Vietnamese market temporarily disabled')
           PY
