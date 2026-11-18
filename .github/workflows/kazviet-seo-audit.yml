@@ -27,7 +27,7 @@ jobs:
           from xml.etree import ElementTree as ET
           root = Path('/tmp/kazviet-production')
           pages = sorted(root.rglob('*.html'))
-          assert len(pages) == 141, len(pages)
+          assert len(pages) == 106, len(pages)
           links = set()
           by_path = {}
           for page in pages:
@@ -50,10 +50,12 @@ jobs:
               p = loc.removeprefix('https://kazviet.asia')
               html = by_path[p]
               assert 'name="robots"' in html, p
-          for lang in ('ru','en','vi','kk'):
+          for lang in ('ru','en','kk'):
               assert f'/{lang}/products/vietnam-plywood/' in by_path
               assert f'/{lang}/suppliers/vietnam/tt-plywood/' in by_path
               assert 'kv-b2b-checklist' in by_path[f'/{lang}/products/vietnam-plywood/'], lang
               assert 'kv-evidence' in by_path[f'/{lang}/suppliers/vietnam/tt-plywood/'], lang
-          print('SUCCESS:', len(pages), 'indexed HTML pages; four locales; source transparency and procurement guides')
+          assert all(not path.startswith('/vi/') for path in by_path)
+          assert all('/vi/' not in html for html in by_path.values() if 'rel="alternate"' in html)
+          print('SUCCESS:', len(pages), 'indexed HTML pages; three locales; Vietnamese market temporarily disabled')
           PY
