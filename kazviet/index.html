@@ -427,6 +427,70 @@
 }
 @media(max-width:390px){.kvHeroSurface{min-height:327px!important}.kvHero h1{font-size:27px!important}.kvHeroText{padding-left:14px;padding-right:13px}.kvMainButton,.kvGhostButton{font-size:9.2px}}
 @media(prefers-reduced-motion:reduce){.kvMainButton,.kvGhostButton,.kvEntryCard{transition:none!important}}
+
+/* KAZVIET V12 – first fold rebuilt around purchasing intent */
+.hero.kv12{margin-top:15px!important;padding:0!important;background:#fff!important;border:1px solid #dfebf4!important;border-radius:22px!important;overflow:hidden!important;box-shadow:0 12px 42px rgba(24,77,120,.075)!important}
+.kv12-main{display:grid;grid-template-columns:56% 44%;min-height:324px;position:relative;background:#f8fcff;isolation:isolate}
+.kv12-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;padding:38px 12px 32px 42px;min-width:0}
+.kv12-kicker{display:flex;gap:10px;align-items:center;margin-bottom:20px;color:#0b86ab;font-size:9.5px;font-weight:850;letter-spacing:1.5px}
+.kv12-dot{width:7px;height:7px;flex:none;display:inline-block;background:#12b7b9;border-radius:50%;box-shadow:0 0 0 4px rgba(18,183,185,.12)}
+.kv12-sep{height:12px;width:1px;background:#b6d3e3}
+.kv12 #heroTitle{font-size:clamp(34px,2.9vw,50px)!important;letter-spacing:-1.8px!important;line-height:1.12!important;color:#102f4f!important;font-weight:850!important;margin:0 0 14px;max-width:750px!important}
+.kv12 #heroTitle em{font-style:normal;background:linear-gradient(105deg,#0968bd,#03a8b8);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.kv12 #heroSub{font-size:13px!important;line-height:1.7!important;color:#506c83!important;max-width:550px!important;font-weight:550!important;margin:0 0 22px}
+.kv12-find{display:flex;align-items:center;gap:12px;flex:none;width:min(100%,630px);background:white;border:1px solid #bfdce9;border-radius:13px;padding:6px 6px 6px 15px;min-height:59px;box-shadow:0 8px 23px rgba(23,90,140,.09)}
+.kv12-find svg{flex:none;color:#0a9eb0}
+.kv12-find input{flex:1;min-width:0;min-height:42px;border:0!important;outline:0!important;background:transparent!important;color:#123a59;font-size:13px}
+.kv12-find input::placeholder{color:#819aac}
+.kv12-find button{align-self:stretch;min-width:116px;background:linear-gradient(112deg,#076ac7,#0aa5af);color:white;font-size:12px;font-weight:850;display:flex;gap:10px;align-items:center;justify-content:center;border-radius:9px;box-shadow:0 4px 12px rgba(10,119,172,.15)}
+.kv12-links{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.kv12-links button{font-size:11px;color:#096e9f;font-weight:750;padding:4px 0;display:inline-flex;align-items:center;gap:5px}
+.kv12-links button:hover{text-decoration:underline;color:#005ab0}
+.kv12-linkDivider{height:12px;width:1px;background:#c9dce7}
+.kv12-visual{min-height:324px;position:relative;background:#9de5f7 url('assets/hero-v5.avif') center center / cover no-repeat;overflow:hidden;filter:saturate(.89) contrast(1.04);isolation:isolate}
+.kv12-visualFade{position:absolute;inset:0;background:linear-gradient(90deg,#f8fcff 0%,rgba(248,252,255,.87) 7%,rgba(248,252,255,.31) 26%,transparent 50%),linear-gradient(0deg,rgba(11,73,113,.18) 0%,transparent 35%)}
+.kv12-visualCaption{position:absolute;bottom:16px;right:17px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.93);border:1px solid rgba(255,255,255,.8);border-radius:10px;padding:9px 13px;box-shadow:0 9px 26px rgba(11,61,92,.12);backdrop-filter:blur(9px);font-size:9px;color:#295b74;font-weight:850;letter-spacing:1.25px}
+.kv12-cross{color:#06a8b9;font-size:14px}
+.kv12-country{border-top:1px solid #e3edf5;background:#fff;padding:17px 22px 18px}
+.kv12-countryTitle{display:flex;align-items:baseline;flex-wrap:wrap;gap:13px;margin-bottom:13px}
+.kv12-countryTitle strong{font-size:15px;font-weight:850;color:#143552;letter-spacing:-.3px}
+.kv12-countryTitle span{font-size:11px;color:#7b94a6}
+.kv12 .kvEntryCards{display:grid;grid-template-columns:1fr 1fr 1.12fr;gap:11px}
+.kv12 .kvEntryCard{min-height:70px;border-radius:12px;border:1px solid #dce9f2;gap:12px;padding:11px 13px;background:#fbfdff;box-shadow:0 2px 10px rgba(31,79,128,.025)}
+.kv12 .kvEntryCard.kvAdd{background:linear-gradient(110deg,#e9f9fb,#f4fcff);border-color:#ceebf3}
+.kv12 .kvEntryCard:hover,.kv12 .kvEntryCard.active{border-color:#37aecc;box-shadow:0 6px 18px rgba(13,102,162,.11);transform:translateY(-1px)}
+.kv12 .kvEntryTxt strong{font-size:13px;color:#183c5d}.kv12 .kvEntryTxt small{font-size:10px}
+.kv12 .kvEntryFlag{width:48px;height:44px}.kv12 .kvEntryFlag .kvFlagSvg{width:38px;height:26px}.kv12 .kvEntryIcon{height:44px;width:46px}
+.kv12-assurances{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:11px 23px;background:#f8fcff;border-top:1px solid #e7eff7;color:#68849a;font-size:10px;font-weight:750}
+.kv12-assurances>span{display:inline-flex;align-items:center;gap:7px}.kv12-assurances svg{color:#0b9eae}
+.kv12 :is(button,input):focus-visible{outline:3px solid #32afcc;outline-offset:3px}
+@media(max-width:1200px){.kv12-main{grid-template-columns:60% 40%}.kv12-copy{padding-left:29px}.kv12 #heroTitle{font-size:39px!important}.kv12 .kvEntryCard{gap:8px;padding:9px}}
+@media(max-width:900px){.kv12-main{grid-template-columns:67% 33%}.kv12-copy{padding:30px 8px 26px 22px}.kv12 #heroTitle{font-size:34px!important}.kv12 #heroSub{font-size:12px!important}.kv12-kicker{font-size:8px;gap:7px}.kv12-country{padding:13px 12px}.kv12 .kvEntryCards{gap:7px}.kv12 .kvEntryFlag{width:40px;height:40px}.kv12 .kvEntryTxt strong{font-size:11px}.kv12 .kvEntryTxt small{font-size:9px}}
+@media(max-width:710px){
+ .hero.kv12{margin-top:10px!important;border-radius:16px!important}
+ .kv12-main{display:block;min-height:358px;background:linear-gradient(116deg,#fcfeff,#eef9ff 100%)}
+ .kv12-copy{padding:23px 17px 20px;position:relative;z-index:3}
+ .kv12-kicker{font-size:8px;letter-spacing:.7px;margin-bottom:17px;gap:7px}
+ .kv12 #heroTitle{font-size:clamp(27px,7.4vw,32px)!important;line-height:1.13!important;letter-spacing:-1px!important;max-width:350px!important}
+ .kv12 #heroSub{font-size:11.3px!important;line-height:1.6!important;max-width:335px!important;margin-bottom:18px}
+ .kv12-find{min-height:52px;gap:8px;padding:5px 5px 5px 11px}
+ .kv12-find input{font-size:12px}.kv12-find button{min-width:84px;font-size:11px}
+ .kv12-links{margin-top:13px;gap:10px}.kv12-links button{font-size:9.5px}
+ .kv12-visual{position:absolute;inset:auto 0 0 0;min-height:0;height:190px;opacity:.23;background-position:center 69%;filter:saturate(.75)}
+ .kv12-visualFade{background:linear-gradient(180deg,#f2faff,rgba(242,250,255,.6) 31%,transparent)}
+ .kv12-visualCaption{display:none}
+ .kv12-country{padding:13px 11px 15px}
+ .kv12-countryTitle{gap:4px;margin-bottom:12px}
+ .kv12-countryTitle strong{font-size:14px}.kv12-countryTitle span{font-size:10px;line-height:1.4}
+ .kv12 .kvEntryCards{grid-template-columns:1fr 1fr;gap:8px}
+ .kv12 .kvEntryCard{min-height:64px;border-radius:11px;padding:8px;gap:7px}
+ .kv12 .kvEntryCard.kvAdd{grid-column:1/-1;min-height:57px;padding:8px 12px}
+ .kv12 .kvEntryFlag{width:38px;height:38px}.kv12 .kvEntryFlag .kvFlagSvg{width:31px;height:21px}
+ .kv12 .kvEntryTxt strong{font-size:11px}.kv12 .kvEntryTxt small{font-size:9px}
+ .kv12 .kvEntryIcon{height:39px;width:40px}
+ .kv12-assurances{padding:10px 12px;font-size:9px;flex-wrap:wrap;justify-content:flex-start}.kv12-assurances>span:nth-child(2){display:none}
+}
+@media(max-width:390px){.kv12-main{min-height:372px}.kv12-copy{padding:22px 14px}.kv12 #heroTitle{font-size:27px!important}.kv12-kicker{font-size:7.4px}.kv12-links button{font-size:9px}}
 </style></head>
 <body>
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 5h14M8 12h14M8 19h14M2 5h3M2 12h3M2 19h3" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.7a5.4 5.4 0 0 0-7.6 0L12 5.9l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.7a5.4 5.4 0 0 0 0-7.6z" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 7 9-7" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2c6 5 6 15 0 20M12 2c-6 5-6 15 0 20" stroke="currentColor" stroke-width="1.7" fill="none"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 21 6v7c0 5-4 8-9 9-5-1-9-4-9-9V6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 12 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5zm-9 5v10l9 5 9-5V7M12 12v10" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol><symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5zM2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M2 11 7 6l4 2 4-2 7 6-7 7-3-3-3 3zM2 11l7 8M22 12l-7 7" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol></svg>
@@ -436,37 +500,41 @@
 <div class="topactions"><button class="langbtn current" type="button" data-lang="ru">RU</button><button class="langbtn" type="button" data-lang="en">EN</button><button class="outlinebtn" type="button" id="signInBtn">Войти</button><button class="primarybtn" type="button" data-open="supplier">Регистрация — бесплатно</button><button class="menubtn" type="button" id="menuToggle" aria-label="Menu">☰</button></div></div>
 <div class="miniMenu hidden" id="mobileMenu"><a href="#catalog" class="navlink">Каталог</a><a href="#suppliers" class="navlink">Поставщики</a><a href="#rfq" class="navlink">Запросы RFQ</a><a href="#desk" class="navlink">Trade Desk</a><a href="#about" class="navlink">О проекте</a><button type="button" class="primarybtn" data-open="supplier">Разместить компанию</button></div></header>
 <main class="shell">
-<section class="hero kvHero" aria-label="KAZVIET Trade Network">
-  <div class="kvHeroSurface">
-    <div class="kvHeroText">
-      <div class="kvEyebrow"><span class="kvStatusDot"></span><span>KAZVIET TRADE NETWORK</span><span class="kvDividerDot">/</span><span>KAZAKHSTAN × VIETNAM</span></div>
-      <h1 id="heroTitle"><span class="heroTitleDesktop">Найдите производителя<br><em>в Казахстане или Вьетнаме</em></span><span class="heroTitleMobile">Найдите производителя<br><em>в Казахстане или Вьетнаме</em></span></h1>
-      <p id="heroSub">Находите фабрики и товары, запрашивайте оптовые предложения и начинайте торговые переговоры с поддержкой KAZVIET.</p>
-      <div class="kvHeroActions">
-        <button type="button" class="kvMainButton" id="heroRequest"><svg width="19" height="19"><use href="#i-search"></use></svg><span id="heroRequestLabel">Найти поставщика</span><span aria-hidden="true">↗</span></button>
-        <button type="button" class="kvGhostButton" id="heroSupplier" data-open="supplier"><svg width="18" height="18"><use href="#i-box"></use></svg><span id="heroSupplierLabel">Разместить производство</span></button>
-      </div>
-    </div>
-    <div class="kvHeroPicture" aria-hidden="true">
-      <div class="kvCity kvCityKZ"></div><div class="kvCity kvCityVN"></div><div class="kvVisualBlend"></div>
-      <div class="kvCountryVisual kvCountryVisualKZ"><svg class="kvFlagSvg" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="4" fill="#00A3DD"/><path d="M7 4v24" stroke="#FFCF40" stroke-width="2"/><g stroke="#FFCF40" stroke-width=".8"><path d="M24 4v5M24 19v5M14 14h5M29 14h5M17 7l3.5 3.5M27.5 17.5 31 21M17 21l3.5-3.5M27.5 10.5 31 7"/></g><circle cx="24" cy="14" r="5" fill="#FFD447"/><path d="M12.5 23c4-4 7-2.3 11.5 0 4.5-2.3 8-4 11.5 0-4 0-8 3-11.5 3-3.5-2-7.5-3-11.5-3Z" fill="#FFD447"/></svg> <span>KAZAKHSTAN</span></div>
-      <div class="kvCountryVisual kvCountryVisualVN"><svg class="kvFlagSvg" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="4" fill="#DA251D"/><path d="m24 6 3 7h7l-5.7 4.7 2.2 7L24 20.5l-6.5 4.2 2.2-7L14 13h7z" fill="#FFDE00"/></svg> <span>VIETNAM</span></div>
-      <svg class="kvRoute" viewBox="0 0 720 300" preserveAspectRatio="none"><defs><linearGradient id="kvFlightGradient" x1="0" x2="1"><stop stop-color="#0ed5d3"/><stop offset=".55" stop-color="#00cbfb"/><stop offset="1" stop-color="#178af5"/></linearGradient></defs><path d="M68 224C175 45 436 35 655 207" stroke="white" opacity=".65" stroke-width="7" fill="none"/><path d="M68 224C175 45 436 35 655 207" stroke="url(#kvFlightGradient)" stroke-width="3" fill="none"/><circle cx="68" cy="224" r="8" fill="#00c1be" stroke="white" stroke-width="4"/><circle cx="655" cy="207" r="8" fill="#188cf1" stroke="white" stroke-width="4"/><path transform="translate(354 87) rotate(25)" d="M0 -13L4 -2 16 1 16 5 3 6 0 14 -3 6 -16 5 -16 1 -4 -2Z" fill="white" stroke="#5bc4ef" stroke-width="1.3"/></svg>
-      <div class="kvPhotoCaption">CENTRAL ASIA <span>↔</span> SOUTHEAST ASIA</div>
-    </div>
+<section class="hero kv12" aria-label="KAZVIET Trade Network">
+<div class="kv12-main">
+ <div class="kv12-copy">
+  <div class="kv12-kicker"><span class="kv12-dot"></span>KAZVIET TRADE NETWORK <span class="kv12-sep"></span> KAZAKHSTAN × VIETNAM</div>
+  <h1 id="heroTitle">Оптовые поставки<br><em>Казахстан ↔ Вьетнам</em></h1>
+  <p id="heroSub">Каталог производителей и запросов на закупку в двух странах. Найдите подходящий товар или отправьте заявку на подбор.</p>
+  <div class="kv12-find" role="search">
+   <svg width="22" height="22" aria-hidden="true"><use href="#i-search"/></svg>
+   <input id="heroSearch" type="search" placeholder="Что вы ищете оптом?" aria-label="Поиск товаров и производителей">
+   <button type="button" id="heroSearchGo"><span id="heroSearchLabel">Найти</span><span aria-hidden="true">→</span></button>
   </div>
-  <div class="kvCountryEntry" id="countryEntry">
-    <div class="kvEntryHeading"><span id="countryEntryTitle">Где вы ищете поставщика?</span><span id="countryEntryNote">Выберите страну производства — каталог сразу покажет нужное направление.</span></div>
-    <div class="kvEntryCards">
+  <div class="kv12-links">
+   <button type="button" id="heroRequest"><span id="heroRequestLabel">Не нашли товар? Оставить запрос</span> <span aria-hidden="true">↗</span></button>
+   <span class="kv12-linkDivider"></span>
+   <button type="button" id="heroSupplier" data-open="supplier"><span id="heroSupplierLabel">Разместить производство</span> <span aria-hidden="true">↗</span></button>
+  </div>
+ </div>
+ <div class="kv12-visual" aria-hidden="true">
+  <div class="kv12-visualFade"></div>
+  <div class="kv12-visualCaption"><span class="kv12-dot"></span> CENTRAL ASIA <span class="kv12-cross">↔</span> SOUTHEAST ASIA</div>
+ </div>
+</div>
+<div class="kv12-country" id="countryEntry">
+ <div class="kv12-countryTitle"><strong id="countryEntryTitle">В какой стране ищете поставщика?</strong><span id="countryEntryNote">Выберите направление — каталог покажет соответствующие товары</span></div>
+ <div class="kvEntryCards">
       <button type="button" class="kvEntryCard kvVN" data-market-pick="vietnam"><span class="kvEntryFlag"><svg class="kvFlagSvg" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="4" fill="#DA251D"/><path d="m24 6 3 7h7l-5.7 4.7 2.2 7L24 20.5l-6.5 4.2 2.2-7L14 13h7z" fill="#FFDE00"/></svg></span><span class="kvEntryTxt"><small id="marketViSmall">Ищу товары из</small><strong id="marketViTitle">Вьетнама</strong></span><span class="kvEntryArrow" aria-hidden="true">↗</span></button>
       <button type="button" class="kvEntryCard kvKZ" data-market-pick="kazakhstan"><span class="kvEntryFlag"><svg class="kvFlagSvg" viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="4" fill="#00A3DD"/><path d="M7 4v24" stroke="#FFCF40" stroke-width="2"/><g stroke="#FFCF40" stroke-width=".8"><path d="M24 4v5M24 19v5M14 14h5M29 14h5M17 7l3.5 3.5M27.5 17.5 31 21M17 21l3.5-3.5M27.5 10.5 31 7"/></g><circle cx="24" cy="14" r="5" fill="#FFD447"/><path d="M12.5 23c4-4 7-2.3 11.5 0 4.5-2.3 8-4 11.5 0-4 0-8 3-11.5 3-3.5-2-7.5-3-11.5-3Z" fill="#FFD447"/></svg></span><span class="kvEntryTxt"><small id="marketKzSmall">Ищу товары из</small><strong id="marketKzTitle">Казахстана</strong></span><span class="kvEntryArrow" aria-hidden="true">↗</span></button>
       <button type="button" class="kvEntryCard kvAdd" id="addSupplierCountry"><span class="kvEntryIcon"><svg width="25" height="25"><use href="#i-box"/></svg></span><span class="kvEntryTxt"><small id="marketAddSmall">Вы производитель?</small><strong id="marketAddTitle">Разместить производство бесплатно</strong></span><span class="kvEntryArrow" aria-hidden="true">↗</span></button>
     </div>
-  </div>
-  <div class="kvSearchBar">
-    <div class="searchWrap"><svg width="22" height="22"><use href="#i-search"/></svg><input type="search" id="heroSearch" placeholder="Название товара, компания или категория..." aria-label="Поиск товаров"><button class="searchGo" id="heroSearchGo">Найти →</button></div>
-    <div class="heroPoints"><span><svg width="19" height="19"><use href="#i-shield"/></svg><span id="heroTrust1">Проверка по запросу</span></span><i></i><span><svg width="19" height="19"><use href="#i-globe"/></svg><span id="heroTrust2">Казахстан ↔ Вьетнам</span></span><i></i><span><svg width="19" height="19"><use href="#i-hand"/></svg><span id="heroTrust3">Помощь с переговорами</span></span></div>
-  </div>
+</div>
+<div class="kv12-assurances">
+ <span><svg width="16" height="16"><use href="#i-shield"/></svg><span id="heroTrust1">Проверка по запросу</span></span>
+ <span><svg width="16" height="16"><use href="#i-globe"/></svg><span id="heroTrust2">Казахстан ↔ Вьетнам</span></span>
+ <span><svg width="16" height="16"><use href="#i-hand"/></svg><span id="heroTrust3">Помощь с переговорами</span></span>
+</div>
 </section>
 <div class="announcement" id="demoNotice"><div><b>Предварительная версия.</b> Карточки товаров ниже — примеры дизайна, цены и поставщики пока не подтверждены. Оставьте запрос, чтобы мы начали поиск.</div><button type="button" id="hideNotice">Скрыть</button></div>
 <section class="view active" id="view-catalog"><div class="marketlayout"><aside><div class="panel categoryPanel"><div class="panelTitle"><svg width="24" height="24"><use href="#i-stack"/></svg><span id="sectorTitle">Категории товаров</span></div><div id="categoryList"></div></div><div class="panel helpPanel"><div class="smallcircle"><svg width="22" height="22"><use href="#i-hand"/></svg></div><h3 id="helpTitle">Ваш торговый партнёр в Казахстане и Вьетнаме</h3><div class="check"><svg width="16" height="16"><use href="#i-check"/></svg><span>Поиск производителей под запрос</span></div><div class="check"><svg width="16" height="16"><use href="#i-check"/></svg><span>Переговоры и коммерческие условия</span></div><div class="check"><svg width="16" height="16"><use href="#i-check"/></svg><span>Помощь с организацией сделки</span></div><button class="primarybtn helpcta" type="button" data-open="rfq">Разместить запрос →</button></div></aside><div><div class="mainHead"><h2 id="resultTitle">Каталог товаров <em id="resultCaption">Примеры категорий для будущего каталога</em></h2><div class="viewSwitch"><select id="sortSelect" class="sort" aria-label="Сортировка"><option value="default">По релевантности</option><option value="title">По названию</option><option value="country">По стране</option></select><button class="switch on" data-layout="grid" aria-label="Плитка"><svg width="19" height="19"><use href="#i-grid"/></svg></button><button class="switch" data-layout="list" aria-label="Список"><svg width="19" height="19"><use href="#i-list"/></svg></button></div></div><div class="panel filters"><select id="marketFilter" aria-label="Направление торговли"><option value="all">Рынок: любой</option><option value="vietnam">Из Вьетнама</option><option value="kazakhstan">Из Казахстана</option></select><select id="categoryFilter" aria-label="Категория"><option value="all">Все категории</option></select><select id="moqFilter" aria-label="MOQ"><option value="all">MOQ: любой</option><option value="confirmed">MOQ подтверждён</option></select><select id="priceFilter" aria-label="Цена"><option value="all">Цена: по запросу</option><option value="published">Есть опубликованная цена</option></select><select id="incotermFilter" aria-label="Базис поставки"><option value="all">Инкотермс: любой</option><option value="confirmed">Базис подтверждён</option></select><label class="verify"><svg width="17" height="17"><use href="#i-shield"/></svg>Только проверенные <input id="verifiedOnly" type="checkbox"></label></div><div class="cards" id="productGrid" aria-live="polite"></div></div></div></section>
@@ -507,16 +575,16 @@ var $=function(s){return document.querySelector(s)},$$=function(s){return Array.
 function changeLanguage(l){
  state.lang=l;document.documentElement.lang=l;$$('[data-lang]').forEach(function(el){el.classList.toggle('current',el.dataset.lang===l)});
  var d=tr[l];$$('#mainMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});$$('#mobileMenu .navlink').forEach(function(el,i){el.textContent=d.nav[i]});
- $('#heroTitle').innerHTML=l==='ru'?'<span class="heroTitleDesktop">Найдите производителя<br><em>в Казахстане или Вьетнаме</em></span><span class="heroTitleMobile">Найдите производителя<br><em>в Казахстане или Вьетнаме</em></span>':'<span class="heroTitleDesktop">Find manufacturers<br><em>in Kazakhstan or Vietnam</em></span><span class="heroTitleMobile">Find manufacturers<br><em>in Kazakhstan or Vietnam</em></span>';
- $('#heroSub').textContent=l==='ru'?'Находите фабрики и товары, запрашивайте оптовые предложения и начинайте торговые переговоры с поддержкой KAZVIET.':'Find manufacturers and products, request wholesale quotations, and start trade discussions with support from KAZVIET.';
- $('#heroRequestLabel').textContent=l==='ru'?'Найти поставщика':'Find suppliers';$('#heroSupplierLabel').textContent=l==='ru'?'Разместить производство':'List your production';
+ $('#heroTitle').innerHTML=l==='ru'?'Оптовые поставки<br><em>Казахстан ↔ Вьетнам</em>':'Wholesale sourcing<br><em>Kazakhstan ↔ Vietnam</em>';
+ $('#heroSub').textContent=l==='ru'?'Каталог производителей и запросов на закупку в двух странах. Найдите нужное предложение или отправьте заявку на подбор.':'Manufacturers and wholesale enquiries across two countries. Discover products or submit a sourcing request.';
+ $('#heroRequestLabel').textContent=l==='ru'?'Не нашли товар? Оставить запрос':'Need a product? Send an RFQ';$('#heroSupplierLabel').textContent=l==='ru'?'Разместить производство':'List your factory';$('#heroSearchLabel').textContent=l==='ru'?'Найти':'Search';
  $('#heroTrust1').textContent=l==='ru'?'Проверка по запросу':'Verification on request';$('#heroTrust2').textContent=l==='ru'?'Казахстан ↔ Вьетнам':'Kazakhstan ↔ Vietnam';$('#heroTrust3').textContent=l==='ru'?'Помощь с переговорами':'Negotiation support';
  $('#countryEntryTitle').textContent=l==='ru'?'Где вы ищете поставщика?':'Where are you sourcing from?';
  $('#countryEntryNote').textContent=l==='ru'?'Выберите страну производства — каталог сразу покажет нужное направление.':'Choose the manufacturing country to filter the catalog.';
  $('#marketViSmall').textContent=l==='ru'?'Ищу товары из':'Source from';$('#marketViTitle').textContent=l==='ru'?'Вьетнама':'Vietnam';
  $('#marketKzSmall').textContent=l==='ru'?'Ищу товары из':'Source from';$('#marketKzTitle').textContent=l==='ru'?'Казахстана':'Kazakhstan';
  $('#marketAddSmall').textContent=l==='ru'?'Вы производитель?':'Are you a manufacturer?';$('#marketAddTitle').textContent=l==='ru'?'Разместить производство бесплатно':'List your production for free';
- $('#heroSearch').placeholder=d.placeholder;$('#heroSearchGo').textContent=d.find;$('#sectorTitle').textContent=d.sector;$('#resultTitle').childNodes[0].nodeValue=d.catalog+' ';$('#resultCaption').textContent=d.demo;
+ $('#heroSearch').placeholder=d.placeholder;$('#sectorTitle').textContent=d.sector;$('#resultTitle').childNodes[0].nodeValue=d.catalog+' ';$('#resultCaption').textContent=d.demo;
  renderCategories();renderProducts();}
 function renderCategories(){var html='<button type="button" class="cat '+(state.category==='all'?'active':'')+'" data-cat="all">'+icon('stack',18)+'<span class="catText">'+(state.lang==='ru'?'Все категории':'All categories')+'</span><span class="chev">›</span></button>';categories.forEach(function(c){html+='<button type="button" class="cat '+(state.category===c.id?'active':'')+'" data-cat="'+c.id+'"><span style="font-size:19px;line-height:1">'+c.emoji+'</span><span class="catText">'+esc(name(c))+'</span><span class="chev">›</span></button>'});$('#categoryList').innerHTML=html;var sel=$('#categoryFilter');var val=sel.value;sel.innerHTML='<option value="all">'+(state.lang==='ru'?'Все категории':'All categories')+'</option>'+categories.map(function(c){return '<option value="'+c.id+'">'+esc(name(c))+'</option>'}).join('');sel.value=state.category;}
 function renderProducts(){var a=products.filter(function(p){var match=state.category==='all'||state.category===p.cat;match=match&&(state.country==='all'||p.country===state.country);match=match&&(!state.query||(name(p).toLowerCase()+' '+name(categories.find(function(c){return c.id===p.cat})).toLowerCase()).includes(state.query.toLowerCase()));match=match&&(!state.verified)&&state.moq!=='confirmed'&&state.price!=='published'&&state.incoterm!=='confirmed';return match;});if(state.sort==='title')a.sort(function(a,b){return name(a).localeCompare(name(b))});if(state.sort==='country')a.sort(function(a,b){return a.country.localeCompare(b.country)});var grid=$('#productGrid');grid.className='cards'+(state.layout==='list'?' aslist':'');if(!a.length){grid.innerHTML='<div class="noresults" style="grid-column:1/-1">'+icon('search',38)+'<h3>'+txt('empty')+'</h3><p>'+txt('emptySub')+'</p><button class="primarybtn" data-open="rfq">'+txt('send')+'</button><button class="outlinebtn" id="resetFilters">'+txt('show')+'</button></div>';return;}grid.innerHTML=a.map(function(p){var liked=favorites.includes(p.id);return '<article class="product '+(state.layout==='list'?'list':'')+'"><div class="prodphoto"><img src="'+p.image+'" loading="lazy" alt="'+esc(name(p))+'" onerror="this.style.opacity=.1"><span class="pin demo">'+txt('sample')+'</span><button class="heart '+(liked?'on':'')+'" title="Избранное" data-fav="'+p.id+'">'+icon('heart',19)+'</button></div><div class="prodBody"><h3 class="prodTitle">'+esc(name(p))+'</h3><div class="prodMeta"><span class="flagmini">'+(p.country==='vietnam'?'🇻🇳':'🇰🇿')+'</span><span>'+(p.country==='vietnam'?(state.lang==='ru'?'Вьетнам':'Vietnam'):(state.lang==='ru'?'Казахстан':'Kazakhstan'))+'</span> · <span>'+(state.lang==='ru'?'Поставщик уточняется':'Supplier pending')+'</span></div><div class="prodDivider"></div><div class="prodTerms"><span>'+txt('price')+'</span><span>'+txt('moq')+'</span></div><div class="prodActions"><button class="quote" data-product="'+p.id+'">'+icon('mail',14)+' '+txt('quote')+'</button><button class="details" data-detail="'+p.id+'">'+txt('supplier')+'</button></div></div></article>';}).join('');}
@@ -569,7 +637,7 @@ document.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener(
 [['#categoryFilter','category'],['#marketFilter','country'],['#moqFilter','moq'],['#priceFilter','price'],['#incotermFilter','incoterm'],['#sortSelect','sort']].forEach(function(a){$(a[0]).addEventListener('change',function(e){state[a[1]]=e.target.value;if(a[1]==='category')renderCategories();renderProducts();});});
 $('#verifiedOnly').addEventListener('change',function(e){state.verified=e.target.checked;renderProducts();});
 function search(){state.query=$('#heroSearch').value.trim();location.hash='#catalog';navigate();renderProducts();document.getElementById('resultTitle').scrollIntoView({behavior:'smooth',block:'start'});}
-$('#heroRequest').addEventListener('click',function(){$('#countryEntry').scrollIntoView({behavior:'smooth',block:'center'});});$('#heroSearchGo').addEventListener('click',search);$('#heroSearch').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();search();}});
+$('#heroRequest').addEventListener('click',function(){showIntake('rfq','');});$('#heroSearchGo').addEventListener('click',search);$('#heroSearch').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();search();}});
 $('#modalClose').addEventListener('click',hideModal);modal.addEventListener('click',function(e){if(e.target===modal)hideModal();});document.addEventListener('keydown',function(e){if(e.key==='Escape')hideModal();});
 $('#menuToggle').addEventListener('click',function(){$('#mobileMenu').classList.toggle('hidden');});$('#signInBtn').addEventListener('click',function(){showModal('Личный кабинет — следующий этап','<p class="formNote">В текущем MVP доступна бесплатная заявка на размещение компании. Создание личного кабинета и самостоятельное редактирование профиля появятся после запуска защищённой серверной части.</p><button class="primarybtn" data-open="supplier">Оставить заявку на размещение →</button>','MVP ROADMAP');});
 $('#hideNotice').addEventListener('click',function(){$('#demoNotice').style.display='none'});
