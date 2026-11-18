@@ -97,7 +97,12 @@ python3 "$TMP/source/kazviet/deploy/build-production.py" \
 printf 'source_sha=%s\n' "$source_sha" > "$TMP/production/.kazviet-release"
 
 [[ -f "$TMP/production/index.html" ]] || die "Missing production homepage."
-[[ -f "$TMP/production/vi/index.html" ]] || die "Missing Vietnamese edition."
+for lang in ru en kk; do
+  [[ -f "$TMP/production/$lang/index.html" ]] || die "Missing $lang edition."
+done
+[[ ! -e "$TMP/production/vi" ]] || die "Vietnamese locale must remain unpublished pending legal review."
+[[ -f "$TMP/production/favicon.svg" ]] || die "Missing KAZVIET favicon."
+[[ -f "$TMP/production/site.webmanifest" ]] || die "Missing site manifest."
 [[ -f "$TMP/production/sitemap.xml" ]] || die "Missing sitemap."
 
 mkdir -p "$HOME_DIR/backups" "$WWW"
