@@ -55,6 +55,12 @@ jobs:
               assert f'/{lang}/suppliers/vietnam/tt-plywood/' in by_path
               assert 'kv-b2b-checklist' in by_path[f'/{lang}/products/vietnam-plywood/'], lang
               assert 'kv-evidence' in by_path[f'/{lang}/suppliers/vietnam/tt-plywood/'], lang
+          home = by_path['/']
+          assert 'id="kvHomeWhy"' in home
+          assert 'href="/ru/"' in home
+          assert 'href="/ru/?country=vietnam"' in home
+          assert 'href="/ru/?country=kazakhstan"' in home
+          assert 'href="/#catalog"' not in home
           assert all(not path.startswith('/vi/') for path in by_path)
           assert not (root/'vi').exists()
           assert (root/'favicon.svg').is_file()
