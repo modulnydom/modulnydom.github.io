@@ -41,7 +41,11 @@ def language(path: str) -> str:
 
 
 def variants(path: str, available: set[str]) -> dict[str, str]:
-    segments = path.strip("/").split("/") if path != "/" else []
+    # The international homepage is now a distinct landing page, not a
+    # translation of the locale-specific company directories.
+    if path == "/":
+        return {}
+    segments = path.strip("/").split("/")
     remainder = segments[1:] if segments and segments[0] in LANGS else []
     result = {}
     for code in LANGS:
@@ -157,8 +161,9 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
     ]
     for other, target in variants(path, available).items():
         additions.append('<link rel="alternate" hreflang="' + other + '" href="' + target + '">')
+    if path in ("/ru/", "/en/", "/kk/"):
+        additions.append('<link rel="alternate" hreflang="x-default" href="' + BASE + '/ru/">')
     if path == "/" or path in ("/ru/", "/en/", "/kk/"):
-        additions.append('<link rel="alternate" hreflang="x-default" href="' + BASE + '/">')
         additions.append('<link rel="preload" as="image" href="/assets/hero-v13.avif" fetchpriority="high">')
     if path == "/" and 'property="og:image"' not in head:
         additions.append('<meta property="og:image" content="' + BASE + '/assets/hero-v13.avif">')
@@ -308,8 +313,8 @@ def improve_sitemap(root: Path, available: set[str]) -> None:
         if path == "/" or path.strip("/").split("/")[0] in LANGS:
             for code, target in variants(path, available).items():
                 ET.SubElement(node, f"{{{XNS}}}link", {"rel": "alternate", "hreflang": code, "href": target})
-            if path in ("/", "/ru/", "/en/", "/kk/"):
-                ET.SubElement(node, f"{{{XNS}}}link", {"rel": "alternate", "hreflang": "x-default", "href": BASE + "/"})
+            if path in ("/ru/", "/en/", "/kk/"):
+                ET.SubElement(node, f"{{{XNS}}}link", {"rel": "alternate", "hreflang": "x-default", "href": BASE + "/ru/"})
     xml.write(source, encoding="utf-8", xml_declaration=True)
 
 
