@@ -1,0 +1,59 @@
+name: KAZVIET multilingual SEO build audit
+
+on:
+  push:
+    paths:
+      - 'kazviet/**'
+      - '.github/workflows/kazviet-seo-audit.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-site:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile SEO build scripts
+        run: python3 -m py_compile kazviet/deploy/build-production.py kazviet/deploy/seo-enhance.py
+      - name: Build isolated production site and run audit
+        run: python3 kazviet/deploy/build-production.py --source kazviet --output /tmp/kazviet-production
+      - name: Verify every page, all language alternates and buyer pages
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          root = Path('/tmp/kazviet-production')
+          pages = sorted(root.rglob('*.html'))
+          assert len(pages) == 141, len(pages)
+          links = set()
+          by_path = {}
+          for page in pages:
+              p = '/' if page == root / 'index.html' else '/' + page.relative_to(root).parent.as_posix() + '/'
+              links.add('https://kazviet.asia' + p)
+              by_path[p] = page.read_text(encoding='utf-8')
+          for p, html in by_path.items():
+              assert len(re.findall(r'<h1\b', html, re.I)) == 1, p
+              assert html.count('rel="canonical"') == 1, p
+              assert f'href="https://kazviet.asia{p}"' in html, p
+              assert 'modulnydom.github.io/kazviet' not in html, p
+              assert '"@type":"Organization"' in html, p
+              for dest in re.findall(r'<link\s+rel="alternate"\s+hreflang="(?:ru|en|vi|kk)"\s+href="([^"]+)"', html):
+                  assert dest in links, (p,dest)
+          ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9', 'x': 'http://www.w3.org/1999/xhtml'}
+          tree = ET.parse(root/'sitemap.xml')
+          urls = {node.findtext('s:loc',namespaces=ns) for node in tree.findall('s:url', ns)}
+          assert urls == links, (len(urls), len(links))
+          for loc in urls:
+              p = loc.removeprefix('https://kazviet.asia')
+              html = by_path[p]
+              assert 'name="robots"' in html, p
+          for lang in ('ru','en','vi','kk'):
+              assert f'/{lang}/products/vietnam-plywood/' in by_path
+              assert f'/{lang}/suppliers/vietnam/tt-plywood/' in by_path
+              assert 'kv-b2b-checklist' in by_path[f'/{lang}/products/vietnam-plywood/'], lang
+              assert 'kv-evidence' in by_path[f'/{lang}/suppliers/vietnam/tt-plywood/'], lang
+          print('SUCCESS:', len(pages), 'indexed HTML pages; four locales; source transparency and procurement guides')
+          PY
