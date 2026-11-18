@@ -77,7 +77,7 @@ def build(source: Path, output: Path) -> dict:
 
 def audit(root: Path, written: int = 0) -> dict:
     required = [
-        "index.html", "sitemap.xml", "robots.txt", "favicon.svg", "site.webmanifest", "assets/approved-hub.css",
+        "index.html", "sitemap.xml", "robots.txt", "favicon.svg", "site.webmanifest", "assets/kazviet-mark.svg", "assets/brand.css", "assets/approved-hub.css",
         "assets/approved-hub.js", "ru/index.html", "en/index.html",
         "kk/index.html",
     ]
@@ -106,6 +106,13 @@ def audit(root: Path, written: int = 0) -> dict:
     if len(urls) < MIN_URLS or len(urls) != len(set(urls)):
         raise RuntimeError(f"Unexpected sitemap count/duplicates: {len(urls)}.")
 
+    # A favicon may simplify the full wordmark, but its K paths and colours
+    # must always be identical to the mark used throughout the website.
+    def k_paths(path: Path) -> list[tuple[str, str]]:
+        return re.findall(r'<path\\s+fill="(#[A-Fa-f0-9]+)"\\s+d="([^"]+)"', path.read_text(encoding="utf-8"))
+    if k_paths(root / "favicon.svg") != k_paths(root / "assets/kazviet-mark.svg"):
+        raise RuntimeError("Favicon and displayed KAZVIET mark have diverged.")
+
     html_count = 0
     for page in root.rglob("*.html"):
         if "research" in page.parts:
@@ -119,6 +126,12 @@ def audit(root: Path, written: int = 0) -> dict:
             raise RuntimeError(f"Missing canonical: {page.relative_to(root)}")
         if 'rel="icon" type="image/svg+xml" href="/favicon.svg"' not in contents:
             raise RuntimeError(f"Missing favicon on {page.relative_to(root)}")
+        if 'href="/assets/brand.css?v=20261119"' not in contents:
+            raise RuntimeError(f"Missing shared brand stylesheet on {page.relative_to(root)}")
+        if contents.count('class="kvBrandSymbol"') != 2:
+            raise RuntimeError(f"Expected branded header and footer on {page.relative_to(root)}")
+        if contents.count('src="/assets/kazviet-mark.svg"') != 2:
+            raise RuntimeError(f"Logo differs between header and footer on {page.relative_to(root)}")
         if 'hreflang="vi"' in contents:
             raise RuntimeError(f"Disabled Vietnamese language advertised by {page.relative_to(root)}")
         html_count += 1
