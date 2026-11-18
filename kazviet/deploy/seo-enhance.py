@@ -14,7 +14,8 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 BASE = "https://kazviet.asia"
-LANGS = ("ru", "en", "vi", "kk")
+LANGS = ("ru", "en", "kk")
+# Vietnamese is disabled in production pending Article 27 / 248/2026 compliance.
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 XNS = "http://www.w3.org/1999/xhtml"
 
@@ -148,7 +149,7 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
     ]
     for other, target in variants(path, available).items():
         additions.append('<link rel="alternate" hreflang="' + other + '" href="' + target + '">')
-    if path == "/" or path in ("/ru/", "/en/", "/vi/", "/kk/"):
+    if path == "/" or path in ("/ru/", "/en/", "/kk/"):
         additions.append('<link rel="alternate" hreflang="x-default" href="' + BASE + '/">')
         additions.append('<link rel="preload" as="image" href="/assets/hero-v13.avif" fetchpriority="high">')
     if path == "/" and 'property="og:image"' not in head:
@@ -277,6 +278,12 @@ def improve_sitemap(root: Path, available: set[str]) -> None:
     source = root / "sitemap.xml"
     xml = ET.parse(source)
     entries = xml.findall(f"{{{NS}}}url")
+    # Purge disabled /vi/ URL entries instead of advertising 404 pages to crawlers.
+    for node in list(entries):
+        loc = node.findtext(f"{{{NS}}}loc", default="")
+        if loc.startswith(BASE + "/vi/"):
+            xml.getroot().remove(node)
+    entries = xml.findall(f"{{{NS}}}url")
     existing = {node.findtext(f"{{{NS}}}loc") for node in entries}
     if existing != {BASE + p for p in available}:
         raise RuntimeError("Sitemap URLs and HTML pages differ; cannot safely rewrite alternates.")
@@ -289,7 +296,7 @@ def improve_sitemap(root: Path, available: set[str]) -> None:
         if path == "/" or path.strip("/").split("/")[0] in LANGS:
             for code, target in variants(path, available).items():
                 ET.SubElement(node, f"{{{XNS}}}link", {"rel": "alternate", "hreflang": code, "href": target})
-            if path in ("/", "/ru/", "/en/", "/vi/", "/kk/"):
+            if path in ("/", "/ru/", "/en/", "/kk/"):
                 ET.SubElement(node, f"{{{XNS}}}link", {"rel": "alternate", "hreflang": "x-default", "href": BASE + "/"})
     xml.write(source, encoding="utf-8", xml_declaration=True)
 
