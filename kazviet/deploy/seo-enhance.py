@@ -253,7 +253,7 @@ def enhance_visible_content(html: str, path: str, suppliers: dict) -> str:
     # The enquiry section's class/id attribute order differs between page templates.
     # Match the whole opening tag so both <section id="enquiry" ...> and
     # <section class="enquiry" id="enquiry"> receive the buyer guidance.
-    match = re.search(r'<section\\b[^>]*\\bid\\s*=\\s*["\\\']enquiry["\\\'][^>]*>', html, flags=re.IGNORECASE)
+    match = re.search(r'<section\b[^>]*\bid\s*=\s*"enquiry"[^>]*>', html, flags=re.IGNORECASE)
     if match is None:
         return html
     marker = match.group(0)
