@@ -86,6 +86,7 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
                 node["isPartOf"] = {"@id": site_ref}
             if "WebSite" in types and node.get("url") == BASE + "/":
                 node["@id"] = site_ref
+                node["inLanguage"] = list(LANGS)
                 node["publisher"] = {"@id": org_ref}
         if not any("Organization" in (x.get("@type") if isinstance(x.get("@type"), list) else [x.get("@type")]) and x.get("@id") == org_ref for x in nodes):
             nodes.append({
@@ -117,6 +118,9 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
 
 
 def improve_html(html: str, path: str, available: set[str]) -> str:
+    # Remove every advertised Vietnamese language entry from the production UI.
+    # All /vi/ HTML has been excluded; do not present any dead language switches.
+    html = re.sub(r'<a\\b(?=[^>]*\\bhref="/vi/[^"]*")[^>]*>.*?</a>', '', html, flags=re.IGNORECASE | re.DOTALL)
     code = language(path)
     canonical = BASE + path
     title = read_title(html)
