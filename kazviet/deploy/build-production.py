@@ -109,8 +109,8 @@ def audit(root: Path, written: int = 0) -> dict:
     # A favicon may simplify the full wordmark, but its K paths and colours
     # must always be identical to the mark used throughout the website.
     def k_paths(path: Path) -> list[tuple[str, str]]:
-        return re.findall(r'<path\\s+fill="(#[A-Fa-f0-9]+)"\\s+d="([^"]+)"', path.read_text(encoding="utf-8"))
-    if k_paths(root / "favicon.svg") != k_paths(root / "assets/kazviet-mark.svg"):
+        return re.findall(r'<path\s+fill="(#[A-Fa-f0-9]+)"\s+d="([^"]+)"', path.read_text(encoding="utf-8"))
+    if len(k_paths(root / "favicon.svg")) != 3 or k_paths(root / "favicon.svg") != k_paths(root / "assets/kazviet-mark.svg"):
         raise RuntimeError("Favicon and displayed KAZVIET mark have diverged.")
 
     html_count = 0
