@@ -585,7 +585,7 @@
   </div>
 </section>
 <section class="kvSeeds" id="realSuppliersPreview" aria-labelledby="realSuppliersTitle">
-<div class="kvSeedsHead"><div><span class="kvSeedsEyebrow">KAZVIET · MANUFACTURERS & PRODUCTS</span><h2 id="realSuppliersTitle">Производители Казахстана и Вьетнама</h2><p id="realSuppliersSub">Изучайте предприятия и товарные направления. Отправляйте запросы на оптовые поставки напрямую через KAZVIET.</p></div><div class="kvSeedsLinks"><a href="/kazviet/ru/" id="realSuppliersAll">Весь каталог →</a><a href="/kazviet/kk/" id="realSuppliersKk">Қазақша каталог ↗</a></div></div>
+<div class="kvSeedsHead"><div><span class="kvSeedsEyebrow">KAZVIET · ПРОИЗВОДИТЕЛИ И ТОВАРЫ</span><h2 id="realSuppliersTitle">Производители Казахстана и Вьетнама</h2><p id="realSuppliersSub">Изучайте предприятия и товарные направления. Отправляйте запросы на оптовые поставки напрямую через KAZVIET.</p></div><div class="kvSeedsLinks"><a href="/kazviet/ru/" id="realSuppliersAll">Весь каталог →</a><a href="/kazviet/kk/" id="realSuppliersKk">Қазақша каталог ↗</a></div></div>
 <div class="kvSeedsPills"><button type="button" class="current" data-seed-country="all" id="seedCountryAll">Все компании</button><button type="button" data-seed-country="kz" id="seedCountryKZ">🇰🇿 Казахстан</button><button type="button" data-seed-country="vn" id="seedCountryVN">🇻🇳 Вьетнам</button></div>
 <div class="kvSeedsGrid" id="realSuppliersGrid" aria-live="polite"><div class="kvSeedLoading">Загружаем каталог компаний…</div></div>
 <div class="kvSeedFoot"><span id="realSuppliersFooter">Казахстан × Вьетнам · Международная торговая сеть</span><a href="/kazviet/sitemap.xml" rel="nofollow">Sitemap.xml</a></div></section>
@@ -734,6 +734,7 @@ $('#menuToggle').addEventListener('click',function(){$('#mobileMenu').classList.
 $('#hideNotice').addEventListener('click',function(){$('#demoNotice').style.display='none'});
 window.addEventListener('hashchange',navigate);
 $('#rfqFormHost').innerHTML=formHTML('rfq','');renderCategories();renderProducts();loadSeedDirectory();navigate();
+function routeExtra(){if(location.hash==='#register'){pickSupplierCountry()}else if(location.hash==='#account'){document.getElementById('signInBtn').click()}}window.addEventListener('hashchange',routeExtra);routeExtra();
 })();
 </script>
 <script defer src="/kazviet/assets/catalog-visuals.js"></script></body></html>
