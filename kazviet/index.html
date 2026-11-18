@@ -89,6 +89,32 @@
 @media(max-width:410px){.heroTop{height:353px;padding:22px 15px}.hero h1{font-size:28px}.hero p:not(.eyebrow){font-size:11px}.heroAction{font-size:9.3px;padding:10px 9px}.heroActionSecondary{padding:10px 8px}.heroCTAs{gap:6px}}
 @media(prefers-reduced-motion:reduce){.heroAction{transition:none}}
 
+
+/* Final hero polish: readable destination scene, responsive paired actions */
+.cityHanoi{filter:saturate(1.02) contrast(.94) brightness(1.24)}
+.cityMist{background:linear-gradient(90deg,#f7fcff 0%,#f4fbff 22%,rgba(245,251,255,.97) 34%,rgba(238,249,255,.68) 46%,rgba(224,244,255,.26) 62%,rgba(221,245,255,.14) 78%),linear-gradient(0deg,rgba(229,245,255,.52) 0%,transparent 38%)}
+.heroArc{opacity:.79;filter:drop-shadow(0 0 4px rgba(2,153,210,.25))}
+@media(max-width:710px){
+ .heroTop{height:323px}
+ .heroCTAs{flex-wrap:nowrap;gap:8px;align-items:stretch}
+ .heroAction{flex:1;min-width:0;padding:9px 6px;line-height:1.26;font-size:9px;min-height:44px}
+ .heroActionPrimary{flex:.93}
+ .heroActionSecondary{flex:1.07}
+ .heroActionPrimary .ctaArrow{margin-left:0}
+ .heroAction svg{width:14px;height:14px}
+ .hero h1{font-size:30px}
+ .hero p:not(.eyebrow){max-width:335px}
+ .countryLabel{bottom:7px}
+ .cityAstana{opacity:.45}
+ .cityHanoi{opacity:.35}
+}
+@media(max-width:410px){
+ .heroTop{height:334px}
+ .heroAction{font-size:8.7px;gap:5px}
+ .heroActionPrimary{flex:.9}
+ .heroActionSecondary{flex:1.1}
+ .hero h1{font-size:28px}
+}
 </style></head>
 <body>
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" fill="none" stroke-width="2"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M8 5h14M8 12h14M8 19h14M2 5h3M2 12h3M2 19h3" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.7a5.4 5.4 0 0 0-7.6 0L12 5.9l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.7a5.4 5.4 0 0 0 0-7.6z" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 7 9-7" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2c6 5 6 15 0 20M12 2c-6 5-6 15 0 20" stroke="currentColor" stroke-width="1.7" fill="none"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 21 6v7c0 5-4 8-9 9-5-1-9-4-9-9V6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 12 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5zm-9 5v10l9 5 9-5V7M12 12v10" stroke="currentColor" stroke-width="1.6" fill="none"/></symbol><symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5zM2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M2 11 7 6l4 2 4-2 7 6-7 7-3-3-3 3zM2 11l7 8M22 12l-7 7" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol></svg>
