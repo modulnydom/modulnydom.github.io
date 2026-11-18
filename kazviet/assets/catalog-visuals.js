@@ -72,11 +72,27 @@ function improveCategory(card){
  const slug=card.dataset.cat,path=categories[slug];if(!path)return;
  card.dataset.kvVisualReady='1';card.prepend(createImage(path,card.textContent.trim(),slug,'kv-cat-image',false));
 }
+function productPhoto(label,defaultSlug){
+ const q=(label||'').toLowerCase();
+ if(/(?:flour|мук|ұн|bột mì|cám|bran)/.test(q))return 'suppliers/sevesilzerno.jpg';
+ if(/(?:linseed|flax|л[её]н|зығыр|hạt lanh)/.test(q))return 'suppliers/dynasty-agro.jpg';
+ if(/(?:rapeseed|рапс|cải dầu|canola|sunflower|подсолнечник|күнбағыс)/.test(q))return 'suppliers/altyn-harvest.jpg';
+ if(/(?:oil|масло|масл|dầu|май)/.test(q))return 'suppliers/maslodel.jpg';
+ if(/(?:beans|pulses|бобов|бұршақ|legumes|lentil|чечевиц|đậu)/.test(q))return 'suppliers/organicum-bio.jpg';
+ if(/(?:coffee|кофе|cà phê)/.test(q))return 'suppliers/simexco-daklak.jpg';
+ if(/(?:chocolate|кондитер|сладост|bánh kẹo|confection)/.test(q))return 'suppliers/kazkon.jpg';
+ if(/(?:furniture|мебел|жиһаз|nội thất)/.test(q))return 'suppliers/fpv-vietnam.jpg';
+ if(/(?:packing|packaging|упаков|bao bì)/.test(q))return 'suppliers/tt-plywood.jpg';
+ if(/(?:plywood|фанер|ván ép|ағаш тақт)/.test(q))return 'suppliers/hg-plywood.jpg';
+ if(/(?:veneer|шпон|ván lạng)/.test(q))return 'suppliers/anh-phuong.jpg';
+ if(/(?:grain|cereal|wheat|зерн|пшениц|астық|lúa mì|ngũ cốc)/.test(q))return 'suppliers/kazcrop.jpg';
+ return 'suppliers/'+defaultSlug+'.jpg';
+}
 function improveCompanyPage(p){
  const slug=p.dataset.slug;if(!profiles.has(slug))return;
  const hero=document.querySelector('main .hero');
  if(hero&&!hero.classList.contains('kv-image-hero')){hero.classList.add('kv-image-hero');hero.style.setProperty('--kv-hero-photo','url("'+base+'suppliers/'+slug+'.jpg")')}
- document.querySelectorAll('.kvProduct:not([data-kv-visual-ready])').forEach((v,i)=>{v.dataset.kvVisualReady='1';v.prepend(createImage('suppliers/'+slug+'.jpg',v.textContent.trim(),slug,'kv-product-image',i===0))});
+ document.querySelectorAll('.kvProduct:not([data-kv-visual-ready])').forEach((v,i)=>{v.dataset.kvVisualReady='1';v.prepend(createImage(productPhoto(v.textContent.trim(),slug),v.textContent.trim(),slug+'-product-'+i,'kv-product-image',i===0))});
 }
 function run(){
  document.querySelectorAll('a.kvSeedCard:not([data-kv-visual-ready])').forEach((c,i)=>improveSupplierCard(c,i));
