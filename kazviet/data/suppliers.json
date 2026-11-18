@@ -1,0 +1,350 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-11-18",
+  "policy": "Public factual information only; KAZVIET contact and cross-border market interest not confirmed; obtain permission before publishing company-supplied materials.",
+  "fields_explanation": {
+    "source_status": "public_source_only",
+    "contact_status": "not_contacted",
+    "market_interest": "unknown",
+    "verification": "not_verified_by_kazviet",
+    "consent": "not_collected"
+  },
+  "suppliers": [
+    {
+      "slug": "kazcrop",
+      "country": "kz",
+      "name": "Kazcrop LLP",
+      "location": "Petropavl, Kazakhstan",
+      "sector": "Agriculture & grain",
+      "site": "https://www.kazcrop.com/en",
+      "products": {
+        "ru": "Зерно, масличные культуры, бобовые и продукты переработки",
+        "en": "Grains, oilseeds, pulses and processed crops",
+        "kk": "Дәнді, майлы, бұршақты дақылдар және өңделген өнімдер",
+        "vi": "Ngũ cốc, hạt có dầu, các loại đậu và nông sản chế biến"
+      },
+      "source_url": "https://www.kazcrop.com/en",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "sevesilzerno",
+      "country": "kz",
+      "name": "SevEsilZerno LLP",
+      "location": "Kazakhstan",
+      "sector": "Flour & grain",
+      "site": "https://esilzerno.kz/en/about",
+      "products": {
+        "ru": "Пшеничная мука, отруби, зерно и масличные культуры",
+        "en": "Wheat flour, bran, grain and oilseeds",
+        "kk": "Бидай ұны, кебек, астық және майлы дақылдар",
+        "vi": "Bột mì, cám lúa mì, ngũ cốc và hạt có dầu"
+      },
+      "source_url": "https://esilzerno.kz/en/about",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "maslodel",
+      "country": "kz",
+      "name": "Maslo-Del LLP",
+      "location": "Kazakhstan",
+      "sector": "Food processing",
+      "site": "https://maslodel.kz/en/about/",
+      "products": {
+        "ru": "Пищевые масла и жиры, продукты масложировой промышленности",
+        "en": "Edible oils, fats and processed food products",
+        "kk": "Тағамдық майлар, тоңмайлар және өңделген азық-түлік",
+        "vi": "Dầu ăn, chất béo và thực phẩm chế biến"
+      },
+      "source_url": "https://maslodel.kz/en/about/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "organicum-bio",
+      "country": "kz",
+      "name": "Organicum Bio LLP",
+      "location": "Kostanay Region, Kazakhstan",
+      "sector": "Flour & agricultural products",
+      "site": "https://organicumbio.kz/en/about",
+      "products": {
+        "ru": "Мука, зерновые, бобовые и масличные культуры",
+        "en": "Flour, cereals, legumes and oilseeds",
+        "kk": "Ұн, дәнді, бұршақты және майлы дақылдар",
+        "vi": "Bột mì, ngũ cốc, các loại đậu và hạt có dầu"
+      },
+      "source_url": "https://organicumbio.kz/en/about",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "altyn-harvest",
+      "country": "kz",
+      "name": "Altyn Harvest LLP",
+      "location": "Kazakhstan",
+      "sector": "Agriculture & grain",
+      "site": "https://altyn-harvest.kz/",
+      "products": {
+        "ru": "Пшеничная мука, лён, подсолнечник, рапс, ячмень и горох",
+        "en": "Wheat flour, flaxseed, sunflower, rapeseed, barley and peas",
+        "kk": "Бидай ұны, зығыр, күнбағыс, рапс, арпа және бұршақ",
+        "vi": "Bột mì, hạt lanh, hướng dương, cải dầu, lúa mạch và đậu Hà Lan"
+      },
+      "source_url": "https://altyn-harvest.kz/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "kazkon",
+      "country": "kz",
+      "name": "KAZKON",
+      "location": "Kazakhstan",
+      "sector": "Confectionery",
+      "site": "https://kazkon.kz/en",
+      "products": {
+        "ru": "Кондитерские изделия и продукты питания",
+        "en": "Confectionery and food products",
+        "kk": "Кондитерлік өнімдер және азық-түлік",
+        "vi": "Bánh kẹo và thực phẩm"
+      },
+      "source_url": "https://kazkon.kz/en",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "dynasty-agro",
+      "country": "kz",
+      "name": "Dynasty Agro LLP",
+      "location": "North Kazakhstan Region, Kazakhstan",
+      "sector": "Oilseeds & edible oil",
+      "site": "https://export.bgov.kz/exporter/509/",
+      "products": {
+        "ru": "Нерафинированное льняное масло, семена льна, чечевица, рапс",
+        "en": "Unrefined flaxseed oil, flaxseed, lentils and rapeseed",
+        "kk": "Тазартылмаған зығыр майы, зығыр тұқымы, жасымық және рапс",
+        "vi": "Dầu hạt lanh chưa tinh luyện, hạt lanh, đậu lăng và cải dầu"
+      },
+      "source_url": "https://export.bgov.kz/exporter/509/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "grain-consortium",
+      "country": "kz",
+      "name": "Grain Consortium of Kazakhstan LLP",
+      "location": "Kazakhstan",
+      "sector": "Grain & flour",
+      "site": "https://export.bgov.kz/exporter/345/",
+      "products": {
+        "ru": "Пшеница, лён и пищевая мука",
+        "en": "Wheat, flaxseed and food-grade flour",
+        "kk": "Бидай, зығыр және тағамдық ұн",
+        "vi": "Lúa mì, hạt lanh và bột mì thực phẩm"
+      },
+      "source_url": "https://export.bgov.kz/exporter/345/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "simexco-daklak",
+      "country": "vn",
+      "name": "Simexco Daklak Ltd.",
+      "location": "Dak Lak, Vietnam",
+      "sector": "Coffee & agriculture",
+      "site": "https://simexcodl.com.vn/en/",
+      "products": {
+        "ru": "Кофе и сельскохозяйственная продукция",
+        "en": "Coffee and agricultural products",
+        "kk": "Кофе және ауыл шаруашылығы өнімдері",
+        "vi": "Cà phê và các sản phẩm nông nghiệp"
+      },
+      "source_url": "https://simexcodl.com.vn/en/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "intimex-group",
+      "country": "vn",
+      "name": "Intimex Group",
+      "location": "Vietnam",
+      "sector": "Coffee & agriculture",
+      "site": "https://www.intimexcoffee.com.vn/",
+      "products": {
+        "ru": "Зелёный кофе, перец, рис и орехи кешью",
+        "en": "Green coffee, pepper, rice and cashew nuts",
+        "kk": "Жасыл кофе, бұрыш, күріш және кешью жаңғағы",
+        "vi": "Cà phê nhân xanh, hồ tiêu, gạo và hạt điều"
+      },
+      "source_url": "https://www.intimexcoffee.com.vn/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "fpv-vietnam",
+      "country": "vn",
+      "name": "FPV Vietnam",
+      "location": "Vietnam",
+      "sector": "Furniture manufacturing",
+      "site": "https://www.fpv-vn.com/",
+      "products": {
+        "ru": "Деревянная мебель для экспорта",
+        "en": "Wooden furniture for export",
+        "kk": "Экспортқа арналған ағаш жиһаз",
+        "vi": "Nội thất gỗ dành cho xuất khẩu"
+      },
+      "source_url": "https://www.fpv-vn.com/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "tt-plywood",
+      "country": "vn",
+      "name": "TT Plywood",
+      "location": "Vietnam",
+      "sector": "Plywood & packaging",
+      "site": "https://ttplywood.com/",
+      "products": {
+        "ru": "Фанера, обработка древесины, деревянная упаковка",
+        "en": "Plywood, wood processing and wooden packaging",
+        "kk": "Фанера, ағаш өңдеу және ағаш қаптама",
+        "vi": "Ván ép, gia công gỗ và bao bì gỗ"
+      },
+      "source_url": "https://ttplywood.com/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "hg-plywood",
+      "country": "vn",
+      "name": "HG Plywood",
+      "location": "Vietnam",
+      "sector": "Plywood",
+      "site": "https://hgplywood.com/",
+      "products": {
+        "ru": "Фанера для строительства и промышленности",
+        "en": "Plywood for construction and industrial use",
+        "kk": "Құрылыс пен өнеркәсіпке арналған фанера",
+        "vi": "Ván ép cho xây dựng và công nghiệp"
+      },
+      "source_url": "https://hgplywood.com/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "dongstar-wood",
+      "country": "vn",
+      "name": "Dongstar Wood",
+      "location": "Vietnam",
+      "sector": "Plywood",
+      "site": "https://dongstarwood.vn/",
+      "products": {
+        "ru": "Фанера, шпон и решения для оптовых поставок",
+        "en": "Plywood, veneer and wholesale supply",
+        "kk": "Фанера, шпон және көтерме жеткізілімдер",
+        "vi": "Ván ép, ván lạng và cung ứng số lượng lớn"
+      },
+      "source_url": "https://dongstarwood.vn/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "tekcom",
+      "country": "vn",
+      "name": "TEKCOM",
+      "location": "Vietnam",
+      "sector": "Plywood",
+      "site": "https://tekcom20nam.vn/en/home-page-eng/",
+      "products": {
+        "ru": "Фанера и древесные материалы",
+        "en": "Plywood and wood-based panels",
+        "kk": "Фанера және ағаш негізіндегі тақталар",
+        "vi": "Ván ép và các loại tấm gỗ công nghiệp"
+      },
+      "source_url": "https://tekcom20nam.vn/en/home-page-eng/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    },
+    {
+      "slug": "anh-phuong",
+      "country": "vn",
+      "name": "Anh Phuong Vietnam Plywood",
+      "location": "Vietnam",
+      "sector": "Plywood",
+      "site": "https://anhphuongplywood.com/",
+      "products": {
+        "ru": "Производство и экспорт фанеры",
+        "en": "Plywood manufacturing and export",
+        "kk": "Фанера өндірісі және экспорты",
+        "vi": "Sản xuất và xuất khẩu ván ép"
+      },
+      "source_url": "https://anhphuongplywood.com/",
+      "source_checked_at": "2026-11-18",
+      "source_status": "public_source_only",
+      "contact_status": "not_contacted",
+      "target_market_interest": "unknown",
+      "verification_status": "not_verified_by_kazviet",
+      "permission_status": "not_collected"
+    }
+  ]
+}
