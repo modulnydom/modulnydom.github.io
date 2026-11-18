@@ -1,3 +1,4 @@
 User-Agent: *
 Allow: /
 
+Sitemap: https://modulnydom.github.io/kazviet/sitemap.xml
