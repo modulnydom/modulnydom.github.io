@@ -121,7 +121,63 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
     return re.sub(r'(<script\s+type="application/ld\+json"\s*>)(.*?)(</script>)', update, html, count=1, flags=re.DOTALL | re.IGNORECASE)
 
 
+
+# A single static brand lockup is used in headers and footers across all three
+# language families, including pages generated from different HTML templates.
+# The mark's geometry is identical to favicon.svg.
+BRAND_INNER = (
+    '<span class="kvBrandSymbol" aria-hidden="true">'
+    '<img src="/assets/kazviet-mark.svg" width="52" height="42" alt=""></span>'
+    '<span class="kvBrandType">'
+    '<strong class="kvBrandWord">KAZVIET<span>.ASIA</span></strong>'
+    '<small class="kvBrandCaption">TRADE NETWORK</small></span>'
+)
+
+
+def unify_branding(html: str, path: str) -> str:
+    header_count = 0
+
+    def replace_header(match: re.Match) -> str:
+        nonlocal header_count
+        opening, contents = match.group(1), match.group(2)
+        if "KAZVIET" not in contents or "<svg" not in contents:
+            return match.group(0)
+        header_count += 1
+        opening = opening.replace('class="', 'class="kvBrand ', 1)
+        return opening + BRAND_INNER + '</a>'
+
+    # These two legacy conventions cover the homepage, locale index and
+    # product/company/detail page templates. We do not modify unrelated links.
+    html = re.sub(
+        r'(<a\b[^>]*\bclass="[^"]*\b(?:logo|brand)\b[^"]*"[^>]*>)(.*?)</a>',
+        replace_header, html, flags=re.IGNORECASE | re.DOTALL
+    )
+
+    # Home and locale directory pages use a div.logo in the footer.
+    html, footer_modern = re.subn(
+        r'<div class="logo"><span class="brandmark">.*?<div class="brandcaption">TRADE NETWORK</div></span></div>',
+        '<div class="logo kvBrand kvBrandFooter">' + BRAND_INNER + '</div>',
+        html, flags=re.IGNORECASE | re.DOTALL
+    )
+
+    # Product/supplier/service pages use a text-only footer; give these the
+    # same full lockup as every other page.
+    html, footer_legacy = re.subn(
+        r'<(div|span)\b[^>]*\bclass="brand-text"[^>]*>KAZVIET<span>\.ASIA</span></\1>',
+        lambda m: '<a class="kvBrand kvBrandFooter" href="/" aria-label="KAZVIET.ASIA — главная">'
+            + BRAND_INNER + '</a>',
+        html, flags=re.IGNORECASE | re.DOTALL
+    )
+    if header_count != 1 or footer_modern + footer_legacy != 1:
+        raise RuntimeError(
+            f"Brand must appear exactly once in header and footer on {path}: "
+            f"header={header_count}, footer={footer_modern + footer_legacy}"
+        )
+    return html
+
+
 def improve_html(html: str, path: str, available: set[str]) -> str:
+    html = unify_branding(html, path)
     # Remove every advertised Vietnamese language entry from the production UI.
     # All /vi/ HTML has been excluded; do not present any dead language switches.
     html = re.sub(r'<a\b(?=[^>]*\bhref="/vi/[^"]*")[^>]*>.*?</a>', '', html, flags=re.IGNORECASE | re.DOTALL)
@@ -150,6 +206,7 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
 
     additions = [
         '<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">',
+        '<link rel="stylesheet" href="/assets/brand.css?v=20261119">',
         '<link rel="manifest" href="/site.webmanifest">',
         '<meta name="theme-color" content="#0b2540">',
         '<link rel="canonical" href="' + canonical + '">',
