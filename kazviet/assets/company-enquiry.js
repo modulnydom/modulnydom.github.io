@@ -21,6 +21,7 @@ const trap=field('website','',false,'text',true);trap.parentNode.classList.add('
 const agree=el('label','kvWide kvConsent');const check=el('input');check.type='checkbox';check.required=true;agree.append(check,document.createTextNode(t.consent));form.appendChild(agree);
 const btn=el('button','',t.send);btn.type='submit';form.appendChild(btn);const feedback=el('div','kvFeedback kvWide');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');form.appendChild(feedback);wrap.appendChild(form);section.appendChild(wrap);
 const main=document.querySelector('main .wrap')||document.querySelector('main');main.appendChild(section);
+if(location.hash==='#enquiry'){setTimeout(function(){var target=document.getElementById('enquiry');if(target)target.scrollIntoView({block:'start',behavior:'auto'})},120)}
 document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{if(a.closest('footer'))return;a.href='#enquiry';a.textContent=t.send;});
 form.addEventListener('submit',async function(e){e.preventDefault();feedback.className='kvFeedback kvWide';feedback.textContent='';if(!form.reportValidity())return;if(!email.value.trim()&&!messenger.value.trim()){feedback.textContent=t.required;return;}if(trap.value)return;
 const endpoint=window.KAZVIET_RQ_ENDPOINT||'';if(!/^https:\/\//.test(endpoint)){feedback.textContent=t.unavailable;return;}
