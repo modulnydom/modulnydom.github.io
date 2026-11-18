@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-<title>KAZVIET</title>
-<rect width="64" height="64" rx="15" fill="#0b2540"/>
-<g transform="translate(5 10) scale(1.04)">
-  <path fill="#13bdb6" d="M5 3H24L13 19H4ZM4 23h9l12 16H5Z"/>
-  <path fill="#1688d4" d="M26 3h19L25 22l19 17H25L10 22Z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">KAZVIET K</title>
+  <rect x="0" y="0" width="64" height="64" rx="15" fill="#0B2540"/>
+  <g transform="translate(3.5 8.5) scale(1.16)">
+    <path fill="#10B6BA" d="M5 3 24 3 13 19 4 19zM4 23h9l12 16H5z"/>
+    <path fill="#1184D0" d="M26 3h19L25 22 44 39H25L10 22z"/>
+    <path fill="#00D2CF" d="m17 3 12 0L9 39H1z"/>
+  </g>
 </svg>
