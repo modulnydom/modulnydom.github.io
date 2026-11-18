@@ -142,6 +142,7 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
     head = re.sub(r'<link\b[^>]*\brel="canonical"[^>]*>', "", head, flags=re.IGNORECASE)
     head = re.sub(r'<meta\b[^>]*\bproperty="og:url"[^>]*>', "", head, flags=re.IGNORECASE)
     head = re.sub(r'<meta\b[^>]*\bproperty="og:locale(?::alternate)?"[^>]*>', "", head, flags=re.IGNORECASE)
+    head = re.sub(r'<meta\b[^>]*\bname="theme-color"[^>]*>', "", head, flags=re.IGNORECASE)
 
     additions = [
         '<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">',
