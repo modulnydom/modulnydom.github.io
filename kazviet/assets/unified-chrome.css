@@ -1,0 +1,36 @@
+/* Unified KAZVIET site chrome for directory and supplier pages */ 
+.kv-global-header,.kv-global-footer{font-family:Manrope,Inter,Arial,sans-serif;box-sizing:border-box}
+.kv-global-header *,.kv-global-footer *{box-sizing:border-box}
+.kv-global-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid #e2ebf3;backdrop-filter:blur(18px)}
+.kv-global-shell{max-width:1510px;padding:0 18px;margin:0 auto}
+.kv-global-headrow{min-height:68px;display:flex;align-items:center;gap:22px}
+.kv-global-logo{display:flex;align-items:center;gap:10px;text-decoration:none!important;white-space:nowrap;color:#122949!important}
+.kv-global-symbol{width:45px;height:38px;display:grid;place-items:center}.kv-global-symbol svg{width:100%;height:100%}
+.kv-global-name{font-size:22px;font-weight:800;letter-spacing:-1.1px;line-height:1;color:#122949}.kv-global-name span{color:#0b75c3}
+.kv-global-caption{font-size:10px;font-weight:800;letter-spacing:2px;color:#7a90a3;margin-top:5px}
+.kv-global-nav{display:flex;gap:6px;align-items:center;margin-left:12px;flex:1}
+.kv-global-nav a{font-size:12px;font-weight:800;color:#122741;text-decoration:none;padding:11px 12px;border-radius:11px;white-space:nowrap}
+.kv-global-nav a:hover{background:#e7f5ff;color:#0879b7}
+.kv-global-actions{display:flex;gap:9px;align-items:center}
+.kv-global-lang{padding:10px 9px;border-radius:11px;text-decoration:none;color:#607991;font-size:12px;font-weight:800}
+.kv-global-lang.current{background:#e3f7f8;color:#006d82}
+.kv-global-outline{border:1px solid #bed0df;background:#fff;padding:11px 17px;border-radius:11px;text-decoration:none;color:#122741;font-weight:800;font-size:12px;white-space:nowrap}
+.kv-global-primary{color:#fff!important;background:linear-gradient(110deg,#0dbdb6,#057aa3);border-radius:11px;padding:12px 17px;text-decoration:none!important;font-weight:800;font-size:12px;white-space:nowrap;box-shadow:0 8px 18px rgba(0,139,161,.16)}
+.kv-global-mobile{display:none;color:#122741;border:1px solid #d7e5ee;padding:8px 10px;border-radius:9px;cursor:pointer;background:#fff;font-weight:800}
+.kv-global-footer{background:#10243a;color:#b9cad9;padding:42px 0 22px;margin-top:52px}
+.kv-global-footer a{color:#e0edf5;text-decoration:none}
+.kv-global-footer a:hover{text-decoration:underline}
+.kv-global-footer .kv-global-name{color:white}
+.kv-global-footer .kv-global-footgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.kv-global-footer p{font-size:13px;line-height:1.8;color:#9fb4c7}
+.kv-global-footer strong{font-size:13px;color:#fff}
+.kv-global-footer .kv-global-copy{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;margin-top:26px;border-top:1px solid #2c4056;font-size:11px;color:#9fb4c7}
+.kv-global-header .kv-global-toggle{display:none}
+.kv-global-header .kv-global-phone-nav{display:none}
+.kv-directory .notice,.kv-directory .checks,.kv-directory .hero .tag{display:none!important}
+.kv-directory .hero small{display:none!important}
+.kv-directory .hero{margin-top:26px}
+.kv-directory .panel .label{margin-top:8px}
+@media(max-width:1190px){.kv-global-nav a{padding:9px 7px}.kv-global-headrow{gap:8px}.kv-global-actions{gap:4px}.kv-global-outline{display:none}}
+@media(max-width:960px){.kv-global-nav,.kv-global-actions>.kv-global-primary{display:none}.kv-global-actions{margin-left:auto}.kv-global-header .kv-global-toggle{display:block}.kv-global-header .kv-global-phone-nav{display:none;flex-direction:column;border-top:1px solid #e2ebf3;padding:14px 18px;gap:7px;background:white}.kv-global-header .kv-global-phone-nav.open{display:flex}.kv-global-phone-nav a{padding:9px 13px;text-decoration:none;color:#122741;font-weight:750}.kv-global-phone-nav .kv-global-primary{color:white}}
+@media(max-width:640px){.kv-global-shell{padding:0 14px}.kv-global-name{font-size:19px}.kv-global-caption{font-size:8px}.kv-global-symbol{width:36px}.kv-global-lang{padding:7px 5px}.kv-global-headrow{gap:6px}.kv-global-footer .kv-global-footgrid{grid-template-columns:1fr;gap:12px}.kv-global-footer{padding-top:32px}}
