@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+from html import escape
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -162,6 +163,116 @@ def improve_html(html: str, path: str, available: set[str]) -> str:
     return html
 
 
+
+
+# Visible sourcing and buyer-specific purchasing fields are more useful than
+# meta-keyword stuffing. They are localized and do not imply any price or deal.
+LABELS = {
+    "ru": ("Что проверить в коммерческом предложении", "Уточните эти параметры до сравнения предложений:", "Составить запрос на закупку", "Источники данных о компании", "Сведения взяты из общедоступного источника. KAZVIET пока не проверял компанию, не подтверждал её согласие на участие в каталоге или интерес к экспорту. Условия сделки уточняйте напрямую.", "Публичный источник", "Дата проверки источника"),
+    "en": ("Wholesale quotation checklist", "Before comparing supplier offers, request:", "Prepare a purchasing enquiry", "Company information sources", "Information comes from a public source. KAZVIET has not yet independently verified this company, obtained its consent to participate or confirmed its export interest. Confirm trading terms before any payment.", "Public source", "Source checked"),
+    "vi": ("Thông tin cần xác nhận khi yêu cầu báo giá", "Trước khi so sánh báo giá, hãy hỏi rõ:", "Gửi yêu cầu mua hàng", "Nguồn thông tin doanh nghiệp", "Thông tin được tổng hợp từ nguồn công khai. KAZVIET chưa xác minh độc lập, chưa có sự đồng ý tham gia của doanh nghiệp hoặc xác nhận doanh nghiệp có nhu cầu xuất khẩu. Hãy kiểm tra điều kiện giao dịch trước khi thanh toán.", "Nguồn công khai", "Ngày kiểm tra nguồn"),
+    "kk": ("Көтерме ұсыныста нені тексеру керек", "Жеткізушілердің ұсыныстарын салыстыру алдында нақтылаңыз:", "Сатып алу сұрауын жіберу", "Компания деректерінің дереккөздері", "Ақпарат ашық дереккөзден алынған. KAZVIET компанияны әлі дербес тексермеді, каталогқа қатысу келісімін немесе экспортқа қызығушылығын растаған жоқ. Төлем алдында сауда шарттарын тексеріңіз.", "Ашық дереккөз", "Дереккөз тексерілген күн"),
+}
+
+FAMILIES = {
+    "vietnam-plywood": "wood",
+    "vietnam-furniture": "furniture",
+    "vietnam-coffee": "coffee",
+    "kazakhstan-wheat": "grain",
+    "kazakhstan-flour": "flour",
+    "kazakhstan-edible-oils": "oil",
+    "kazakhstan-flaxseed-oil": "oil",
+    "kazakhstan-flaxseed": "grain",
+    "kazakhstan-rapeseed": "grain",
+    "kazakhstan-lentils": "grain",
+    "vietnam-rice": "grain",
+    "vietnam-black-pepper": "food",
+    "vietnam-cashew": "food",
+}
+SPECS = {
+    "wood": {
+        "ru": ["Порода древесины, тип фанеры и назначение", "Размеры, толщина, сорт и допуски", "Марка клея, влажность и нужные протоколы испытаний", "Упаковка, объём партии и пункт доставки"],
+        "en": ["Wood species, plywood construction and intended use", "Sheet dimensions, thickness, grade and tolerances", "Adhesive type, moisture limits and required test reports", "Packaging, order volume and delivery destination"],
+        "vi": ["Loại gỗ, cấu tạo ván ép và mục đích sử dụng", "Kích thước, độ dày, cấp chất lượng và dung sai", "Loại keo, độ ẩm và tài liệu thử nghiệm cần thiết", "Quy cách đóng gói, số lượng và địa điểm giao hàng"],
+        "kk": ["Ағаш түрі, фанера санаты және қолданылуы", "Тақта өлшемі, қалыңдығы, сұрпы және рұқсат етілген ауытқулар", "Желім түрі, ылғалдылық және қажетті сынақ құжаттары", "Қаптама, партия көлемі және жеткізу орны"],
+    },
+    "furniture": {
+        "ru": ["Чертежи, размеры и материалы изделия", "Отделка, комплектация и требования к образцу", "Транспортная упаковка и маркировка", "Объём заказа, срок производства и место поставки"],
+        "en": ["Drawings, dimensions and construction materials", "Finish, components and sample approval", "Export packaging and labelling", "Order quantity, production lead time and delivery point"],
+        "vi": ["Bản vẽ, kích thước và vật liệu", "Bề mặt hoàn thiện, phụ kiện và mẫu duyệt", "Đóng gói vận chuyển và nhãn hàng", "Số lượng, thời gian sản xuất và địa điểm giao hàng"],
+        "kk": ["Сызба, өлшем және материалдар", "Әрлеу, жинақ және үлгіге талаптар", "Тасымал қаптамасы мен таңбалау", "Тапсырыс көлемі, өндіріс мерзімі және жеткізу орны"],
+    },
+    "coffee": {
+        "ru": ["Арабика или робуста, зелёный или обжаренный кофе", "Происхождение, обработка, сорт и требуемая влажность", "Образцы, документы и упаковка", "Масса партии, базис Incoterms и страна доставки"],
+        "en": ["Arabica or robusta, green or roasted coffee", "Origin, processing method, grade and moisture specification", "Samples, documents and packaging", "Shipment weight, Incoterms and destination"],
+        "vi": ["Arabica hoặc robusta, cà phê nhân xanh hay rang", "Nguồn gốc, phương pháp chế biến, phân hạng và độ ẩm", "Mẫu thử, chứng từ và quy cách đóng gói", "Khối lượng, điều kiện Incoterms và nơi đến"],
+        "kk": ["Арабика немесе робуста, жасыл не қуырылған кофе", "Шығу тегі, өңдеу әдісі, сұрып және ылғалдылық", "Үлгілер, құжаттар және қаптама", "Партия салмағы, Incoterms шарты және жеткізу орны"],
+    },
+    "grain": {
+        "ru": ["Культура, сорт, урожай и происхождение", "Влажность, чистота, качество и лабораторные показатели", "Фасовка или навал, фитосанитарные документы по необходимости", "Тоннаж, транспорт, базис Incoterms и пункт приёмки"],
+        "en": ["Crop, variety, harvest year and origin", "Moisture, purity, grade and laboratory parameters", "Bulk or bagged shipment and applicable phytosanitary documents", "Tonnage, transport, Incoterms and delivery point"],
+        "vi": ["Loại nông sản, giống, vụ mùa và xuất xứ", "Độ ẩm, độ sạch, cấp chất lượng và chỉ tiêu kiểm nghiệm", "Hàng rời hay đóng bao và chứng từ kiểm dịch khi áp dụng", "Khối lượng, phương tiện, Incoterms và nơi nhận"],
+        "kk": ["Дақыл, сорты, өнім жылы және шығу тегі", "Ылғалдылық, тазалық, сапа және зертхана көрсеткіштері", "Қапталған не үйінді тасымал және қажет фитосанитарлық құжаттар", "Тоннаж, көлік, Incoterms және қабылдау пункті"],
+    },
+    "flour": {
+        "ru": ["Сорт муки и требуемые показатели качества", "Параметры сырья, влажность и протоколы исследований", "Размер мешка, маркировка и срок годности", "Объём заказа, документы и условия доставки"],
+        "en": ["Flour grade and quality specification", "Raw material, moisture and laboratory reports", "Bag size, labelling and shelf-life requirements", "Order quantity, documents and delivery terms"],
+        "vi": ["Loại bột mì và các chỉ tiêu chất lượng", "Nguyên liệu, độ ẩm và phiếu kiểm nghiệm", "Khối lượng bao, nhãn và thời hạn bảo quản", "Số lượng đặt hàng, chứng từ và điều kiện giao hàng"],
+        "kk": ["Ұн сұрпы мен сапа талаптары", "Шикізат, ылғалдылық және зертхана хаттамалары", "Қап салмағы, таңбалау және сақтау мерзімі", "Тапсырыс көлемі, құжаттар және жеткізу шарты"],
+    },
+    "oil": {
+        "ru": ["Тип масла, степень рафинации и назначение", "Показатели качества, происхождение и образец", "Тара, маркировка и документы по партии", "Объём, условия хранения и базис поставки"],
+        "en": ["Oil type, refining status and intended use", "Quality specification, origin and sample", "Packaging, labelling and batch documents", "Volume, storage requirements and delivery terms"],
+        "vi": ["Loại dầu, mức độ tinh luyện và mục đích sử dụng", "Chỉ tiêu chất lượng, nguồn gốc và mẫu", "Bao bì, nhãn và chứng từ từng lô", "Số lượng, bảo quản và điều kiện giao hàng"],
+        "kk": ["Май түрі, тазарту дәрежесі және қолданылуы", "Сапа көрсеткіштері, шығу тегі және үлгі", "Ыдыс, таңбалау және партия құжаттары", "Көлемі, сақтау талабы және жеткізу шарты"],
+    },
+    "food": {
+        "ru": ["Товарная спецификация и критерии качества", "Происхождение, обработка и состав продукта", "Образец, допустимые показатели и документы", "Упаковка, масса партии и пункт доставки"],
+        "en": ["Product specification and quality grade", "Origin, processing and composition", "Sample, acceptance criteria and documents", "Packaging, shipment weight and delivery point"],
+        "vi": ["Quy cách hàng hóa và cấp chất lượng", "Nguồn gốc, chế biến và thành phần", "Mẫu, tiêu chí nghiệm thu và chứng từ", "Quy cách đóng gói, khối lượng và nơi giao"],
+        "kk": ["Өнім сипаттамасы және сапа санаты", "Шығу тегі, өңделуі және құрамы", "Үлгі, қабылдау талаптары және құжаттар", "Қаптама, партия салмағы және жеткізу орны"],
+    },
+}
+
+
+def enhance_visible_content(html: str, path: str, suppliers: dict) -> str:
+    chunks = path.strip("/").split("/")
+    if len(chunks) < 3 or chunks[0] not in LANGS:
+        return html
+    lang = chunks[0]
+    labels = LABELS[lang]
+    marker = '<section id="enquiry"'
+    if marker not in html:
+        return html
+    if chunks[1] == "products" and len(chunks) == 3:
+        slug = chunks[2]
+        family = FAMILIES.get(slug)
+        if not family:
+            return html
+        fields = SPECS[family][lang]
+        li = "".join("<li>" + escape(x) + "</li>" for x in fields)
+        block = ('<section class="kv-b2b-checklist" aria-label="' + escape(labels[0]) + '">'
+            '<h2>' + escape(labels[0]) + '</h2><p>' + escape(labels[1]) + '</p>'
+            '<ul>' + li + '</ul><p><a href="#enquiry">' + escape(labels[2]) + ' ↗</a></p></section>')
+        return html.replace(marker, block + marker, 1)
+    if chunks[1] == "suppliers" and len(chunks) == 4:
+        country = {"vietnam": "vn", "kazakhstan": "kz"}.get(chunks[2], "")
+        company = suppliers.get((country, chunks[3]))
+        if not company:
+            return html
+        source = company.get("source_url", "")
+        if not source.startswith("https://"):
+            return html
+        checked = company.get("source_checked_at", "")
+        block = ('<section class="kv-b2b-checklist kv-evidence" aria-label="' + escape(labels[3]) + '">'
+            '<h2>' + escape(labels[3]) + '</h2><p>' + escape(labels[4]) + '</p>'
+            '<p><a href="' + escape(source, quote=True) + '" target="_blank" rel="noopener noreferrer">'
+            + escape(labels[5]) + ': ' + escape(company["name"]) + ' ↗</a>'
+            + (' · ' + escape(labels[6]) + ': ' + escape(checked) if checked else '') + '</p></section>')
+        return html.replace(marker, block + marker, 1)
+    return html
+
+
 def improve_sitemap(root: Path, available: set[str]) -> None:
     source = root / "sitemap.xml"
     xml = ET.parse(source)
@@ -188,10 +299,15 @@ def enhance(root: Path) -> None:
     available = {url_path(p, root) for p in pages}
     if len(available) != len(pages):
         raise RuntimeError("Conflicting HTML routes")
+    supplier_file = root / "data/suppliers.json"
+    suppliers = {}
+    if supplier_file.is_file():
+        data = json.loads(supplier_file.read_text(encoding="utf-8"))
+        suppliers = {(x.get("country"), x.get("slug")): x for x in data.get("suppliers", [])}
     for page in pages:
         path = url_path(page, root)
         original = page.read_text(encoding="utf-8")
-        updated = improve_html(original, path, available)
+        updated = improve_html(enhance_visible_content(original, path, suppliers), path, available)
         if updated.lower().count('<link rel="canonical"') != 1:
             raise RuntimeError("Invalid canonical count: " + path)
         if len(re.findall(r"<h1\b", updated, flags=re.IGNORECASE)) != 1:
