@@ -728,7 +728,7 @@ function search(){state.query=$('#heroSearch').value.trim();location.hash='#cata
 $('#heroRequest').addEventListener('click',function(){$('#heroSearch').focus();$('#heroSearch').scrollIntoView({behavior:'smooth',block:'center'});});$('#heroSearchGo').addEventListener('click',search);$('#heroSearch').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();search();}});
 $('#modalClose').addEventListener('click',hideModal);modal.addEventListener('click',function(e){if(e.target===modal)hideModal();});document.addEventListener('keydown',function(e){if(e.key==='Escape')hideModal();});
 $('#menuToggle').addEventListener('click',function(){$('#mobileMenu').classList.toggle('hidden');});$('#signInBtn').addEventListener('click',function(){showModal('Личный кабинет — следующий этап','<p class="formNote">В текущем MVP доступна бесплатная заявка на размещение компании. Создание личного кабинета и самостоятельное редактирование профиля появятся после запуска защищённой серверной части.</p><button class="primarybtn" data-open="supplier">Оставить заявку на размещение →</button>','MVP ROADMAP');});
-$('#hideNotice').addEventListener('click',function(){$('#demoNotice').style.display='none'});
+if($('#hideNotice'))$('#hideNotice').addEventListener('click',function(){$('#demoNotice').style.display='none'});
 window.addEventListener('hashchange',navigate);
 $('#rfqFormHost').innerHTML=formHTML('rfq','');renderCategories();renderProducts();loadSeedDirectory();navigate();
 function routeExtra(){if(location.hash==='#register'){pickSupplierCountry()}else if(location.hash==='#account'){document.getElementById('signInBtn').click()}}window.addEventListener('hashchange',routeExtra);routeExtra();
