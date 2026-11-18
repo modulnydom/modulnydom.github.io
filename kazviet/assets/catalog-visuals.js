@@ -25,7 +25,7 @@ function fallback(id){
 }
 function createImage(path,alt,slug,cls,priority){
  const img=document.createElement('img');
- img.className=cls;img.src=base+path;img.alt=alt;img.width=960;img.height=540;
+ img.className=cls;img.src=base+path+'?v=20261118b';img.alt=alt;img.width=960;img.height=540;
  img.loading=priority?'eager':'lazy';img.decoding='async';
  if(priority)img.fetchPriority='high';
  img.onerror=function(){img.onerror=null;img.src=fallback(slug)};
