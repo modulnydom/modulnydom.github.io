@@ -90,7 +90,7 @@ fi
 TMP="$(mktemp -d)"
 log "Fetching only the KAZVIET site from GitHub."
 git clone -q --depth=1 --filter=blob:none --sparse "$REPO" "$TMP/source"
-git -C "$TMP/source" sparse-checkout -q set kazviet
+git -C "$TMP/source" sparse-checkout set kazviet
 source_sha="$(git -C "$TMP/source" rev-parse HEAD)"
 python3 "$TMP/source/kazviet/deploy/build-production.py" \
   --source "$TMP/source/kazviet" --output "$TMP/production" || die "Build / SEO audit failed."
