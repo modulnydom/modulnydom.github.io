@@ -67,6 +67,10 @@ def build(source: Path, output: Path) -> dict:
         encoding="utf-8",
     )
     (output / ".nojekyll").touch(exist_ok=True)
+    # Site-wide SEO / AEO groundwork for every indexed language page.
+    from importlib.machinery import SourceFileLoader
+    seo = SourceFileLoader("kazviet_seo", str(Path(__file__).with_name("seo-enhance.py"))).load_module()
+    seo.enhance(output)
     return audit(output, written)
 
 
