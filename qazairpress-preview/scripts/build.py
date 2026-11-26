@@ -68,6 +68,20 @@ def map_widget_url():
 def location_section():
     return f'''<section class="location-section" id="visit" aria-labelledby="location-title"><div class="container location-grid"><div class="location-copy"><span class="eyebrow">Контакты / {esc(CONTACT['addressLocality'])}</span><h2 id="location-title">Адрес и карта<br>проезда</h2><address class="location-address">{esc(CONTACT['addressLocality'])},<br><strong>{esc(CONTACT['streetAddress'])}</strong></address><p>Обсудим подбор, комплектацию и поставку оборудования. Постройте маршрут или позвоните нам.</p><a class="btn primary" href="{esc(CONTACT['routeUrl'])}" target="_blank" rel="noopener noreferrer">Построить маршрут в 2ГИС <span aria-hidden="true">↗</span></a><div class="location-contact-links"><a href="tel:+77761717111">{PHONE}</a><a href="{WA}">Написать в WhatsApp ↗</a></div></div><div class="location-map"><iframe src="{esc(map_widget_url())}" title="Карта 2ГИС: QazAirPress — Астана, переулок Кызылкол, 16" width="800" height="440" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe><div class="location-map-caption"><span>Карта 2ГИС</span><a href="{esc(CONTACT['mapUrl'])}" target="_blank" rel="noopener noreferrer">Открыть адрес в 2ГИС ↗</a></div></div></div></section>'''
 
+METRIKA='''<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114694318', 'ym');
+
+    ym(114694318, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114694318" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->'''
+
 def page(rel,title,description,body,parts=None,schema=None,hero=None):
     base='../' if '/' in rel else ''
     canonical=SITE+('' if rel=='index.html' else rel.replace('/index.html','/'))
@@ -90,7 +104,7 @@ def page(rel,title,description,body,parts=None,schema=None,hero=None):
     image=SITE+'assets/products/'+(hero or 'abk37-8tb')+'.webp'
     og_image='' if rel.startswith('products/') and not hero else f'<meta property="og:image" content="{image}">'
     return f'''<!doctype html>
-<html lang="ru-KZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | QazAirPress</title><meta name="description" content="{esc(description)}"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b2235"><meta name="author" content="QazAirPress"><meta name="publisher" content="QazAirPress"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{esc(title)} | QazAirPress"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="website"><meta property="og:locale" content="ru_KZ">{og_image}<link rel="icon" href="{base}assets/favicon.svg" type="image/svg+xml">{preload}<link rel="stylesheet" href="{base}assets/styles.css?v=seo-20261118"><link rel="stylesheet" href="{base}assets/contact.css">{home_css}<script type="application/ld+json">{j({'@context':'https://schema.org','@graph':graph})}</script><script src="{base}assets/site.js" defer></script>{home_script}</head><body{body_attrs}>{header(base,rel)}<main id="main">{body}{location_section()}</main>{footer(base)}</body></html>'''
+<html lang="ru-KZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | QazAirPress</title><meta name="description" content="{esc(description)}"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#0b2235"><meta name="author" content="QazAirPress"><meta name="publisher" content="QazAirPress"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{esc(title)} | QazAirPress"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{canonical}"><meta property="og:type" content="website"><meta property="og:locale" content="ru_KZ">{og_image}<link rel="icon" href="{base}assets/favicon.svg" type="image/svg+xml">{preload}<link rel="stylesheet" href="{base}assets/styles.css?v=seo-20261118"><link rel="stylesheet" href="{base}assets/contact.css">{home_css}<script type="application/ld+json">{j({'@context':'https://schema.org','@graph':graph})}</script><script src="{base}assets/site.js" defer></script>{home_script}</head><body{body_attrs}>{header(base,rel)}<main id="main">{body}{location_section()}</main>{footer(base)}{METRIKA}</body></html>'''
 
 def photo(p,base='',eager=False):
     if p['photoStatus']=='needs-model-photo':
