@@ -242,6 +242,9 @@ def build(out, production=False):
         out.mkdir(parents=True,exist_ok=True)
         shutil.copytree(ROOT/'assets',out/'assets',dirs_exist_ok=True)
         (out/'.nojekyll').touch()
+        for name in ('BingSiteAuth.xml','googlead3cfb8a1f2aa625.html','yandex_1b5743015a6e68c8.html'):
+            src=ROOT/name
+            if src.is_file():shutil.copy2(src,out/name)
     indexed=[]
     for rel,content in pages.items():
         allowed=rel!='privacy.html' and rel!='products/air-filter-a569.html'
