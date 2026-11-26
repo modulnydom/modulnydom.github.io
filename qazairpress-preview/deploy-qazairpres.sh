@@ -44,7 +44,7 @@ done
 
 # Fetch only the source website folder; public GitHub preview remains unchanged.
 git clone -q --depth=1 --filter=blob:none --sparse "$GITHUB" "$TMP/source"
-git -C "$TMP/source" sparse-checkout -q set qazairpress-preview
+git -C "$TMP/source" sparse-checkout set qazairpress-preview
 mkdir -p "$TMP/production"
 python3 "$TMP/source/qazairpress-preview/scripts/build.py" \
   --production --output "$TMP/production"
