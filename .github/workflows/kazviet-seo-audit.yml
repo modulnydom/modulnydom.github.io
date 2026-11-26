@@ -27,7 +27,7 @@ jobs:
           from xml.etree import ElementTree as ET
           root = Path('/tmp/kazviet-production')
           pages = sorted(root.rglob('*.html'))
-          assert len(pages) == 106, len(pages)
+          assert len(pages) >= 106, len(pages)
           links = set()
           by_path = {}
           for page in pages:
@@ -55,6 +55,13 @@ jobs:
               assert f'/{lang}/suppliers/vietnam/tt-plywood/' in by_path
               assert 'kv-b2b-checklist' in by_path[f'/{lang}/products/vietnam-plywood/'], lang
               assert 'kv-evidence' in by_path[f'/{lang}/suppliers/vietnam/tt-plywood/'], lang
+          for lang in ('ru','en','kk'):
+              for slug in ('coffee','dried-fruit','cashew','black-pepper','ginger','confectionery','beverages','noodles','tapioca-starch','rice'):
+                  p = f'/{lang}/products/vietnam-{slug}/'
+                  assert p in by_path, p
+                  assert 'id="enquiry"' in by_path[p], p
+                  assert 'support@kazviet.asia' in by_path[p], p
+                  assert 'href="/' + lang + '/products/vietnam-' + slug + '/"' in by_path[f'/{lang}/'], p
           home = by_path['/']
           assert 'id="kvHomeWhy"' in home
           assert 'href="/ru/"' in home
