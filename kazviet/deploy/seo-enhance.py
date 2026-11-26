@@ -72,9 +72,13 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
             return match.group(0)
         if isinstance(document, dict):
             graph = document.get("@graph")
-            if not isinstance(graph, list):
-                return match.group(0)
-            nodes = graph
+            if isinstance(graph, list):
+                nodes = graph
+            else:
+                # A standalone WebPage node is also valid JSON-LD. Preserve it
+                # while adding the common Organization and WebSite entities.
+                document = [document]
+                nodes = document
         elif isinstance(document, list):
             nodes = document
         else:
