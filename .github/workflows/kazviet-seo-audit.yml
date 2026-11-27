@@ -93,6 +93,28 @@ jobs:
                   assert photo.group(1) == detail.group(1) == title.group(1), (lang, detail.group(1))
                   assert detail.group(1) in by_path, (lang, detail.group(1))
                   assert re.search(r'</a><button class="heart"', card), lang
+          # Quotation-only category items must not trigger invalid Product snippets.
+          def schema_nodes(value):
+              if isinstance(value, dict):
+                  yield value
+                  for child in value.values():
+                      yield from schema_nodes(child)
+              elif isinstance(value, list):
+                  for child in value:
+                      yield from schema_nodes(child)
+          for p, html in by_path.items():
+              for raw in re.findall(r'<script\s+type="application/ld\+json"\s*>(.*?)</script>', html, re.I | re.S):
+                  nodes = list(schema_nodes(json.loads(raw)))
+                  if '/products/' in p:
+                      for node in nodes:
+                          kinds = node.get('@type', [])
+                          kinds = kinds if isinstance(kinds, list) else [kinds]
+                          if 'Product' in kinds:
+                              assert any(node.get(k) for k in ('offers', 'review', 'aggregateRating')), (p, node.get('name'))
+                  if p.endswith('/products/vietnam-coffee/'):
+                      entries = [node['item'] for node in nodes if node.get('@type') == 'ListItem' and isinstance(node.get('item'), dict) and '#item-' in node['item'].get('url', '')]
+                      assert len(entries) == 3, p
+                      assert all(e.get('@type') == 'Thing' and e.get('name') and e.get('description') for e in entries), p
           home = by_path['/']
           assert 'id="kvHomeWhy"' in home
           assert 'href="/ru/"' in home

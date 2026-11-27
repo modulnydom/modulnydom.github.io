@@ -60,6 +60,25 @@ def read_title(html: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", match.group(1))).strip() if match else "KAZVIET"
 
 
+def normalize_catalog_items(value, in_item_list: bool = False) -> None:
+    """Describe quotation-only catalogue entries without claiming Product rich results."""
+    if isinstance(value, list):
+        for entry in value:
+            normalize_catalog_items(entry, in_item_list)
+    elif isinstance(value, dict):
+        kind = value.get("@type")
+        types = kind if isinstance(kind, list) else [kind]
+        # Category entries describe ranges, not individual priced retail offers.
+        # Preserve real offers/reviews/ratings and all visible factual attributes.
+        if in_item_list and "Product" in types and not any(
+            value.get(key) for key in ("offers", "review", "aggregateRating")
+        ):
+            remaining = [t for t in types if t != "Product"]
+            value["@type"] = remaining or "Thing"
+        for key, entry in value.items():
+            normalize_catalog_items(entry, in_item_list or ("ItemList" in types and key == "itemListElement"))
+
+
 def improve_jsonld(html: str, path: str, code: str) -> str:
     canonical = BASE + path
     org_ref = BASE + "/#organization"
@@ -85,6 +104,7 @@ def improve_jsonld(html: str, path: str, code: str) -> str:
             return match.group(0)
         if not all(isinstance(x, dict) for x in nodes):
             return match.group(0)
+        normalize_catalog_items(document)
         for node in nodes:
             kind = node.get("@type")
             types = kind if isinstance(kind, list) else [kind]
