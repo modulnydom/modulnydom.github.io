@@ -70,6 +70,17 @@ jobs:
                   assert 'id="enquiry"' in by_path[p], p
                   assert 'support@kazviet.asia' in by_path[p], p
                   assert 'href="/' + lang + '/products/vietnam-' + slug + '/"' in by_path[f'/{lang}/'], p
+          for lang in ('ru','en','kk'):
+              supplier_page = by_path[f'/{lang}/suppliers/vietnam/']
+              assert 'id="vietnam-product-range"' in supplier_page, lang
+              assert 'id="vietnam-manufacturers"' in supplier_page, lang
+              assert supplier_page.index('id="vietnam-product-range"') < supplier_page.index('id="vietnam-manufacturers"'), lang
+              for slug in ('coffee','dried-fruit','cashew','black-pepper','ginger','confectionery','beverages','noodles','tapioca-starch','rice','plywood','furniture'):
+                  product = f'/{lang}/products/vietnam-{slug}/'
+                  assert product in by_path, product
+                  assert f'href="{product}"' in supplier_page, product
+              for src in re.findall(r'<img\b[^>]*src="(/assets/[^"]+)"', supplier_page):
+                  assert (root / src.lstrip('/')).is_file(), src
           home = by_path['/']
           assert 'id="kvHomeWhy"' in home
           assert 'href="/ru/"' in home

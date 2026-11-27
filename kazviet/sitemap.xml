@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://modulnydom.github.io/kazviet/ru/suppliers/vietnam/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/suppliers/vietnam/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/suppliers/vietnam/"/>
 
@@ -72,7 +72,7 @@
   </url>
   <url>
     <loc>https://modulnydom.github.io/kazviet/en/suppliers/vietnam/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/suppliers/vietnam/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/suppliers/vietnam/"/>
 
@@ -81,7 +81,7 @@
   </url>
 <url>
     <loc>https://modulnydom.github.io/kazviet/kk/suppliers/vietnam/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/suppliers/vietnam/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/suppliers/vietnam/"/>
 
@@ -603,19 +603,25 @@
   </url>
   <url>
     <loc>https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/</loc>
-    <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/"/>
+    <lastmod>2026-11-27</lastmod>
+    
+    
+
+
+      <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-furniture/"/>
-
-
+    <xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-furniture/"/>
   </url>
   <url>
     <loc>https://modulnydom.github.io/kazviet/en/products/vietnam-furniture/</loc>
-    <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/"/>
+    <lastmod>2026-11-27</lastmod>
+    
+    
+
+
+      <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-furniture/"/>
-
-
+    <xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-furniture/"/>
   </url>
 <url>
     <loc>https://modulnydom.github.io/kazviet/ru/products/vietnam-cashew/</loc>
@@ -940,4 +946,11 @@
   <url><loc>https://modulnydom.github.io/kazviet/kk/products/vietnam-noodles/</loc><lastmod>2026-11-26</lastmod><xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-noodles/"/><xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-noodles/"/><xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-noodles/"/></url>
   <url><loc>https://modulnydom.github.io/kazviet/kk/products/vietnam-tapioca-starch/</loc><lastmod>2026-11-26</lastmod><xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-tapioca-starch/"/><xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-tapioca-starch/"/><xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-tapioca-starch/"/></url>
   <url><loc>https://modulnydom.github.io/kazviet/kk/products/vietnam-rice/</loc><lastmod>2026-11-26</lastmod><xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-rice/"/><xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-rice/"/><xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-rice/"/></url>
+  <url>
+    <loc>https://modulnydom.github.io/kazviet/kk/products/vietnam-furniture/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://modulnydom.github.io/kazviet/ru/products/vietnam-furniture/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://modulnydom.github.io/kazviet/en/products/vietnam-furniture/"/>
+    <xhtml:link rel="alternate" hreflang="kk" href="https://modulnydom.github.io/kazviet/kk/products/vietnam-furniture/"/>
+  </url>
 </urlset>
