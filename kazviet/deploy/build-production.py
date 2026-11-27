@@ -26,6 +26,38 @@ MIN_URLS = 100
 VERIFICATION_FILES = {"googlead3cfb8a1f2aa625.html", "yandex_ae34fa82fbd7f2f3.html", "BingSiteAuth.xml"}
 
 
+METRIKA_ID = 114717615
+METRIKA_SCRIPT = """<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114717615', 'ym');
+
+    ym(114717615, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>"""
+METRIKA_NOSCRIPT = """<noscript><div><img src="https://mc.yandex.ru/watch/114717615" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->"""
+
+
+def install_metrika(root: Path) -> None:
+    # Keep analytics on the production domain only; preview traffic is excluded.
+    # Ownership files must never be changed or counted as website pages.
+    for page in root.rglob("*.html"):
+        if page.relative_to(root).as_posix() in VERIFICATION_FILES:
+            continue
+        html = page.read_text(encoding="utf-8")
+        if re.search(r"mc\.yandex\.ru/(?:metrika/tag\.js|watch/)", html):
+            raise RuntimeError(f"Unexpected existing Metrika code: {page.relative_to(root)}")
+        html, head_count = re.subn(r"</head\s*>", lambda m: METRIKA_SCRIPT + "\n" + m.group(0), html, count=1, flags=re.I)
+        html, body_count = re.subn(r"<body\b[^>]*>", lambda m: m.group(0) + "\n" + METRIKA_NOSCRIPT + "\n", html, count=1, flags=re.I)
+        if head_count != 1 or body_count != 1:
+            raise RuntimeError(f"Missing head/body for Metrika: {page.relative_to(root)}")
+        page.write_text(html, encoding="utf-8")
+
+
 def rewrite_text(content: str) -> str:
     # First replace complete absolute URLs, then root-relative preview paths.
     content = content.replace(PREVIEW_HOST + "/", PRODUCTION_HOST + "/")
@@ -76,6 +108,7 @@ def build(source: Path, output: Path) -> dict:
     from importlib.machinery import SourceFileLoader
     seo = SourceFileLoader("kazviet_seo", str(Path(__file__).with_name("seo-enhance.py"))).load_module()
     seo.enhance(output)
+    install_metrika(output)
     return audit(output, written)
 
 
@@ -139,6 +172,8 @@ def audit(root: Path, written: int = 0) -> dict:
             raise RuntimeError(f"Logo differs between header and footer on {page.relative_to(root)}")
         if 'hreflang="vi"' in contents:
             raise RuntimeError(f"Disabled Vietnamese language advertised by {page.relative_to(root)}")
+        if contents.count(METRIKA_SCRIPT) != 1 or contents.count(METRIKA_NOSCRIPT) != 1:
+            raise RuntimeError(f"Missing or duplicated Metrika counter: {page.relative_to(root)}")
         html_count += 1
 
     return {

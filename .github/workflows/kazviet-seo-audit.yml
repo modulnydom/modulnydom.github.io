@@ -53,6 +53,11 @@ jobs:
               p = loc.removeprefix('https://kazviet.asia')
               html = by_path[p]
               assert 'name="robots"' in html, p
+              assert html.count('https://mc.yandex.ru/metrika/tag.js?id=114717615') == 1, p
+              assert html.count("ym(114717615, 'init'") == 1, p
+              assert html.count('https://mc.yandex.ru/watch/114717615') == 1, p
+              assert re.search(r'<head\b[^>]*>.*?mc\.yandex\.ru/metrika/tag\.js\?id=114717615.*?</head>', html, re.I | re.S), p
+              assert re.search(r'<body\b[^>]*>\s*<noscript>.*?mc\.yandex\.ru/watch/114717615.*?</noscript>', html, re.I | re.S), p
           for lang in ('ru','en','kk'):
               assert f'/{lang}/products/vietnam-plywood/' in by_path
               assert f'/{lang}/suppliers/vietnam/tt-plywood/' in by_path
