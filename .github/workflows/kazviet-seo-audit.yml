@@ -26,7 +26,10 @@ jobs:
           from pathlib import Path
           from xml.etree import ElementTree as ET
           root = Path('/tmp/kazviet-production')
-          pages = sorted(root.rglob('*.html'))
+          verification = {"googlead3cfb8a1f2aa625.html", "yandex_ae34fa82fbd7f2f3.html", "BingSiteAuth.xml"}
+          for filename in verification:
+              assert (root / filename).read_bytes() == (Path('kazviet') / filename).read_bytes(), filename
+          pages = sorted(p for p in root.rglob('*.html') if p.relative_to(root).as_posix() not in verification)
           assert len(pages) >= 106, len(pages)
           links = set()
           by_path = {}

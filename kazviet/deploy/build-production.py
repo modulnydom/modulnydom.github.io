@@ -22,6 +22,8 @@ EXCLUDE_DIRS = {"research", "deploy", "vi", ".git", "__pycache__", "node_modules
 # Emergency 2026-11-19: Vietnamese locale disabled pending local e-commerce compliance review.
 EXCLUDE_FILES = {"PHOTO-SOURCES.md", "CNAME", ".htaccess"}
 MIN_URLS = 100
+# Search-engine ownership files must survive deployment byte-for-byte.
+VERIFICATION_FILES = {"googlead3cfb8a1f2aa625.html", "yandex_ae34fa82fbd7f2f3.html", "BingSiteAuth.xml"}
 
 
 def rewrite_text(content: str) -> str:
@@ -56,7 +58,9 @@ def build(source: Path, output: Path) -> dict:
             continue
         target = output / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        if path.suffix.lower() in TEXT_EXTENSIONS or path.name == "robots.txt":
+        if relative.as_posix() in VERIFICATION_FILES:
+            shutil.copyfile(path, target)
+        elif path.suffix.lower() in TEXT_EXTENSIONS or path.name == "robots.txt":
             data = rewrite_text(path.read_text(encoding="utf-8"))
             target.write_text(data, encoding="utf-8")
         else:
@@ -81,6 +85,7 @@ def audit(root: Path, written: int = 0) -> dict:
         "assets/approved-hub.js", "ru/index.html", "en/index.html",
         "kk/index.html",
     ]
+    required.extend(sorted(VERIFICATION_FILES))
     missing = [x for x in required if not (root / x).is_file()]
     if missing:
         raise RuntimeError("Missing required files: " + ", ".join(missing))
@@ -115,7 +120,7 @@ def audit(root: Path, written: int = 0) -> dict:
 
     html_count = 0
     for page in root.rglob("*.html"):
-        if "research" in page.parts:
+        if page.relative_to(root).as_posix() in VERIFICATION_FILES or "research" in page.parts:
             continue
         contents = page.read_text(encoding="utf-8")
         if PREVIEW_HOST in contents or "/kazviet/" in contents:

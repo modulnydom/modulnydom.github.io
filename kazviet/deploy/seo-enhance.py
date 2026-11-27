@@ -380,7 +380,9 @@ def improve_sitemap(root: Path, available: set[str]) -> None:
 
 
 def enhance(root: Path) -> None:
-    pages = sorted(root.rglob("*.html"))
+    # Ownership verification files are not pages and must not be rewritten.
+    verification = {"googlead3cfb8a1f2aa625.html", "yandex_ae34fa82fbd7f2f3.html", "BingSiteAuth.xml"}
+    pages = sorted(p for p in root.rglob("*.html") if p.relative_to(root).as_posix() not in verification)
     available = {url_path(p, root) for p in pages}
     if len(available) != len(pages):
         raise RuntimeError("Conflicting HTML routes")
