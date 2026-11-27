@@ -81,6 +81,18 @@ jobs:
                   assert f'href="{product}"' in supplier_page, product
               for src in re.findall(r'<img\b[^>]*src="(/assets/[^"]+)"', supplier_page):
                   assert (root / src.lstrip('/')).is_file(), src
+          for lang in ('ru','en','kk'):
+              catalog = by_path[f'/{lang}/']
+              cards = re.findall(r'<article class="product"[^>]*>.*?</article>', catalog, re.S)
+              assert len(cards) >= 17, (lang, len(cards))
+              for card in cards:
+                  detail = re.search(r'<a class="details" href="([^"]+)"', card)
+                  photo = re.search(r'<a class="prodphoto-link" href="([^"]+)"><img', card)
+                  title = re.search(r'<a class="prodtitle-link" href="([^"]+)"', card)
+                  assert detail and photo and title, lang
+                  assert photo.group(1) == detail.group(1) == title.group(1), (lang, detail.group(1))
+                  assert detail.group(1) in by_path, (lang, detail.group(1))
+                  assert re.search(r'</a><button class="heart"', card), lang
           home = by_path['/']
           assert 'id="kvHomeWhy"' in home
           assert 'href="/ru/"' in home

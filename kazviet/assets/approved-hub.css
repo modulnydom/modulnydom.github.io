@@ -598,3 +598,10 @@
 .kvSeedCard .kvSSource{cursor:pointer}
 .kvDirNotice{font-size:13px;color:#62788b}
 @media(max-width:680px){.topbar .topactions .langbtn{padding:7px 6px}.topbar .topactions .outlinebtn{display:none}.topbar .topactions .primarybtn{display:none}}
+
+/* Product photos and titles link to the same detail page as the card CTA. */
+.prodphoto-link{display:block;width:100%;height:100%;cursor:pointer}
+.prodphoto-link:focus-visible{outline:3px solid #087da7;outline-offset:-4px}
+.prodphoto .heart{z-index:2}
+.prodtitle-link{color:inherit;text-decoration:none}
+.prodtitle-link:hover,.prodtitle-link:focus-visible{color:#087da7;text-decoration:underline}
